@@ -20,7 +20,7 @@ export default class AssignResource extends LightningElement {
       }
     }
   
-    @wire(getResourcePerRole, { role: "Consultant" } )
+    @wire(getResourcePerRole, { role: "00E8a000001KDvpEAG" } )
     wiredResources({ data, error }) {
       if (data) {
         this.Resource = data;
@@ -32,3 +32,4 @@ export default class AssignResource extends LightningElement {
       }
     }
   }
+  

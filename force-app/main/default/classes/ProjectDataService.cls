@@ -18,13 +18,15 @@ public with sharing class ProjectDataService {
             // public static List<User> getResourcePerRole(String role, Date endDate ,Date startDate ) {
 
             String query =
-              'SELECT ' +
-              'Name, RatePerHour__c FROM User';
+              'SELECT Name FROM User';
             if (String.isNotBlank(role)) {
               query += ' WHERE UserRoleId = :role';
             }+
             query += ' WITH SECURITY_ENFORCED ';
            return Database.query(query);
                        //  || Project_Product(este es el apichiild)
+                       // SELECT Name,UserRoleId   FROM User WHERE UserRoleId = '00E8a000001KDvpEAG'
+// select Id from UserRole
             }
 }
+
