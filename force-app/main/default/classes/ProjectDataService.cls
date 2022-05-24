@@ -11,5 +11,21 @@ public with sharing class ProjectDataService {
          return Database.query(query);
                      //  || Project_Product(este es el apichiild)
           }
+
+
+          @AuraEnabled(Cacheable=true)
+          public static List<User> getResourcePerRole(String role ) {
+            // public static List<User> getResourcePerRole(String role, Date endDate ,Date startDate ) {
+
+            String query =
+              'SELECT ' +
+              'Name, RatePerHour__c FROM User';
+            if (String.isNotBlank(role)) {
+              query += ' WHERE UserRoleId = :role';
+            }+
+            query += ' WITH SECURITY_ENFORCED ';
+           return Database.query(query);
+                       //  || Project_Product(este es el apichiild)
+            }
 }
 
