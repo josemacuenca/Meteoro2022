@@ -198,12 +198,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Project_Resource__c.Allocated_Hours__c</field>
+        <field>ProjectLine_Resource__c.Allocated_Hours__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Project_Resource__c.Resource__c</field>
+        <field>ProjectLine_Resource__c.Resource__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -248,6 +248,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Project__c.Opportunity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Project__c.Project_Manager__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -264,11 +269,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Project__c.Start_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Total_Alocated_Hours__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -309,9 +309,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>ProjectLineItem__c-Project Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Project_Resource__c-Project-Resource Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Project_Task__c-Project Task Layout</layout>

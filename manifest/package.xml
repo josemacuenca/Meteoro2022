@@ -30,7 +30,7 @@
 		<members>Opportunity</members>
 		<members>OpportunityLineItem</members>
 		<members>ProjectLineItem__c</members>
-		<members>Project_Resource__c</members>
+		<members>ProjectLine_Resource__c</members>
 		<members>Project_Task__c</members>
 		<members>Project__c</members>
 		<members>User</members>
