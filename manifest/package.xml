@@ -37,6 +37,14 @@
 		<name>CustomObject</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>Flow</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>FlowDefinition</name>
+	</types>
+	<types>
 		<members>DaysOffRequest__c-DaysOffRequest Layout</members>
 		<members>DaysOff_Project__c-DaysOff-Project Layout</members>
 		<members>Opportunity-Opportunity %28Marketing%29 Layout</members>
