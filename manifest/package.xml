@@ -30,11 +30,19 @@
 		<members>Opportunity</members>
 		<members>OpportunityLineItem</members>
 		<members>ProjectLineItem__c</members>
-		<members>Project_Resource__c</members>
+		<members>ProjectLine_Resource__c</members>
 		<members>Project_Task__c</members>
 		<members>Project__c</members>
 		<members>User</members>
 		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>Flow</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>FlowDefinition</name>
 	</types>
 	<types>
 		<members>DaysOffRequest__c-DaysOffRequest Layout</members>
