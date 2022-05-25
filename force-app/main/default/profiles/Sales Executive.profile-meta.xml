@@ -315,6 +315,9 @@
         <layout>ProjectLineItem__c-Project Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ProjectLine_Resource__c-ProjectLine-Resource Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Project_Task__c-Project Task Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

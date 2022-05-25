@@ -1,0 +1,18 @@
+<template>
+    <div> 
+        <template for:each={resourcefiltered} for:item="resourceitem">
+            <div key={resourceitem.Id}>
+                <div>  {resourceitem.UserRole.Name} </div>
+                <div>  {resourceitem.Id} </div>
+                <div>  {resourceitem.Username} </div>
+           
+
+                <hr>
+
+            </div>
+
+        </template>
+
+    </div>
+
+</template>

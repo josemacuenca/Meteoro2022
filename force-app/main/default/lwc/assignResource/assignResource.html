@@ -1,3 +1,14 @@
 <template>
-    aaaaaaaaaaaaaaaaaaaa
+ZZZZZZZZZZZZZZZZZZZZZZ
+    <div>
+        <template for:each={projectLineItems} for:item="plitem">
+             <div key={plitem.Id}>
+                <div> Rol : {plitem.Role__c}  Horas a cubrir : {plitem.Quantity_hours__c} </div>
+                
+                <c-assign-child plitem={plitem} ></c-assign-child>
+                <hr>
+            </div>
+        </template>
+
+    </div>
 </template>
