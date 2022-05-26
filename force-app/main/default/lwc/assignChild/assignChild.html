@@ -1,6 +1,12 @@
 <template>
-    <div> 
-        <template for:each={resourcefiltered} for:item="resourceitem">
+    <div>
+        <div style="height: 300px;">
+
+            <lightning-datatable key-field="Id" data={data} columns={columns}>
+            </lightning-datatable>
+        </div>
+
+        <!-- <template for:each={resourcefiltered} for:item="resourceitem">
             <div key={resourceitem.Id}>
                 <div> rol :  {resourceitem.UserRole.Name} </div>
                 <div> Id: {resourceitem.Id} </div>
@@ -12,7 +18,7 @@
 
             </div>
 
-        </template>
+        </template> -->
 
     </div>
 

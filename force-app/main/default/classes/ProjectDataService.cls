@@ -17,8 +17,10 @@ public with sharing class ProjectDataService {
   public static List<User> getAllResourcePerRole( String resourceRole) {
     List<User> allresourceList = new List<User>();
 
-    allresourceList = [SELECT Name,username,UserRole.Name,RatePerHour__c  FROM User where UserRole.Name=:resourceRole];
+    allresourceList = [SELECT Name,RatePerHour__c  FROM User where UserRole.Name=:resourceRole];
     return allresourceList;
+
+    // allresourceList = [SELECT Name,username,UserRole.Name,RatePerHour__c  FROM User where UserRole.Name=:resourceRole];
   }
 
 
