@@ -1,3 +1,22 @@
 <template>
-    
+  
+    <template for:each={projectLineItems} for:item="plitem">
+        <div key={plitem.Id}>
+
+            <lightning-layout multiple-rows class="slds-box my-border">
+                <div class="custom-box my-style-person">{plitem.Role__c} - Horas a Cubrir : " {plitem.Quantity_hours__c}
+                    Hours"</div>
+                <lightning-layout-item class="slds-col slds-size_1-of-1">
+                    <c-assign-child plitem={plitem}></c-assign-child>
+
+                    <br>
+                    <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick}
+                        class="slds-m-left_x-small"></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+            <br>
+        </div>
+
+    </template>
+
 </template>

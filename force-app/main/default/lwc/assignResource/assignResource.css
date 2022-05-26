@@ -1,0 +1,15 @@
+.my-style-person{
+    background-color: #0b76d3 !important;
+    color: #fffad3;
+    padding: 5px 10px 5px 10px;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.my-border{
+    
+    /* border-color: #fff !important; */
+    border-width: 1px !important;
+    box-shadow: 0 0 15px 5px #0b76d3;
+    border-radius: 15px;
+    background-color: #cecece;
+}
