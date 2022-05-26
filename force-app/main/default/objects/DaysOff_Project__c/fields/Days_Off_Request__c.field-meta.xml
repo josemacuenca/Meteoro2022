@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Resource__c</fullName>
+    <fullName>Days_Off_Request__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
-    <label>Resource</label>
-    <referenceTo>User</referenceTo>
-    <relationshipName>Project_Resources</relationshipName>
+    <label>Days Off Request</label>
+    <referenceTo>Days_Off_Request__c</referenceTo>
+    <relationshipLabel>*DaysOff-Projects</relationshipLabel>
+    <relationshipName>DaysOff_Projects</relationshipName>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>

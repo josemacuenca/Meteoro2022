@@ -53,7 +53,7 @@
 		<members>Opportunity-Opportunity Layout</members>
 		<members>OpportunityLineItem-Opportunity Product Layout</members>
 		<members>ProjectLineItem__c-Project Product Layout</members>
-		<members>Project_Resource__c-Project-Resource Layout</members>
+		<members>ProjectLine_Resource__c-ProjectLine-Resource Layout</members>
 		<members>Project_Task__c-Project Task Layout</members>
 		<members>Project__c-Project Layout</members>
 		<members>User-User Layout</members>
