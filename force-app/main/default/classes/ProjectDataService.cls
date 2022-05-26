@@ -11,18 +11,27 @@ public with sharing class ProjectDataService {
     return projLineItemList;
   }
 
-  
-
   @AuraEnabled(Cacheable=true)
-  public static List<User> getAllResourcePerRole( String resourceRole) {
+  public static List<User> getAllResourcePerRole(String resourceRole) {
     List<User> allresourceList = new List<User>();
 
-    allresourceList = [SELECT Name,RatePerHour__c  FROM User where UserRole.Name=:resourceRole];
+    allresourceList = [
+      SELECT
+        Name,
+        RatePerHour__c,
+        (
+          SELECT
+            Project_Product__r.Project__r.End_Date__c,
+            Project_Product__r.Project__r.Start_Date__c
+          FROM ProjectLine_Resources__r
+        )
+      FROM User
+      WHERE UserRole.Name = :resourceRole
+    ];
     return allresourceList;
 
     // allresourceList = [SELECT Name,username,UserRole.Name,RatePerHour__c  FROM User where UserRole.Name=:resourceRole];
   }
-
 
   // @AuraEnabled(Cacheable=true)
   // public static List<ProjectLineItem__c> getResourcePerRole() {
@@ -41,5 +50,3 @@ public with sharing class ProjectDataService {
   //   return resourceList;
   // }
 }
-
- 
