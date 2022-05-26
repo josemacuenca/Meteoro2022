@@ -102,5 +102,10 @@
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
+	<types>
+		<members>unfiled$public/Hours_Sold_Stx</members>
+		<members>unfiled$public/Sold_Hours_vs_Allocated_Hours_nSn</members>
+		<name>Report</name>
+	</types>
 	<version>53.0</version>
 </Package>
