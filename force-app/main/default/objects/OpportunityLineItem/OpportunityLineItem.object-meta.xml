@@ -112,6 +112,6 @@
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>OppLineLy</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
 </CustomObject>
