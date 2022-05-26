@@ -36,11 +36,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>DaysOff_Project__c.Days_Off_Request__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>DaysOff_Project__c.End_Date__c</field>
         <readable>true</readable>

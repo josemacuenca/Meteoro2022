@@ -12,19 +12,6 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-<<<<<<< HEAD
-                <behavior>Edit</behavior>
-                <field>Resource__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Allocated_Hours__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Project_Product__c</field>
-            </layoutItems>
-=======
                 <behavior>Required</behavior>
                 <field>Project_Product__c</field>
             </layoutItems>
@@ -38,7 +25,6 @@
                 <behavior>Edit</behavior>
                 <field>Resource__c</field>
             </layoutItems>
->>>>>>> develop
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -71,24 +57,13 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-<<<<<<< HEAD
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Project_Task__c.ProjectLine_Resource__c</relatedList>
-    </relatedLists>
-=======
->>>>>>> develop
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-<<<<<<< HEAD
-        <masterLabel>00h8a00000cdYDx</masterLabel>
-=======
         <masterLabel>00h8a00000d1UxB</masterLabel>
->>>>>>> develop
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
