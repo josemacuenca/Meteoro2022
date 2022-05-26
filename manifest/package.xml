@@ -25,6 +25,10 @@
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
+		<members>Project_Management</members>
+		<name>CustomApplication</name>
+	</types>
+	<types>
 		<members>DaysOffRequest__c</members>
 		<members>DaysOff_Project__c</members>
 		<members>Opportunity</members>
@@ -35,6 +39,11 @@
 		<members>Project__c</members>
 		<members>User</members>
 		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Project_Management_UtilityBar</members>
+		<members>Project_Record_Page</members>
+		<name>FlexiPage</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -75,6 +84,11 @@
 		<name>ProfileSessionSetting</name>
 	</types>
 	<types>
+		<members>Projects_with_Project_Line_Resource</members>
+		<members>Projects_with_Project_Products</members>
+		<name>ReportType</name>
+	</types>
+	<types>
 		<members>Architect</members>
 		<members>Consultant</members>
 		<members>Developer</members>
@@ -87,6 +101,11 @@
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>
+	</types>
+	<types>
+		<members>unfiled$public/Hours_Sold_Stx</members>
+		<members>unfiled$public/Sold_Hours_vs_Allocated_Hours_nSn</members>
+		<name>Report</name>
 	</types>
 	<version>53.0</version>
 </Package>
