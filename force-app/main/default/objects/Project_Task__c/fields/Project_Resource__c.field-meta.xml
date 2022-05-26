@@ -6,7 +6,7 @@
     <referenceTo>Project_Resource__c</referenceTo>
     <relationshipLabel>Project Tasks</relationshipLabel>
     <relationshipName>Project_Tasks</relationshipName>
-    <relationshipOrder>0</relationshipOrder>
+    <relationshipOrder>1</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>
     <trackTrending>false</trackTrending>
     <type>MasterDetail</type>
