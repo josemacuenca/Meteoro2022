@@ -5,5 +5,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Architect</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Product_Manager</parentRole>
+    <parentRole>Project_Manager</parentRole>
 </Role>

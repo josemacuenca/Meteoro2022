@@ -36,6 +36,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>DaysOff_Project__c.Days_Off_Request__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>DaysOff_Project__c.End_Date__c</field>
         <readable>true</readable>
@@ -191,6 +196,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ProjectLineItem__c.Ammount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ProjectLineItem__c.Quantity__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ProjectLineItem__c.Quantity_hours__c</field>
         <readable>true</readable>
@@ -294,6 +309,11 @@
         <editable>true</editable>
         <field>User.RatePerHour__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.Rate_per_Hour__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <flowAccesses>
         <enabled>false</enabled>

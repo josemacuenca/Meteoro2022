@@ -30,6 +30,12 @@
                 <default>false</default>
                 <label>Developer</label>
             </value>
+            <value>
+                <fullName>Consultor</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Consultor</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Product Manager</name>
+    <name>Project Manager</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
     <parentRole>Ops_Manager</parentRole>
 </Role>
