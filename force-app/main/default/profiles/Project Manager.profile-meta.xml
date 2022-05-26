@@ -191,6 +191,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ProjectLineItem__c.Ammount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ProjectLineItem__c.Quantity_hours__c</field>
         <readable>true</readable>
@@ -313,6 +318,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>ProjectLineItem__c-Project Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ProjectLine_Resource__c-ProjectLine-Resource Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Project_Task__c-Project Task Layout</layout>
