@@ -7,9 +7,8 @@
 
 .my-border{
     
-    /* border-color: #fff !important; */
     border-width: 1px !important;
-    box-shadow: 0 0 15px 5px #0b76d3;
+    box-shadow: 5px 5px 10px 5px #032d60;
     border-radius: 15px;
     background-color: #cecece;
 }
