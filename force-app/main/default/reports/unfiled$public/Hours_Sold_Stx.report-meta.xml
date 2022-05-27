@@ -16,7 +16,7 @@
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>true</showAxisLabels>
-        <showPercentage>false</showPercentage>
+        <showPercentage>true</showPercentage>
         <showTotal>true</showTotal>
         <showValues>false</showValues>
         <size>Medium</size>

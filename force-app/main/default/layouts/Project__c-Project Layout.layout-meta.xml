@@ -11,28 +11,6 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Opportunity__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Account__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Stage__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Total_Hours__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Total_Cost__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Project_Manager__c</field>
             </layoutItems>
@@ -40,17 +18,19 @@
                 <behavior>Edit</behavior>
                 <field>Squad_Lead__c</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Total_Amount__c</field>
+                <field>Account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Opportunity__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Start_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>End_Date__c</field>
+                <field>OwnerId</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -60,18 +40,8 @@
         <detailHeading>false</detailHeading>
         <editHeading>true</editHeading>
         <label>System Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CreatedById</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>LastModifiedById</field>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
+        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
@@ -86,7 +56,11 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Role__c</fields>
+        <fields>Quantity_hours__c</fields>
         <relatedList>ProjectLineItem__c.Project__c</relatedList>
+        <sortField>Role__c</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -98,9 +72,24 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h8a00000asU7c</masterLabel>
+        <masterLabel>00h8a00000d1UxP</masterLabel>
         <sizeX>4</sizeX>
-        <sizeY>0</sizeY>
+        <sizeY>2</sizeY>
+        <summaryLayoutItems>
+            <field>Name</field>
+            <posX>0</posX>
+            <posY>0</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>Project_Manager__c</field>
+            <posX>3</posX>
+            <posY>0</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>Squad_Lead__c</field>
+            <posX>3</posX>
+            <posY>1</posY>
+        </summaryLayoutItems>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
