@@ -27,6 +27,7 @@
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Project Management</label>
     <navType>Standard</navType>
     <profileActionOverrides>
@@ -62,6 +63,7 @@
         <profile>Project Manager</profile>
     </profileActionOverrides>
     <tabs>standard-home</tabs>
+    <tabs>standard-Opportunity</tabs>
     <tabs>Project__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Project_Management_UtilityBar</utilityBar>
