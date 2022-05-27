@@ -6,6 +6,7 @@ public with sharing class ProjectDataService {
     projLineItemList = [
       SELECT Name, Role__c, Quantity_hours__c
       FROM ProjectLineItem__c
+      WHERE ProjectLineItem__c.Project__c =: projectId 
     ];
 
     return projLineItemList;
