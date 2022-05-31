@@ -195,6 +195,21 @@
             <field>Resource__c</field>
             <table>Project__c.Project_Product__r.ProjectLine_Resources__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Start_Date__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>End_Date__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Squad_Leader__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r</table>
+        </columns>
         <masterLabel>ProjectLine-Resources</masterLabel>
     </sections>
 </ReportType>

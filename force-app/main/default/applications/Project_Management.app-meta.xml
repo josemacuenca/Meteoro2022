@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Project_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Project__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Project_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Project__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
         <content>Home_Page_Default</content>
         <formFactor>Large</formFactor>
@@ -26,24 +44,6 @@
         <type>Flexipage</type>
         <pageOrSobjectType>ProjectLineItem__c</pageOrSobjectType>
     </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Project_Record_Page</content>
-        <formFactor>Small</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>Project__c</pageOrSobjectType>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Project_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>Project__c</pageOrSobjectType>
-    </actionOverrides>
     <brand>
         <headerColor>#1A9429</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
@@ -53,29 +53,12 @@
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
-    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Project Management</label>
     <navType>Standard</navType>
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Project_Record_Page</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Project__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Project Manager</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Project_Record_Page</content>
         <formFactor>Large</formFactor>
-        <pageOrSobjectType>Project__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Project Manager</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Project_Record_Page</content>
-        <formFactor>Small</formFactor>
         <pageOrSobjectType>Project__c</pageOrSobjectType>
         <type>Flexipage</type>
         <profile>Admin</profile>
@@ -83,7 +66,23 @@
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Project_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Project__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Project Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Project_Record_Page</content>
         <formFactor>Large</formFactor>
+        <pageOrSobjectType>Project__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Project Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Project_Record_Page</content>
+        <formFactor>Small</formFactor>
         <pageOrSobjectType>Project__c</pageOrSobjectType>
         <type>Flexipage</type>
         <profile>Admin</profile>
@@ -91,6 +90,9 @@
     <tabs>standard-home</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>Project__c</tabs>
+    <tabs>ProjectLineItem__c</tabs>
+    <tabs>ProjectLine_Resource__c</tabs>
+    <tabs>Project_Task__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Project_Management_UtilityBar</utilityBar>
 </CustomApplication>
