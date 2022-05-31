@@ -177,6 +177,32 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>rentable</componentName>
+                <identifier>c_rentable1</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Profitable__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>noRentable</componentName>
+                <identifier>c_noRentable1</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Profitable__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>false</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>cacheAge</name>
                     <value>1440</value>
