@@ -77,7 +77,7 @@
 		<name>CustomObject</name>
 	</types>
 	<types>
-		<members>Project__c</members>
+		<members>*</members>
 		<name>CustomTab</name>
 	</types>
 	<types>

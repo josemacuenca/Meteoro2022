@@ -376,6 +376,18 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <tabVisibilities>
+        <tab>ProjectLineItem__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>ProjectLine_Resource__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Project_Task__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Project__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
