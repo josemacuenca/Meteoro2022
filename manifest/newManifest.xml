@@ -196,5 +196,5 @@
         <members>Opportunity.DeliveryStatus</members>
         <name>WebLink</name>
     </types>
-    <version>53.0</version>
+    <version>54.0</version>
 </Package>
