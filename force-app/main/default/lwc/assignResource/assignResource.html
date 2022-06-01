@@ -2,42 +2,56 @@
 <template>
     <div class="c-container">
         <lightning-layout multiple-rows class="slds-box my-border">
+            <lightning-layout-item padding="around-small " class="my-lli">
+            
+                <h1 class="my-title slds-p-horizontal_x-small">Developer - Horas a cubrir - "200 Horas"</h1>
+                <br>
+                <br>
+                Project Line Item
+                <lightning-combobox class="slds-align-middle" placeholder="All Roles" options={projectLineItemsOptions}
+                    onchange={handleProjectLineItemsChange} value={selectedProjectLineItem}>
+                </lightning-combobox>
+                <br>
+                Resource and $ x hour
+                <lightning-combobox class="slds-align-middle" placeholder="All Resources" options={projectLineItemsOptions}
+                    onchange={handleProjectLineItemsChange} value={selectedProjectLineItem}>
+                </lightning-combobox>
+                <hr>
+                End Date
+                <lightning-input  type="date" name="input8" label="" value="2017-09-07"
+                    min="2017-09-05" max="2017-09-22"></lightning-input>
+                Start Date
+                <lightning-input  type="date" name="input8" label="" value="2017-09-07"
+                    min="2017-09-05" max="2017-09-22"></lightning-input>
+                
+                <hr>
+                Is Squad Lead
+                <lightning-input type="checkbox" label="" name="squadLead"></lightning-input>
+                <hr>
+                
+                <lightning-button variant="brand" label="Assing Resources" title="titleName" onclick={handleClick}>
+                </lightning-button>
+            
+            </lightning-layout-item>
         
-            <h1>Developer - Horas a cubrir - "200 Horas"</h1>
-            <br>
-            Project Line Item
-            <lightning-combobox class="slds-align-middle" placeholder="All Types" options={projectLineItemsOptions}
-                onchange={handleProjectLineItemsChange} value={selectedProjectLineItem}>
-            </lightning-combobox>
-            <br>
-            Resource and $ x hour
-            <lightning-combobox class="slds-align-middle" placeholder="All Types" options={projectLineItemsOptions}
-                onchange={handleProjectLineItemsChange} value={selectedProjectLineItem}>
-            </lightning-combobox>
-            <hr>
-            <lightning-input type="date" name="input8" label="Date field with min and max values" value="2017-09-07"
-                min="2017-09-05" max="2017-09-22">End Date</lightning-input>
-            
-            <lightning-input type="date" name="input8" label="Date field with min and max values" value="2017-09-07"
-                min="2017-09-05" max="2017-09-22">Start datee</lightning-input>
-            
-            <lightning-input class="slds-p-left_xx-large" type="checkbox" label="checkbox Select All">
-                Is Squad Lead </lightning-input>
-
-
         </lightning-layout>
         <br>
         <lightning-layout multiple-rows class="slds-box my-border">
-        <h2></h2>
-        <h2></h2>
-        <h2></h2>
-        <h2></h2>
-        <h2></h2>
-        <lightning-button variant="base" label="labelName" title="titleName" onclick={handleClick}></lightning-button>
+
+            <lightning-layout-item padding="around-small">
+                <h2>1</h2>
+                <h2>2</h2>
+                <h2>3</h2>
+                <h2>4</h2>
+                <h2>5</h2>
+                <hr>
+                <lightning-button variant="brand" label="Assing Resources" title="titleName" onclick={handleClick} class="">
+                </lightning-button>
+            </lightning-layout-item>
+
+            
 
         </lightning-layout>
     </div>
-
-    
 
 </template>

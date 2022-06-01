@@ -5,6 +5,28 @@
     border-radius: 15px 15px 0px 0px;
 }
 
+.my-lli{
+    border: #000;
+    background-color: #032d60;
+    border-radius: 15px;
+    color: #fff;
+}
+
+
+
+.my-text-white{
+    color: #fff;
+}
+
+.my-title{
+    border: #000;
+    border-radius: 5px;
+    background-color: #0b76d3;
+    color: #fff;
+    display: inline-block;
+    font-size: medium;
+}
+
 .my-border {
     border-width: 1px !important;
     box-shadow: 5px 5px 10px 5px #032d60;
