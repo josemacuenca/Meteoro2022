@@ -1,28 +1,48 @@
 <!-- sldsValidatorIgnore -->
 <template>
-  
-    <template for:each={projectLineItems} for:item="plitem">
-        
-        <div key={plitem.Id}>
-            <lightning-layout multiple-rows class="slds-box my-border">
-                <div class="custom-box my-style-person">{plitem.Role__c} - Horas a Cubrir : " {plitem.Quantity_hours__c}
-                    Hours"</div>
-                <lightning-layout-item class="slds-col slds-size_1-of-1">
-                    <c-assign-child plitem={plitem}></c-assign-child>
 
-                    <br>
-                    <!-- <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick}
-                        class="slds-m-left_x-small"></lightning-button> -->
-                        <button class="my-boton">
-                            <span class="my-text-boton">Submit</span>
-                            <i class="my-icon"></i>
-                        </button>
-                        
-                </lightning-layout-item>
-            </lightning-layout>
-            <br>
-        </div>
 
-    </template>
+    <lightning-layout multiple-rows class="slds-box my-border">
+        <lightning-layout class="slds-align_absolute-center">
+            Project Line Item
+            <lightning-layout-item class="slds-align-middle">
+                <lightning-combobox class="slds-align-middle" placeholder="All Types" options={projectLineItemsOptions}
+                    onchange={handleProjectLineItemsChange} value={selectedProjectLineItem}>
+                </lightning-combobox>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout class="slds-align_absolute-center">
+            Resource and $ x hour
+            <lightning-layout-item class="slds-align-middle">
+                <lightning-combobox class="slds-align-middle" placeholder="All Types">
+                </lightning-combobox>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout class="slds-align_absolute-center">
+            End Date
+            <lightning-input type="date" name="input8" label="Date field with min and max values" value="2017-09-07"
+                min="2017-09-05" max="2017-09-22"></lightning-input>
+
+        </lightning-layout>
+        <lightning-layout class="slds-align_absolute-center">
+            Start datee
+            <lightning-input type="date" name="input8" label="Date field with min and max values" value="2017-09-07"
+                min="2017-09-05" max="2017-09-22"></lightning-input>
+
+        </lightning-layout>
+        <lightning-layout class="slds-align_absolute-center">
+            Is Squad Lead <lightning-input class="slds-p-left_xx-large" type="checkbox" label="checkbox Select All">
+            </lightning-input>
+            <!-- onchange={handleChange} -->
+
+        </lightning-layout>
+    </lightning-layout>
+
+    <!-- </div> -->
+    <div>
+
+    </div>
+    <!-- </template> -->
 
 </template>
