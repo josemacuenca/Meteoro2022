@@ -1,3 +1,4 @@
+<!-- sldsValidatorIgnore -->
 <template>
   
     <template for:each={projectLineItems} for:item="plitem">
@@ -10,8 +11,13 @@
                     <c-assign-child plitem={plitem}></c-assign-child>
 
                     <br>
-                    <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick}
-                        class="slds-m-left_x-small"></lightning-button>
+                    <!-- <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick}
+                        class="slds-m-left_x-small"></lightning-button> -->
+                        <button class="my-boton">
+                            <span class="my-text-boton">Submit</span>
+                            <i class="my-icon"></i>
+                        </button>
+                        
                 </lightning-layout-item>
             </lightning-layout>
             <br>
