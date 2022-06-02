@@ -13,15 +13,15 @@
                 </lightning-combobox>
                 <br>
                 Resource and $ x hour
-                <lightning-combobox class="slds-align-middle" placeholder="All Resources"
+                <lightning-combobox class="slds-align-middle my-text-color-input" placeholder="All Resources"
                     options={resourcefilteredOptions} onchange={handleResourcePerRoleChange} value={selectedResource}>
                 </lightning-combobox>
                 <hr>
                 End Date
-                <lightning-input type="date" name="input8" label="" value="2017-09-07" min="2017-09-05"
+                <lightning-input class="my-text-color-input" type="date" name="input8" label="" value="2017-09-07" min="2017-09-05"
                     max="2017-09-22"></lightning-input>
                 Start Date
-                <lightning-input type="date" name="input8" label="" value="2017-09-07" min="2017-09-05"
+                <lightning-input class="my-text-color-input" type="date" name="input8" label="" value="2017-09-07" min="2017-09-05"
                     max="2017-09-22"></lightning-input>
 
                 <hr>
@@ -44,17 +44,19 @@
             <template for:each={allProjectLineItems} for:item="plitem">
                 <lightning-layout-item class="custom-box slds-m-bottom_small my-lli " size="12" key={plitem.Id}>
 
-                    <h1 class="my-style-person">{plitem.Role__c} - Horas a Cubrir : "{plitem.Quantity_hours__c} Hours"</h1>
-                    <div class="my-resources">
+                    <h1 class="my-style-person my-title-resource">{plitem.Role__c} - Horas a Cubrir : "{plitem.Quantity_hours__c} Hours"</h1>
+                    <div class="my-resources-title slds-border_bottom">
                     <h2>Resources</h2>
                     <h2>Rate Per Hours</h2>
                     <h2>Start Date</h2>
                     <h2>End Date</h2>
+                    <h2>Squad Lead</h2>
                     <h2>Remove</h2>
                     </div>
                     <c-assign-child plitem={plitem}></c-assign-child>
                     
                 </lightning-layout-item>
+                
             </template>
         </lightning-layout>
     </div>
