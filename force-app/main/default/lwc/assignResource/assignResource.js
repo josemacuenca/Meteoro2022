@@ -59,6 +59,9 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
         //  ------------------------------------------------------------------.--------------------------
 
 
+        
+        //  ------------------------------------------------------------------.--------------------------
+
      arrayAssignSelected=[];
 
      handleAssignSubmit(){      
@@ -70,6 +73,5 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
        // this.arrayAssignSelected.push({'ProjectLineItem':this.selectedProjectLineItem})
      }
 
- //  ------------------------------------------------------------------.--------------------------
-
+ 
 }

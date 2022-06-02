@@ -20,13 +20,16 @@
     color: #fff;
 }
 
+.my-title-resource{
+    font-size: large;
+}
+
 .my-title{
     border: #000;
     border-radius: 3px ;
     background-color: #0b76d3;
     color: #fff;
-    display: inline-block;
-    font-size: medium;
+    font-size: large;
 }
 
 .my-border {
@@ -85,10 +88,16 @@
 }
 
 .my-resources{
-    
-    border: red;
     display: inline-block;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.my-resources-title{
+    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: large;
 }

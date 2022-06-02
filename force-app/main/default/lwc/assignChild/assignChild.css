@@ -85,10 +85,25 @@
 }
 
 .my-resources{
-    
-    border: red;
-    display: inline-block;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.my-resources-AllResources{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.my-check-ok{
+    width: 30px;
+    height: 30px;
+    background-color: #44c08a;
+    border-radius: 50%;
+    color: #032d60;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="m10 15.172l9.192-9.193l1.415 1.414L10 18l-6.364-6.364l1.414-1.414z"%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
