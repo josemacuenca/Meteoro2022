@@ -13,9 +13,9 @@
                 </lightning-combobox>
                 <br>
                 Resource and $ x hour
-                <lightning-combobox class="slds-align-middle" placeholder="All Resources" options={projectLineItemsOptions}
+                <!-- <lightning-combobox class="slds-align-middle" placeholder="All Resources" options={projectLineItemsOptions}
                     onchange={handleProjectLineItemsChange} value={selectedProjectLineItem}>
-                </lightning-combobox>
+                </lightning-combobox> -->
                 <hr>
                 End Date
                 <lightning-input  type="date" name="input8" label="" value="2017-09-07"
@@ -41,14 +41,24 @@
         <lightning-layout multiple-rows class="slds-box my-border">
 
             <lightning-layout-item padding="around-small">
-                <h2>1</h2>
-                <h2>2</h2>
-                <h2>3</h2>
-                <h2>4</h2>
-                <h2>5</h2>
-                <hr>
-                <lightning-button variant="brand" label="Assing Resources" title="titleName" onclick={handleClick} class="">
-                </lightning-button>
+                <template for:each={allProjectLineItems} for:item="plitem">
+        
+                    <div key={plitem.Id}>
+                        <lightning-layout multiple-rows class="slds-box my-border">
+                            <div class="custom-box my-style-person">{plitem.Role__c} - Horas a Cubrir : " {plitem.Quantity_hours__c}
+                                Hours"</div>
+                            <lightning-layout-item class="slds-col slds-size_1-of-1">
+                                <c-assign-child plitem={plitem}></c-assign-child>
+            
+                                <br>
+                                <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick}
+                                    class="slds-m-left_x-small"></lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        <br>
+                    </div>
+            
+                </template>
             </lightning-layout-item>
 
             

@@ -1,13 +1,16 @@
 import { LightningElement, api, wire } from "lwc";
-import getProjectLineItems from "@salesforce/apex/ProjectDataService.getProjectLineItems";
+import setProjectLineResource from "@salesforce/apex/ProjectDataService.setProjectLineResource";
  
 export default class AssignResource extends LightningElement {
-  // selectedProjectLineItem;
+  allProjectLineItems;
+
   projectLineItemsOptions; 
+  selectedProjectLineItem;
   @api recordId
-  @wire(getProjectLineItems , { projectId: '$recordId' } )
+  @wire(setProjectLineResource , { projectId: '$recordId' } )
   wiredProjectLineItems({ data, error }) {
     if (data) {
+      this.allProjectLineItems = data
       // data.map(item => this.projectLineItemsOptions.push(item.Role__c + " " + item.Quantity_hours__c))
       
       this.projectLineItemsOptions = data.map((item) => {
@@ -26,7 +29,7 @@ export default class AssignResource extends LightningElement {
     // Create the const searchEvent
     // searchEvent must be the new custom event search
     this.selectedProjectLineItem = event.detail.value;
-console.log(this.selectedProjectLineItem)   
+console.log("selectedProjectLineItem",this.selectedProjectLineItem)   
    }
   
 }

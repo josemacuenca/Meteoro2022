@@ -1,17 +1,19 @@
 public with sharing class ProjectDataService {
+
+
   @AuraEnabled(Cacheable=true)
-  public static List<ProjectLineItem__c> getProjectLineItems(Id projectId) {
-    List<ProjectLineItem__c> projLineItemList = new List<ProjectLineItem__c>();
+  public static List<ProjectLineItem__c> setProjectLineResource(String projectId) {
+    List<ProjectLineItem__c> query = new List<ProjectLineItem__c>();
 
-    projLineItemList = [
-      SELECT Name, Role__c, Quantity_hours__c
-      FROM ProjectLineItem__c
-      WHERE ProjectLineItem__c.Project__c =: projectId 
-    ];
+    query = [SELECT Project__r.Id, Project__r.Name, Role__c, Quantity_hours__c, Project__r.Start_Date__c, Project__r.End_Date__c, 
+    (SELECT Resource__r.Name, Resource__r.UserRole.Name, Resource__r.RatePerHour__c, Allocated_Hours__c, Start_Date__c, End_Date__c, Squad_Leader__c 
+    FROM ProjectLine_Resources__r) 
+    FROM ProjectLineItem__c
+    WHERE Project__r.Id = :projectId];
+    return query;
 
-    return projLineItemList;
+    // allresourceList = [SELECT Name,username,UserRole.Name,RatePerHour__c  FROM User where UserRole.Name=:resourceRole];
   }
-
   @AuraEnabled(Cacheable=true)
   public static List<User> getAllResourcePerRole(String resourceRole) {
     List<User> allresourceList = new List<User>();
@@ -33,6 +35,23 @@ public with sharing class ProjectDataService {
 
     // allresourceList = [SELECT Name,username,UserRole.Name,RatePerHour__c  FROM User where UserRole.Name=:resourceRole];
   }
+
+
+  // @AuraEnabled(Cacheable=true)
+  // public static List<ProjectLineItem__c> getProjectLineItems(Id projectId) {
+  //   List<ProjectLineItem__c> projLineItemList = new List<ProjectLineItem__c>();
+
+  //   projLineItemList = [
+  //     SELECT Name, Role__c, Quantity_hours__c
+  //     FROM ProjectLineItem__c
+  //     WHERE ProjectLineItem__c.Project__c =: projectId 
+  //   ];
+
+  //   return projLineItemList;
+  // }
+  
+
+
 
   // @AuraEnabled(Cacheable=true)
   // public static void setProjectLineResource (Id projectId, JSON resourceListJSON, String role) {
