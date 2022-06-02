@@ -7,7 +7,7 @@ export default class AssignChild extends LightningElement {
   
   @api
   plitem;
- PlResourcesList = [] ;
+ PlResourcesList;
    
   handleClick(){
 
