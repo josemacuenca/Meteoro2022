@@ -1,16 +1,23 @@
 <template>
 
     <lightning-layout-item padding="around-small" class="custom-box slds-box  my-resources" size="12">
-        <h2 class="my-resources">{plitem.Role__c}</h2>
-        <h2 class="my-resources">{plitem.data}</h2>
-        <h2>$$$</h2>
-        <h2>desde</h2>
-        <h2>hasta</h2>
-        <h2>alocacion de horas</h2>
-        <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
-        </lightning-button>
+       
+       
+        <template for:each={PlResourcesList} for:item="plritem">
+            <div key={plritem.Id}>
+
+                <h2 class="my-resources">{plritem.Name}</h2>
+                <h2>$$$</h2>
+                <h2>desde</h2>
+                <h2>hasta</h2>
+                <h2>alocacion de horas</h2>
+                <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
+                </lightning-button>
+            </div>
+        </template>
     </lightning-layout-item>
 
-     
- 
-</template> 
+
+    <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
+    </lightning-button>
+</template>
