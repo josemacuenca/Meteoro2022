@@ -3,12 +3,12 @@
     <div class="c-container">
         <lightning-layout multiple-rows class="slds-box my-border">
             <lightning-layout-item padding="around-small " class="my-lli">
-
-                <h1 class="my-title slds-p-horizontal_x-small">Developer - Horas a cubrir - "200 Horas"</h1>
+            
+                <h1 class="my-title slds-p-horizontal_large">Developer - Horas a cubrir - "200 Horas"</h1>
                 <br>
                 <br>
                 Project Line Item
-                <lightning-combobox class="slds-align-middle" placeholder="All Roles" options={projectLineItemsOptions}
+                <lightning-combobox class="slds-align-middle my-text-color-input" placeholder="All Roles" options={projectLineItemsOptions}
                     onchange={handleProjectLineItemsChange} value={selectedProjectLineItem}>
                 </lightning-combobox>
                 <br>
@@ -35,9 +35,10 @@
                 </button>
 
             </lightning-layout-item>
-
         </lightning-layout>
+        
         <br>
+        
         <lightning-layout multiple-rows class="slds-box my-border">
 
             <template for:each={allProjectLineItems} for:item="plitem">
