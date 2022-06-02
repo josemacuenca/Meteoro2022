@@ -12,7 +12,9 @@
     color: #fff;
 }
 
-
+.my-text-color-input{
+    color: #000;
+}
 
 .my-text-white{
     color: #fff;
@@ -20,7 +22,7 @@
 
 .my-title{
     border: #000;
-    border-radius: 5px;
+    border-radius: 3px ;
     background-color: #0b76d3;
     color: #fff;
     display: inline-block;
@@ -80,4 +82,13 @@
 .my-boton:focus .my-icon {
     opacity: 1;
     transition-delay: .5s;
+}
+
+.my-resources{
+    
+    border: red;
+    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

@@ -4,24 +4,25 @@
         <lightning-layout multiple-rows class="slds-box my-border">
             <lightning-layout-item padding="around-small " class="my-lli">
             
-                <h1 class="my-title slds-p-horizontal_x-small">Developer - Horas a cubrir - "200 Horas"</h1>
+                <h1 class="my-title slds-p-horizontal_large">Developer - Horas a cubrir - "200 Horas"</h1>
                 <br>
                 <br>
                 Project Line Item
-                <lightning-combobox class="slds-align-middle" placeholder="All Roles" options={projectLineItemsOptions}
+                <lightning-combobox class="slds-align-middle my-text-color-input" placeholder="All Roles" options={projectLineItemsOptions}
                     onchange={handleProjectLineItemsChange} value={selectedProjectLineItem}>
                 </lightning-combobox>
                 <br>
                 Resource and $ x hour
-                <!-- <lightning-combobox class="slds-align-middle" placeholder="All Resources" options={projectLineItemsOptions}
+                <lightning-combobox class="slds-align-middle my-text-color-input" placeholder="All Resources" options={projectLineItemsOptions}
                     onchange={handleProjectLineItemsChange} value={selectedProjectLineItem}>
-                </lightning-combobox> -->
+                </lightning-combobox>
                 <hr>
                 End Date
-                <lightning-input  type="date" name="input8" label="" value="2017-09-07"
+                <lightning-input class="my-text-color-input"  type="date" name="input8" label="" value="2017-09-07"
                     min="2017-09-05" max="2017-09-22"></lightning-input>
+                <br>
                 Start Date
-                <lightning-input  type="date" name="input8" label="" value="2017-09-07"
+                <lightning-input class="my-text-color-input"  type="date" name="input8" label="" value="2017-09-07"
                     min="2017-09-05" max="2017-09-22"></lightning-input>
                 
                 <hr>
@@ -35,35 +36,30 @@
                 </button>
                             
             </lightning-layout-item>
-        
         </lightning-layout>
+        
         <br>
+        
         <lightning-layout multiple-rows class="slds-box my-border">
 
-            <lightning-layout-item padding="around-small">
                 <template for:each={allProjectLineItems} for:item="plitem">
-        
-                    <div key={plitem.Id}>
-                        <lightning-layout multiple-rows class="slds-box my-border">
-                            <div class="custom-box my-style-person">{plitem.Role__c} - Horas a Cubrir : " {plitem.Quantity_hours__c}
-                                Hours"</div>
-                            <lightning-layout-item class="slds-col slds-size_1-of-1">
-                                <c-assign-child plitem={plitem}></c-assign-child>
+                    <lightning-layout-item class="custom-box slds-m-bottom_small my-lli " size="12" key={plitem.Id}>
+                                
+                        <h1 class="my-style-person">{plitem.Role__c} - Horas a Cubrir : "{plitem.Quantity_hours__c} Hours"</h1>
+                                    
+                                    
+                        <lightning-layout-item padding="around-small" class="custom-box slds-box  my-resources" size="12">
+                            <h2 class="my-resources">Resources</h2>
+                            <h2>$$$</h2>
+                            <h2>desde</h2>
+                            <h2>hasta</h2>
+                            <h2>alocacion de horas</h2>
+                            <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}></lightning-button>
+                        </lightning-layout-item>
+                        
             
-                                <br>
-                                <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick}
-                                    class="slds-m-left_x-small"></lightning-button>
-                            </lightning-layout-item>
-                        </lightning-layout>
-                        <br>
-                    </div>
-            
+                    </lightning-layout-item>
                 </template>
-            </lightning-layout-item>
-
-            
-
         </lightning-layout>
     </div>
-
 </template>
