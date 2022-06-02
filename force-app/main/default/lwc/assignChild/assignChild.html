@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <div style="height: 200px;">
 
-         <div>Resource X</div>
-         <div>Resource X</div>
-         <div>Resource X</div>
-         <div>Resource X</div>
-         <div>Resource X</div>
-             
-        </div>
+    <lightning-layout-item padding="around-small" class="custom-box slds-box  my-resources" size="12">
+        <h2 class="my-resources">{plitem.Role__c}</h2>
+        <h2 class="my-resources">{plitem.data}</h2>
+        <h2>$$$</h2>
+        <h2>desde</h2>
+        <h2>hasta</h2>
+        <h2>alocacion de horas</h2>
+        <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
+        </lightning-button>
+    </lightning-layout-item>
 
-
-    </div>
-
-</template>
+     
+ 
+</template> 
