@@ -7,14 +7,15 @@ export default class AssignChild extends LightningElement {
   
   @api
   plitem;
- PlResourcesList;
+  // @api
+  // PlResourcesList;
    
-  handleClick(){
+  // handleClick(){
 
-    this.PlResourcesList=this.plitem.ProjectLine_Resources__r;
-    console.log("typeof", this.PlResourcesList.isArray())
-    this.PlResourcesList=this.plitem.ProjectLine_Resources__r[0].Resource__r.Name;
-    console.log("PlResourcesList", this.PlResourcesList)
+  //   this.PlResourcesList=this.plitem.ProjectLine_Resources__r;
+  //   console.log("typeof", this.PlResourcesList.isArray())
+  //   this.PlResourcesList=this.plitem.ProjectLine_Resources__r[0].Resource__r.Name;
+  //   console.log("PlResourcesList", this.PlResourcesList)
 
-  }
+  // }
 }

@@ -85,8 +85,6 @@
 }
 
 .my-resources{
-    
-    border: red;
     display: inline-block;
     display: flex;
     flex-direction: row;

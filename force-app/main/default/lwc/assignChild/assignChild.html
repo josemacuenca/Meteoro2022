@@ -1,23 +1,24 @@
+<!-- sldsValidatorIgnore -->
 <template>
-
-    <lightning-layout-item padding="around-small" class="custom-box slds-box  my-resources" size="12">
+    <lightning-layout-item padding="around-small" class="custom-box  " size="12">
        
-       
-        <template for:each={PlResourcesList} for:item="plritem">
-            <div key={plritem.Id}>
-
-                <h2 class="my-resources">{plritem.Resource__r.Name}</h2>
-                <h2>$$$</h2>
-                <h2>desde</h2>
-                <h2>hasta</h2>
-                <h2>alocacion de horas</h2>
-                <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
-                </lightning-button>
-            </div>
+        <template for:each={plitem.ProjectLine_Resources__r} for:item="plritem">
+            
+                
+                <div class="c-container my-resources" key={plritem.Id}>
+                    <h2 >{plritem.Resource__r.Name}</h2>
+                    <h2>{plritem.Resource__r.RatePerHours__c}</h2>
+                    <h2>{plritem.Start_Date__c}</h2>
+                    <h2>{plritem.End_Date__c}</h2>
+                    <h2>{plritem.Allocated_Hours__c}</h2>
+                    <input type="checkbox" disabled readonly value={plritem.Squad_Leader__c}>
+                    <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
+                    </lightning-button>
+                    <hr class="my-text-white">
+                </div>
+                
+           
         </template>
+        
     </lightning-layout-item>
-
-
-    <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
-    </lightning-button>
 </template>

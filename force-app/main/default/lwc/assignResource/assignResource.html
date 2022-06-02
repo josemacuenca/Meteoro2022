@@ -44,14 +44,16 @@
             <template for:each={allProjectLineItems} for:item="plitem">
                 <lightning-layout-item class="custom-box slds-m-bottom_small my-lli " size="12" key={plitem.Id}>
 
-                    <h1 class="my-style-person">{plitem.Role__c} - Horas a Cubrir : "{plitem.Quantity_hours__c} Hours"
-                    </h1>
+                    <h1 class="my-style-person">{plitem.Role__c} - Horas a Cubrir : "{plitem.Quantity_hours__c} Hours"</h1>
+                    <div class="my-resources">
+                    <h2>Resources</h2>
+                    <h2>Rate Per Hours</h2>
+                    <h2>Start Date</h2>
+                    <h2>End Date</h2>
+                    <h2>Remove</h2>
+                    </div>
                     <c-assign-child plitem={plitem}></c-assign-child>
-
-
-                   
-
-
+                    
                 </lightning-layout-item>
             </template>
         </lightning-layout>
