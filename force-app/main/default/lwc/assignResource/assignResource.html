@@ -2,60 +2,64 @@
     <div class="c-container">
         <lightning-layout multiple-rows class="slds-box my-border">
             <lightning-layout-item padding="around-small " class="my-lli">
-            
+
                 <h1 class="my-title slds-p-horizontal_large">Developer - Horas a cubrir - "200 Horas"</h1>
                 <br>
                 <br>
                 Project Line Item
-                <lightning-combobox class="slds-align-middle my-text-color-input" placeholder="All Roles" options={projectLineItemsOptions}
-                    onchange={handleProjectLineItemsChange} value={selectedProjectLineItem}>
+                <lightning-combobox class="slds-align-middle my-text-color-input" placeholder="All Roles"
+                    options={projectLineItemsOptions} onchange={handleProjectLineItemsChange}
+                    value={selectedProjectLineItem} required>
                 </lightning-combobox>
                 <br>
                 Resource and $ x hour
                 <lightning-combobox class="slds-align-middle my-text-color-input" placeholder="All Resources"
-                    options={resourcefilteredOptions} onchange={handleResourcePerRoleChange} value={selectedResource}>
+                    options={resourcefilteredOptions} onchange={handleResourcePerRoleChange} value={selectedResource} required> 
                 </lightning-combobox>
                 <hr>
-                End Date
-                <lightning-input class="my-text-color-input" type="date" name="input8" label="" value="2017-09-07" min="2017-09-05"
-                    max="2017-09-22"></lightning-input>
                 Start Date
-                <lightning-input class="my-text-color-input" type="date" name="input8" label="" value="2017-09-07" min="2017-09-05"
-                    max="2017-09-22"></lightning-input>
-
+                <lightning-input class="my-text-color-input" type="date"  name="startDateName" label="" value="2017-09-07"
+                    min="2017-09-05" max="2017-09-22" onchange={handleStartDateChange}     message-when-value-missing="This field is required" required
+                    ></lightning-input>
+                End Date
+                <lightning-input class="my-text-color-input" type="date" name="endDateName" label="" value="2017-09-07"
+                    min="2017-09-05" max="2017-09-22" onchange={handleEndDateChange}     message-when-value-missing="This field is required" required
+                    ></lightning-input>
                 <hr>
                 Is Squad Lead
-                <lightning-input type="checkbox" label="" name="squadLead"></lightning-input>
+                <lightning-input type="checkbox" label="" name="squadLead" onchange={handleIsSqualeaderChange} required> 
+                </lightning-input>
                 <hr>
-
-                <button class="my-boton">
-                    <span class="my-text-boton">Submit</span>
+              
+                <button class="my-boton" onclick={handleAssignTemporalSubmit}>
+                    <span class="my-text-boton">Asignar</span>
                     <i class="my-icon"></i>
                 </button>
 
             </lightning-layout-item>
         </lightning-layout>
-        
+
         <br>
-        
+
         <lightning-layout multiple-rows class="slds-box my-border">
 
             <template for:each={allProjectLineItems} for:item="plitem">
                 <lightning-layout-item class="custom-box slds-m-bottom_small my-lli " size="12" key={plitem.Id}>
 
-                    <h1 class="my-style-person my-title-resource">{plitem.Role__c} - Horas a Cubrir : "{plitem.Quantity_hours__c} Hours"</h1>
+                    <h1 class="my-style-person my-title-resource">{plitem.Role__c} - Horas a Cubrir :
+                        "{plitem.Quantity_hours__c} Hours"</h1>
                     <div class="my-resources-title slds-border_bottom">
-                    <h2>Resources</h2>
-                    <h2>Rate Per Hours</h2>
-                    <h2>Start Date</h2>
-                    <h2>End Date</h2>
-                    <h2>Squad Lead</h2>
-                    <h2>Remove</h2>
+                        <h2>Resources</h2>
+                        <h2>Rate Per Hours</h2>
+                        <h2>Start Date</h2>
+                        <h2>End Date</h2>
+                        <h2>Squad Lead</h2>
+                        <h2>Remove</h2>
                     </div>
                     <c-assign-child plitem={plitem}></c-assign-child>
-                    
+
                 </lightning-layout-item>
-                
+
             </template>
         </lightning-layout>
     </div>

@@ -33,7 +33,7 @@ export default class AssignResource extends LightningElement {
     this.selectedProjectLineItem = event.detail.value;
 console.log("selectedProjectLineItem",this.selectedProjectLineItem)   
    }
-        //  ------------------------------------------------------------------.--------------------------
+   //  ------------------------------------------------------------------.--------------------------
 
     
     selectedResource;
@@ -55,23 +55,66 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
     handleResourcePerRoleChange(event) {
       this.selectedResource = event.detail.value;
       console.log("id user p la query",this.selectedResource)   
+    
      }
-        //  ------------------------------------------------------------------.--------------------------
+      
+      //  ------------------------------------------------------------------.--------------------------
+       
+       GetProjectStartDate;
+       StartDateValue;
 
+       handleStartDateChange(event){
+         this.StartDateValue = event.target.value;
+         console.log('change event');
+         var inp=this.template.querySelector('lightning-input');
+         if(inp.name='startDateName'){
+             inp.reportValidity();
+         }
+      }
+       
+     //  ------------------------------------------------------------------.--------------------------
+     
+     GetProjectEndDate;  
+     EndDateValue;
 
+        handleEndDateChange(event){
+          this.EndDateValue = event.target.value;
+       }
         
-        //  ------------------------------------------------------------------.--------------------------
+       
+     //  ------------------------------------------------------------------.--------------------------
+        checkIsSquarleaderValue;
+        handleIsSqualeaderChange(event){
+          this.checkIsSquarleaderValue = event.target.checked;
+       }
+          
+      //  ------------------------------------------------------------------. 
+      MapAssignSelected=[];
+      MapTemporalAssign={};
 
-     arrayAssignSelected=[];
-
-     handleAssignSubmit(){      
-       this.arrayAssignSelected.push(this.selectedResource)
-       this.arrayAssignSelected.push(this.selectedProjectLineItem)
-       console.log("arrayAssignSelected",this.arrayAssignSelected) 
+      handleAssignTemporalSubmit(){       
+        this.MapAssignSelected.push({'Resource':this.selectedResource})
+      this.MapAssignSelected.push({'ProjectLineItem':this.selectedProjectLineItem})
+       this.MapAssignSelected.push({'StartDate':this.StartDateValue})
+       this.MapAssignSelected.push({'EndDate':this.EndDateValue})
+       this.MapAssignSelected.push({'IsSquadLeader':this.checkIsSquarleaderValue})
+       MapTemporalAssign.push(MapAssignSelected)
+       console.log("MapAssignSelected",this.MapAssignSelected) 
+     
  
-       // this.arrayAssignSelected.push({'Resource':this.selectedResource})
-       // this.arrayAssignSelected.push({'ProjectLineItem':this.selectedProjectLineItem})
      }
+    
+  //  ------------------------------------------------------------------. 
+// VALIDACIONES FIELD
+
+
+     handleChange(){
+      console.log('change event');
+      var inp=this.template.querySelector('lightning-input');
+      if(inp.name='input1'){
+          inp.reportValidity();
+      }
+  }
 
  
 }

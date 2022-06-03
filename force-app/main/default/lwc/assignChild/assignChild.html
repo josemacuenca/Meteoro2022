@@ -5,6 +5,7 @@
         <template for:each={plitem.ProjectLine_Resources__r} for:item="plritem">
                                             
                 <div class="c-container " key={plritem.Id}>
+                    
                     <div class="my-resources-AllResources">
                         <h2>{plritem.Resource__r.Name}</h2>
                         <h2>{plritem.Resource__r.RatePerHours__c}Hrs.</h2>
