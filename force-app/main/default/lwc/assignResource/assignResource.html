@@ -1,9 +1,9 @@
 <template>
     <div class="c-container">
         <lightning-layout multiple-rows class="slds-box my-border">
+        
+        <!-- formulario de seleccion de recurso -->
             <lightning-layout-item padding="around-small " class="my-lli">
-
-                <!-- formulario de seleccion de recurso -->
                 <h1 class="my-title slds-p-horizontal_large" if:true={selectedProjectLineItem}>Esta seleccionando
                     Resource del Rol {selectedProjectLineItem}</h1>
                 <h1 class="my-title slds-p-horizontal_large" if:false={selectedProjectLineItem}>Seleccion el Resource
@@ -40,7 +40,11 @@
                     <span class="my-text-boton">Asignar</span>
                     <i class="my-icon"></i>
                 </button>
-
+            </lightning-layout-item>
+            
+            <!-- componente de card de resources alocados -->
+            <lightning-layout-item padding="around-small " class="my-lli">
+            
             </lightning-layout-item>
         </lightning-layout>
 
@@ -59,6 +63,7 @@
                     <h2>Squad Lead</h2>
                     <h2>Remove</h2>
                 </div>
+                <br>
                 <!-- class="my-resources-AllResources" -->
                 <template for:each={mapaParseado} for:item="assigneditem">
 
@@ -100,6 +105,7 @@
                         <h2>End Date</h2>
                         <h2>Squad Lead</h2>
                         <h2>Remove</h2>
+                        <h2>Edit</h2>
                     </div>
                     <c-assign-child plitem={plitem}></c-assign-child>
                 </lightning-layout-item>
