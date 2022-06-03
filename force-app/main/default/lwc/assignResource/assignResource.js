@@ -89,27 +89,29 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
        }
           
       //  ------------------------------------------------------------------. 
+      mapassignedselected=[];
       MapTemporalAssign={};
-      MapAssignSelected=[];
 
       handleAssignTemporalSubmit(){       
-        MapTemporalAssign['Resource'] = this.selectedResource;
-        MapTemporalAssign['ProjectLineItem'] = this.selectedProjectLineItem;
-        MapTemporalAssign['StartDate'] = this.StartDateValue;
-        MapTemporalAssign['EndDate'] = this.EndDateValue;
-        MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
+        this.MapTemporalAssign['Resource'] =this.selectedResource;
+        this.MapTemporalAssign['ProjectLineItem'] = this.selectedProjectLineItem;
+        this.MapTemporalAssign['StartDate'] = this.StartDateValue;
+        this.MapTemporalAssign['EndDate'] = this.EndDateValue;
+        this.MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
 
-        MapAssignSelected.push(MapTemporalAssign)
-        console.log("MapAssignSelected",this.MapAssignSelected) 
-        console.log("MapTemporalAssign",this.MapTemporalAssign) 
+        this.mapassignedselected.push(this.MapTemporalAssign);
+        console.log("mapassignedselected",this.mapassignedselected);
+        console.log("MapTemporalAssign",this.MapTemporalAssign);
         
+     
         //   this.MapTemporalAssign.push({'Resource':this.selectedResource})
-        // this.MapAssignSelected.push({'ProjectLineItem':this.selectedProjectLineItem})
-        //  this.MapAssignSelected.push({'StartDate':this.StartDateValue})
-        //  this.MapAssignSelected.push({'EndDate':this.EndDateValue})
-        //  this.MapAssignSelected.push({'IsSquadLeader':this.checkIsSquarleaderValue})
+        // this.mapassignedselected.push({'ProjectLineItem':this.selectedProjectLineItem})
+        //  this.mapassignedselected.push({'StartDate':this.StartDateValue})
+        //  this.mapassignedselected.push({'EndDate':this.EndDateValue})
+        //  this.mapassignedselected.push({'IsSquadLeader':this.checkIsSquarleaderValue})
  
      }
+      
     
   //  ------------------------------------------------------------------. 
 // VALIDACIONES FIELD
