@@ -91,11 +91,13 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
       //  ------------------------------------------------------------------. 
       @track
        mapassignedselected=[];
+       
        mapaParseado;
+       
       handleAssignTemporalSubmit(){       
         var MapTemporalAssign={};
 
-      MapTemporalAssign['Resource'] =this.selectedResource;
+        MapTemporalAssign['Resource'] =this.selectedResource;
         MapTemporalAssign['ProjectLineItem'] = this.selectedProjectLineItem;
         MapTemporalAssign['StartDate'] = this.StartDateValue;
         MapTemporalAssign['EndDate'] = this.EndDateValue;

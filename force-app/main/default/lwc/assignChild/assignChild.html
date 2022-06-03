@@ -5,19 +5,15 @@
         <template for:each={plitem.ProjectLine_Resources__r} for:item="plritem">
                                             
                 <div class="c-container " key={plritem.Id}>
-                    
                     <div class="my-resources-AllResources">
                         <h2>{plritem.Resource__r.Name}</h2>
                         <h2>{plritem.Resource__r.RatePerHours__c}Hrs.</h2>
                         <h2>{plritem.Start_Date__c}</h2>
                         <h2>{plritem.End_Date__c}</h2>
-                        <!-- <h2>{plritem.Allocated_Hours__c}</h2> -->
-                        <!-- <input type="checkbox" disabled readonly value={plritem.Squad_Leader__c}> -->
                         <span if:true={plritem.Squad_Leader__c} class="my-check-ok">
                             <i class="my-check-ok"></i>
                         </span>
                         <span if:false={plritem.Squad_Leader__c}>
-                            
                         </span>
                         <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
                         </lightning-button>

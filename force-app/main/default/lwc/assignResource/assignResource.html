@@ -2,7 +2,7 @@
     <div class="c-container">
         <lightning-layout multiple-rows class="slds-box my-border">
             <lightning-layout-item padding="around-small " class="my-lli">
-                
+
                 <!-- formulario de seleccion de recurso -->
                 <h1 class="my-title slds-p-horizontal_large" if:true={selectedProjectLineItem}>Esta seleccionando
                     Resource del Rol {selectedProjectLineItem}</h1>
@@ -43,37 +43,54 @@
 
             </lightning-layout-item>
         </lightning-layout>
-        
-        <br>
-        <!-- componente para el render de los resources para la operacion bullck -->
-        <lightning-layout multiple-rows class="slds-box my-border">
-            <lightning-layout-item padding="around-small " class="custom-box slds-m-bottom_small my-lli" size="12">
-                <h1 class="my-style-person my-title-resource">Resources a asignar al proyecto</h1>
-                <template if:true={mapaParseado} for:each={mapaParseado} for:item="assigneditem">
-                    <div class="my-resources-title slds-border_bottom" key={assigneditem.Id}>
-                        <h2>{assigneditem.ProjectLineItem}</h2>
-                        <h2>{assigneditem.Resource}</h2>
-                        <h2>{assigneditem.StartDate}</h2>
-                        <h2>{assigneditem.EndDate}</h2>
-                        
-                        <span if:true={assigneditem.IsSquadLeader} class="my-check-ok">
-                            <i class="my-check-ok"></i>
-                        </span>
-                        <span if:false={assigneditem.IsSquadLeader}>
-                        </span>
 
-                        <lightning-button variant="brand-outline" label="Enviar" title="titleName" onclick={traer}>
-                        </lightning-button>
+        <br>
+
+        <!-- componente q renderea los recursos para agregar en la operacion bullck -->
+
+        <lightning-layout if:true={mapaParseado} multiple-rows class="slds-box my-border-assignament">
+            <lightning-layout-item padding="around-small" class="custom-box slds-m-bottom_small my-lli" size="12">
+                <h1 class="my-style-person-assignament my-title-resource">Resources a asignar al proyecto</h1>
+                <div class="my-resources-title slds-border_bottom">
+                    <h2>Resources</h2>
+                    <h2>Rate Per Hours</h2>
+                    <h2>Start Date</h2>
+                    <h2>End Date</h2>
+                    <h2>Squad Lead</h2>
+                    <h2>Remove</h2>
+                </div>
+                <!-- class="my-resources-AllResources" -->
+                <template for:each={mapaParseado} for:item="assigneditem">
+
+                    <div class="c-container" key={assigneditem.Id}>
+                        <div class="my-resources-AllResources">
+                            <h2>{assigneditem.ProjectLineItem}</h2>
+                            <h2>{assigneditem.Resource}</h2>
+                            <h2>{assigneditem.StartDate}</h2>
+                            <h2>{assigneditem.EndDate}</h2>
+                            <span if:true={assigneditem.IsSquadLeader} class="my-check-ok">
+                                <i class="my-check-ok"></i>
+                            </span>
+                            <span if:false={assigneditem.IsSquadLeader}>
+                            </span>
+                            <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
+                            </lightning-button>
+                        </div>
+                        <hr>
                     </div>
+
                 </template>
+                <lightning-button class="slds-float_right" variant="brand-outline" label="Asignar Resources"
+                    title="titleName" onclick={traer}>
+                </lightning-button>
             </lightning-layout-item>
         </lightning-layout>
-        
+
         <br>
-        <!-- componente q renderea los resources ya asignados a project -->
+
         <lightning-layout multiple-rows class="slds-box my-border">
             <template for:each={allProjectLineItems} for:item="plitem">
-                <lightning-layout-item class="custom-box slds-m-bottom_small my-lli " size="12" key={plitem.Id}>
+                <lightning-layout-item class="custom-box slds-m-bottom_small my-lli" size="12" key={plitem.Id}>
                     <h1 class="my-style-person my-title-resource">{plitem.Role__c} - Horas a Cubrir :
                         "{plitem.Quantity_hours__c} Hours"</h1>
                     <div class="my-resources-title slds-border_bottom">
@@ -88,5 +105,6 @@
                 </lightning-layout-item>
             </template>
         </lightning-layout>
+
     </div>
 </template>
