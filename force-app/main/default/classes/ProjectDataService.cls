@@ -11,7 +11,6 @@ public with sharing class ProjectDataService {
     FROM ProjectLineItem__c
     WHERE Project__r.Id = :projectId];
     return query;
-
     // allresourceList = [SELECT Name,username,UserRole.Name,RatePerHour__c  FROM User where UserRole.Name=:resourceRole];
   }
   @AuraEnabled(Cacheable=true)

@@ -1,0 +1,24 @@
+<template>
+     
+    <lightning-layout multiple-rows class="slds-box my-border">
+        <lightning-layout-item padding="around-small" class="custom-box slds-m-bottom_small my-lli" size="12">
+            <h1 class="my-style-person my-title-resource-assignament" >Resources a asignar al proyecto</h1>
+            <template if:true={mapaParseado} for:each={mapaParseado} for:item="assigneditem">
+                <div key={assigneditem.Id}>
+                    <h2>{assigneditem.ProjectLineItem}</h2>
+                    <h2>{assigneditem.Resource}</h2>
+                    <h2>{assigneditem.StartDate}</h2>
+                    <h2>{assigneditem.EndDate}</h2>
+                    <span if:true={assigneditem.IsSquadLeader} class="my-check-ok">
+                        <i class="my-check-ok"></i>
+                    </span>
+                    <span if:false={assigneditem.IsSquadLeader}>
+                    </span>
+
+                    <lightning-button variant="brand-outline" label="Enviar" title="titleName" onclick={traer}>
+                    </lightning-button>
+                </div>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
