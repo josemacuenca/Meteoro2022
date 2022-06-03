@@ -89,18 +89,25 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
        }
           
       //  ------------------------------------------------------------------. 
-      MapAssignSelected=[];
       MapTemporalAssign={};
+      MapAssignSelected=[];
 
       handleAssignTemporalSubmit(){       
-        this.MapAssignSelected.push({'Resource':this.selectedResource})
-      this.MapAssignSelected.push({'ProjectLineItem':this.selectedProjectLineItem})
-       this.MapAssignSelected.push({'StartDate':this.StartDateValue})
-       this.MapAssignSelected.push({'EndDate':this.EndDateValue})
-       this.MapAssignSelected.push({'IsSquadLeader':this.checkIsSquarleaderValue})
-       MapTemporalAssign.push(MapAssignSelected)
-       console.log("MapAssignSelected",this.MapAssignSelected) 
-     
+        MapTemporalAssign['Resource'] = this.selectedResource;
+        MapTemporalAssign['ProjectLineItem'] = this.selectedProjectLineItem;
+        MapTemporalAssign['StartDate'] = this.StartDateValue;
+        MapTemporalAssign['EndDate'] = this.EndDateValue;
+        MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
+
+        MapAssignSelected.push(MapTemporalAssign)
+        console.log("MapAssignSelected",this.MapAssignSelected) 
+        console.log("MapTemporalAssign",this.MapTemporalAssign) 
+        
+        //   this.MapTemporalAssign.push({'Resource':this.selectedResource})
+        // this.MapAssignSelected.push({'ProjectLineItem':this.selectedProjectLineItem})
+        //  this.MapAssignSelected.push({'StartDate':this.StartDateValue})
+        //  this.MapAssignSelected.push({'EndDate':this.EndDateValue})
+        //  this.MapAssignSelected.push({'IsSquadLeader':this.checkIsSquarleaderValue})
  
      }
     
