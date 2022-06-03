@@ -2,8 +2,8 @@
     <div class="c-container">
         <lightning-layout multiple-rows class="slds-box my-border">
             <lightning-layout-item padding="around-small " class="my-lli">
-
-                <!-- <h1 class="my-title slds-p-horizontal_large" if:true={selectedProjectLineItem} >{selectedProjectLineItem} - Horas a cubrir - "{totalHours} Horas"</h1> -->
+                
+                <!-- formulario de seleccion de recurso -->
                 <h1 class="my-title slds-p-horizontal_large" if:true={selectedProjectLineItem}>Esta seleccionando
                     Resource del Rol {selectedProjectLineItem}</h1>
                 <h1 class="my-title slds-p-horizontal_large" if:false={selectedProjectLineItem}>Seleccion el Resource
@@ -43,31 +43,34 @@
 
             </lightning-layout-item>
         </lightning-layout>
+        
         <br>
-
+        <!-- componente para el render de los resources para la operacion bullck -->
         <lightning-layout multiple-rows class="slds-box my-border">
-            <lightning-layout-item padding="around-small " class="my-lli">
-                <h1 class="my-title slds-p-horizontal_large">Resources a asignar al proyecto</h1>
+            <lightning-layout-item padding="around-small " class="custom-box slds-m-bottom_small my-lli" size="12">
+                <h1 class="my-style-person my-title-resource">Resources a asignar al proyecto</h1>
                 <template if:true={mapaParseado} for:each={mapaParseado} for:item="assigneditem">
-                    <div key={assigneditem.Id}>
+                    <div class="my-resources-title slds-border_bottom" key={assigneditem.Id}>
                         <h2>{assigneditem.ProjectLineItem}</h2>
                         <h2>{assigneditem.Resource}</h2>
                         <h2>{assigneditem.StartDate}</h2>
                         <h2>{assigneditem.EndDate}</h2>
+                        
                         <span if:true={assigneditem.IsSquadLeader} class="my-check-ok">
                             <i class="my-check-ok"></i>
                         </span>
                         <span if:false={assigneditem.IsSquadLeader}>
                         </span>
+
                         <lightning-button variant="brand-outline" label="Enviar" title="titleName" onclick={traer}>
                         </lightning-button>
-
                     </div>
                 </template>
             </lightning-layout-item>
         </lightning-layout>
+        
         <br>
-
+        <!-- componente q renderea los resources ya asignados a project -->
         <lightning-layout multiple-rows class="slds-box my-border">
             <template for:each={allProjectLineItems} for:item="plitem">
                 <lightning-layout-item class="custom-box slds-m-bottom_small my-lli " size="12" key={plitem.Id}>
