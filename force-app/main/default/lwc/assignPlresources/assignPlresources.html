@@ -1,17 +1,17 @@
 <template>
     <div>
-        <template if:true={mapAssigned} for:each={mapAssigned} for:item="assignedItem">
-            <div class="c-container" key={assignedItem.Id}>
+        <template for:each={assigneditem} for:item="item">
+            <div class="c-container" key={item.Id}>
 
                 <div class="my-resources-AllResources">
-                    <h2>{assignedItem.ProjectLineItem}</h2>
-                    <h2>{assignedItem.Resource}</h2>
-                    <h2>{assignedItem.StartDate}</h2>
-                    <h2>{assignedItem.EndDate}</h2>
-                    <span if:true={assignedItem.IsSquadLeader} class="my-check-ok">
+                    <h2>{item.ProjectLineItem}</h2>
+                    <h2>{item.Resource}</h2>
+                    <h2>{item.StartDate}</h2>
+                    <h2>{item.EndDate}</h2>
+                    <span if:true={item.IsSquadLeader} class="my-check-ok">
                         <i class="my-check-ok"></i>
                     </span>
-                    <span if:false={assignedItem.IsSquadLeader}>
+                    <span if:false={item.IsSquadLeader}>
                     </span>
                 </div>
                 <hr>

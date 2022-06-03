@@ -1,4 +1,4 @@
-import { LightningElement, api, wire } from "lwc";
+import { LightningElement, api, wire ,track} from "lwc";
 import setProjectLineResource from "@salesforce/apex/ProjectDataService.setProjectLineResource";
 import getAllResourcePerRole from "@salesforce/apex/ProjectDataService.getAllResourcePerRole";
  
@@ -69,11 +69,7 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
 
        handleStartDateChange(event){
          this.StartDateValue = event.target.value;
-         console.log('change event');
-         var inp=this.template.querySelector('lightning-input');
-         if(inp.name='startDateName'){
-             inp.reportValidity();
-         }
+         
       }
        
      //  ------------------------------------------------------------------.--------------------------
@@ -93,36 +89,34 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
        }
           
       //  ------------------------------------------------------------------. 
-      mapassignedselected=[];
-      MapTemporalAssign={};
-
+      @track
+       mapassignedselected=[];
+       mapaParseado;
       handleAssignTemporalSubmit(){       
-        this.MapTemporalAssign['Resource'] =this.selectedResource;
-        this.MapTemporalAssign['ProjectLineItem'] = this.selectedProjectLineItem;
-        this.MapTemporalAssign['StartDate'] = this.StartDateValue;
-        this.MapTemporalAssign['EndDate'] = this.EndDateValue;
-        this.MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
-         this.mapassignedselected.push(this.MapTemporalAssign);
+        var MapTemporalAssign={};
+
+      MapTemporalAssign['Resource'] =this.selectedResource;
+        MapTemporalAssign['ProjectLineItem'] = this.selectedProjectLineItem;
+        MapTemporalAssign['StartDate'] = this.StartDateValue;
+        MapTemporalAssign['EndDate'] = this.EndDateValue;
+        MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
+
+
+        this.mapassignedselected.push(MapTemporalAssign);
         console.log("mapassignedselected",this.mapassignedselected);
-        console.log("MapTemporalAssign",this.MapTemporalAssign);
+        console.log("MapTemporalAssign", MapTemporalAssign);
  
+        this.mapaParseado=JSON.parse(JSON.stringify(this.mapassignedselected))
+        console.log("this.mapaParseado",this.mapaParseado);
 
        }
-       traer(){
-        console.log("holisAmigos",this.mapassignedselected)
-    }
-    
+
+       
   //  ------------------------------------------------------------------. 
 // VALIDACIONES FIELD
 
 
-     handleChange(){
-      console.log('change event');
-      var inp=this.template.querySelector('lightning-input');
-      if(inp.name='input1'){
-          inp.reportValidity();
-      }
-  }
+      
 
  
 }

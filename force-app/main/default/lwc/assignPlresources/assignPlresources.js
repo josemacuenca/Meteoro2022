@@ -1,15 +1,22 @@
 import { LightningElement ,api} from 'lwc';
 
 export default class AssignPlresources extends LightningElement {
-  
-  @api
-  holisAmigos;
-  mapAssigned;
-   // let accounts = JSON.parse(JSON.stringify(this.accounts))
+   @api
+   assigneditem
+   
 
-  traer(){
-      this.mapAssigned=JSON.parse(JSON.stringify(this.holisAmigos))
-   }
+
+}
+   
+
+  //  @api set holisAmigos(value) {
+  //   this.mapAssigned = JSON.parse(JSON.stringify(value));
+  
+  //   console.log("mapAssignedmapAssigned",this.mapAssigned)
+  // }
+  // get holisAmigos() {
+  //   return JSON.parse(JSON.stringify(this.mapAssigned));
+  // }
 
     // @api
     // getMapAssigned(mapassignedselected){
@@ -17,4 +24,4 @@ export default class AssignPlresources extends LightningElement {
     //     console.log("mapassignedselected",this.mapAssigned)
     //     console.log("mapassignedselected 0000",this.mapAssigned[0])
     // }
-    }
+  
