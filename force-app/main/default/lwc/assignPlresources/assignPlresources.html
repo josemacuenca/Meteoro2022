@@ -1,9 +1,9 @@
 <template>
     <div>
-        <template for:each={mapassignedselected} for:item="assignedItem">
+        <template if:true={mapAssigned} for:each={mapAssigned} for:item="assignedItem">
             <div class="c-container" key={assignedItem.Id}>
 
-                 <div class="my-resources-AllResources">
+                <div class="my-resources-AllResources">
                     <h2>{assignedItem.ProjectLineItem}</h2>
                     <h2>{assignedItem.Resource}</h2>
                     <h2>{assignedItem.StartDate}</h2>
@@ -12,14 +12,12 @@
                         <i class="my-check-ok"></i>
                     </span>
                     <span if:false={assignedItem.IsSquadLeader}>
-
                     </span>
-
                 </div>
                 <hr>
             </div>
-
         </template>
+          
         <lightning-button variant="brand-outline" label="Enviar" title="titleName" onclick={traer}>
         </lightning-button>
     </div>

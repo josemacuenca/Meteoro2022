@@ -102,20 +102,15 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
         this.MapTemporalAssign['StartDate'] = this.StartDateValue;
         this.MapTemporalAssign['EndDate'] = this.EndDateValue;
         this.MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
-
-        this.mapassignedselected.push(this.MapTemporalAssign);
+         this.mapassignedselected.push(this.MapTemporalAssign);
         console.log("mapassignedselected",this.mapassignedselected);
         console.log("MapTemporalAssign",this.MapTemporalAssign);
-        
-     
-        //   this.MapTemporalAssign.push({'Resource':this.selectedResource})
-        // this.mapassignedselected.push({'ProjectLineItem':this.selectedProjectLineItem})
-        //  this.mapassignedselected.push({'StartDate':this.StartDateValue})
-        //  this.mapassignedselected.push({'EndDate':this.EndDateValue})
-        //  this.mapassignedselected.push({'IsSquadLeader':this.checkIsSquarleaderValue})
  
-     }
-      
+
+       }
+       traer(){
+        console.log("holisAmigos",this.mapassignedselected)
+    }
     
   //  ------------------------------------------------------------------. 
 // VALIDACIONES FIELD

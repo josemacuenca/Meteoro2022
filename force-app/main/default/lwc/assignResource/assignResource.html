@@ -2,10 +2,12 @@
     <div class="c-container">
         <lightning-layout multiple-rows class="slds-box my-border">
             <lightning-layout-item padding="around-small " class="my-lli">
-            
+
                 <!-- <h1 class="my-title slds-p-horizontal_large" if:true={selectedProjectLineItem} >{selectedProjectLineItem} - Horas a cubrir - "{totalHours} Horas"</h1> -->
-                <h1 class="my-title slds-p-horizontal_large" if:true={selectedProjectLineItem} >Esta seleccionando Resource del Rol {selectedProjectLineItem}</h1>
-                <h1 class="my-title slds-p-horizontal_large" if:false={selectedProjectLineItem} >Seleccion el Resource por Rol </h1>
+                <h1 class="my-title slds-p-horizontal_large" if:true={selectedProjectLineItem}>Esta seleccionando
+                    Resource del Rol {selectedProjectLineItem}</h1>
+                <h1 class="my-title slds-p-horizontal_large" if:false={selectedProjectLineItem}>Seleccion el Resource
+                    por Rol </h1>
                 <br>
                 <br>
                 Project Line Item
@@ -21,8 +23,8 @@
                 </lightning-combobox>
                 <hr>
                 Start Date
-                <lightning-input class="my-text-color-input" type="date" name="startDateName" label="" value="2017-09-07"
-                    min="2017-09-05" max="2017-09-22" onchange={handleStartDateChange}
+                <lightning-input class="my-text-color-input" type="date" name="startDateName" label=""
+                    value="2017-09-07" min="2017-09-05" max="2017-09-22" onchange={handleStartDateChange}
                     message-when-value-missing="This field is required" required></lightning-input>
                 End Date
                 <lightning-input class="my-text-color-input" type="date" name="endDateName" label="" value="2017-09-07"
@@ -30,7 +32,7 @@
                     message-when-value-missing="This field is required" required></lightning-input>
                 <hr>
                 Is Squad Lead
-                <lightning-input type="checkbox" label="" name="squadLead" onchange={handleIsSqualeaderChange}>
+                <lightning-input type="checkbox" label="" name="squadLead" onchange={handleIsSqualeaderChange} >
                 </lightning-input>
                 <hr>
 
@@ -46,7 +48,7 @@
         <lightning-layout multiple-rows class="slds-box my-border">
             <lightning-layout-item padding="around-small " class="my-lli">
                 <h1 class="my-title slds-p-horizontal_large">Resources a asignar al proyecto</h1>
-                <c-assign-plresources mapasigned={mapassignedselected}></c-assign-plresources>
+                <c-assign-plresources holis-amigos={mapassignedselected}></c-assign-plresources>
             </lightning-layout-item>
         </lightning-layout>
         <br>
