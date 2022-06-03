@@ -1,7 +1,8 @@
 import { LightningElement, api, wire ,track} from "lwc";
 import setProjectLineResource from "@salesforce/apex/ProjectDataService.setProjectLineResource";
 import getAllResourcePerRole from "@salesforce/apex/ProjectDataService.getAllResourcePerRole";
- 
+// import { deleteRecord } from 'lightning/uiRecordApi';
+
 export default class AssignResource extends LightningElement {
   allProjectLineItems;
   
@@ -29,13 +30,8 @@ export default class AssignResource extends LightningElement {
  
  
   handleProjectLineItemsChange(event) {
-    // console.log("eventquetrraeeeee",event)
-    // Create the const searchEvent
-    // searchEvent must be the new custom event search
     this.selectedProjectLineItem = event.detail.value;
-    
-    
-console.log("selectedProjectLineItem",this.selectedProjectLineItem)   
+         console.log("selectedProjectLineItem",this.selectedProjectLineItem)   
    }
    //  ------------------------------------------------------------------.--------------------------
 
@@ -69,8 +65,7 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
 
        handleStartDateChange(event){
          this.StartDateValue = event.target.value;
-         
-      }
+               }
        
      //  ------------------------------------------------------------------.--------------------------
      
@@ -80,8 +75,7 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
         handleEndDateChange(event){
           this.EndDateValue = event.target.value;
        }
-        
-       
+               
      //  ------------------------------------------------------------------.--------------------------
         checkIsSquarleaderValue;
         handleIsSqualeaderChange(event){
@@ -89,6 +83,7 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
        }
           
       //  ------------------------------------------------------------------. 
+
       @track
        mapassignedselected=[];
        mapaParseado;
@@ -101,21 +96,28 @@ console.log("selectedProjectLineItem",this.selectedProjectLineItem)
         MapTemporalAssign['EndDate'] = this.EndDateValue;
         MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
 
-
         this.mapassignedselected.push(MapTemporalAssign);
         console.log("mapassignedselected",this.mapassignedselected);
         console.log("MapTemporalAssign", MapTemporalAssign);
  
         this.mapaParseado=JSON.parse(JSON.stringify(this.mapassignedselected))
         console.log("this.mapaParseado",this.mapaParseado);
-
-       }
+      }
 
        
   //  ------------------------------------------------------------------. 
-// VALIDACIONES FIELD
 
-
+// @wire(setProjectLineResource, { resourceListJSON: '$mapaParseado' })
+// wiredAllResources({ data, error }) {
+//   if (data) {
+    
+    
+//     console.log("dataaa", data  );
+//   } else if (error) {
+//     console.log("data.error");
+//     console.log(error);
+//   }
+// }
       
 
  
