@@ -15,7 +15,7 @@
                         </span>
                         <span if:false={plritem.Squad_Leader__c}>
                         </span>
-                        <lightning-button variant="destructive" label="X" title="titleName" onclick={handleClick} data-id={plritem.Id}>
+                        <lightning-button variant="destructive" label="X" title="titleName" onclick={handleDelete} data-id={plritem.Id}>
                         </lightning-button>
                         <lightning-button variant="success" label="Edit" title="titleName"  onclick={handleEditRecord} data-id={plritem.Id}>
                         </lightning-button>
