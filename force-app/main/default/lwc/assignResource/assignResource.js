@@ -35,7 +35,7 @@ export default class AssignResource extends LightningElement {
     this.selectedProjectLineItem = event.detail.value;
     
     
-console.log("selectedProjectLineItem",this.selectedProjectLineItem)   
+    console.log("selectedProjectLineItem",this.selectedProjectLineItem)   
    }
    //  ------------------------------------------------------------------.--------------------------
 
