@@ -59,8 +59,9 @@
             <lightning-layout-item padding="around-small" class="custom-box slds-m-bottom_small my-lli" size="12">
                 <h1 class="my-style-person-assignament my-title-resource">Resources a asignar al proyecto</h1>
                 <div class="my-resources-title slds-border_bottom">
-                    <h2>Resources</h2>
-                    <h2>Rate Per Hours</h2>
+                    <h2>Role</h2>
+                    <h2>Resource</h2>
+                    <h2>Rate/H</h2>
                     <h2>Start Date</h2>
                     <h2>End Date</h2>
                     <h2>Squad Lead</h2>
@@ -68,12 +69,13 @@
                 </div>
                 <br>
                 <!-- class="my-resources-AllResources" -->
-                <template for:each={mapaParseado} for:item="assigneditem">
+                <template for:each={mapassignedselectedView} for:item="assigneditem">
 
                     <div class="c-container" key={assigneditem.Id}>
                         <div class="my-resources-AllResources">
                             <h2>{assigneditem.ProjectLineItem}</h2>
                             <h2>{assigneditem.Resource}</h2>
+                            <h2>{assigneditem.ResourceRate}</h2>
                             <h2>{assigneditem.StartDate}</h2>
                             <h2>{assigneditem.EndDate}</h2>
                             <span if:true={assigneditem.IsSquadLeader} class="my-check-ok">
@@ -103,7 +105,7 @@
                         "{plitem.Quantity_hours__c} Hours"</h1>
                     <div class="my-resources-title slds-border_bottom">
                         <h2>Resources</h2>
-                        <h2>Rate Per Hours</h2>
+                        <h2>Rate/H</h2>
                         <h2>Start Date</h2>
                         <h2>End Date</h2>
                         <h2>Squad Lead</h2>

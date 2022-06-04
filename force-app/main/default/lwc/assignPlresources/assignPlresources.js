@@ -3,9 +3,7 @@ import { LightningElement ,api} from 'lwc';
 export default class AssignPlresources extends LightningElement {
    @api
    assigneditem
-   
-
-
+    
 }
    
 
