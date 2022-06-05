@@ -33,12 +33,14 @@ export default class AssignResource extends LightningElement {
  
   prlFiltered
   plrfilteredrol
+  plrfilteredHsaCubrir
   plrfilteredID
   handleProjectLineItemsChange(event) {
     this.selectedProjectLineItem = event.detail.value;
     this.prlFiltered=this.plrId.filter(word => word.Id == this.selectedProjectLineItem)
     this.plrfilteredrol =this.prlFiltered[0].Role__c
     this.plrfilteredID =this.prlFiltered[0].Id
+    this.plrfilteredHsaCubrir =this.prlFiltered[0].Quantity_hours__c
           console.log("selectedProjectLineItem",  this.selectedProjectLineItem)
           console.log("prlFilteredprlFilteredprlFiltered",  this.prlFiltered)
     console.log("acafiltroiod",this.prlFiltered[0].Id)

@@ -5,18 +5,17 @@
         <!-- formulario de seleccion de recurso -->
             <lightning-layout-item padding="around-small " class="my-lli slds-m-right_x-large" size="3">
                 <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center" if:true={selectedProjectLineItem}>Esta seleccionando
-                    Resource del Rol {selectedProjectLineItem}</h1>
-                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center" if:false={selectedProjectLineItem}>Seleccion el Resource
-                    por Rol </h1>
+                    Resource del Rol, {plrfilteredrol} Hs totales a cubrir {plrfilteredHsaCubrir}</h1>
+                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center" if:false={selectedProjectLineItem}>Seleccione el Resourso por Rol </h1>
                 <br>
                 <br>
-                Project Line Item
+                Productos Presupuestados
                 <lightning-combobox class="slds-align-middle my-text-color-input" placeholder="All Roles"
                     options={projectLineItemsOptions} onchange={handleProjectLineItemsChange}
                     value={selectedProjectLineItem} required>
                 </lightning-combobox>
                 <br>
-                Resource and $ x hour
+                Resource 
                 <lightning-combobox class="slds-align-middle my-text-color-input" placeholder="All Resources"
                     options={resourcefilteredOptions} onchange={handleResourcePerRoleChange} value={selectedResource}
                     required>
@@ -24,10 +23,10 @@
                 <hr>
                 Start Date
                 <lightning-input class="my-text-color-input" type="date" name="startDateName" label=""
-                    value="2017-09-07" min="2017-09-05" max="2017-09-22" onchange={handleStartDateChange}
+                     min="2017-09-05" max="2017-09-22" onchange={handleStartDateChange}
                     message-when-value-missing="This field is required" required></lightning-input>
                 End Date
-                <lightning-input class="my-text-color-input" type="date" name="endDateName" label="" value="2017-09-07"
+                <lightning-input class="my-text-color-input" type="date" name="endDateName" label="" 
                     min="2017-09-05" max="2017-09-22" onchange={handleEndDateChange}
                     message-when-value-missing="This field is required" required></lightning-input>
                 <hr>
