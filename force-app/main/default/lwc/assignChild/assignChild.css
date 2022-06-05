@@ -107,3 +107,14 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
+
+.contenedor{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    justify-content:space-around;
+    
+}
+

@@ -3,9 +3,9 @@
         <lightning-layout multiple-rows class="slds-box my-border">
         
         <!-- formulario de seleccion de recurso -->
-            <lightning-layout-item padding="around-small " class="my-lli slds-m-right_x-large" size="3">
+            <lightning-layout-item padding="around-small " class="my-lli slds-m-right_x-large" size="4">
                 <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center" if:true={selectedProjectLineItem}>Esta seleccionando
-                    Resource del Rol {selectedProjectLineItem}</h1>
+                    Resource para el Rol de {selectedProjectLineItem}</h1>
                 <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center" if:false={selectedProjectLineItem}>Seleccion el Resource
                     por Rol </h1>
                 <br>
@@ -43,7 +43,7 @@
             </lightning-layout-item>
             
             <!-- componente de card de resources alocados -->
-            <lightning-layout-item padding="around-small " class="my-lli" size="8">
+            <lightning-layout-item padding="around-small " class="my-lli" size="7">
                 <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center">Section card Resource Asignament</Sect></h1>
                 <div class="c-container">
                   
