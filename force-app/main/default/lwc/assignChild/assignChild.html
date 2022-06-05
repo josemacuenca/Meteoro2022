@@ -7,7 +7,7 @@
                 <div class="c-container " key={plritem.Id}>
                     <div class="my-resources-AllResources">
                         <h2>{plritem.Resource__r.Name}</h2>
-                        <h2>{plritem.Resource__r.RatePerHours__c}Hrs.</h2>
+                        <h2>{plritem.Resource__r.RatePerHours__c}$/Hrs.</h2>
                         <h2>{plritem.Start_Date__c}</h2>
                         <h2>{plritem.End_Date__c}</h2>
                         <span if:true={plritem.Squad_Leader__c} class="my-check-ok">

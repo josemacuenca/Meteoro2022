@@ -9,7 +9,7 @@
     background-color: #0b76d3 !important;
     color: #fff;
     padding: 5px 10px 5px 10px;
-    border-radius: 15px ;
+    border-radius: 15px 15px 0 0 ;
 }
 .my-lli{
     border: #000;
@@ -131,4 +131,19 @@
     background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="m10 15.172l9.192-9.193l1.415 1.414L10 18l-6.364-6.364l1.414-1.414z"%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: 50% 50%;
+}
+
+.contenedor{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.col-7-cabecera{
+    width: 58.33333333%;
+    border: 2px solid #0b76d3;
+    float: left;
+    text-align: center;
 }

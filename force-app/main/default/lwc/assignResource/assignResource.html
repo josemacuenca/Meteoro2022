@@ -58,24 +58,23 @@
         <lightning-layout if:true={mapaParseado} multiple-rows class="slds-box my-border-assignament">
             <lightning-layout-item padding="around-small" class="custom-box slds-m-bottom_small my-lli" size="12">
                 <h1 class="my-style-person-assignament my-title-resource">Resources a asignar al proyecto</h1>
-                <div class="my-resources-title slds-border_bottom">
-                    <h2>Role</h2>
-                    <h2>Resource</h2>
-                    <h2>Rate/H</h2>
-                    <h2>Start Date</h2>
-                    <h2>End Date</h2>
-                    <h2>Squad Lead</h2>
-                    <h2>Remove</h2>
+                <div class="my-resources-title contenedor ">
+                    <h2 class="col-7-cabecera">Role</h2>
+                    <h2 class="col-7-cabecera">Resource</h2>
+                    <h2 class="col-7-cabecera">Rate/H</h2>
+                    <h2 class="col-7-cabecera">Start Date</h2>
+                    <h2 class="col-7-cabecera">End Date</h2>
+                    <h2 class="col-7-cabecera">Squad Lead</h2>
+                    <h2 class="col-7-cabecera">Remove</h2>
                 </div>
                 <br>
-                <!-- class="my-resources-AllResources" -->
+                
                 <template for:each={mapassignedselectedView} for:item="assigneditem">
-
                     <div class="c-container" key={assigneditem.Id}>
                         <div class="my-resources-AllResources">
                             <h2>{assigneditem.ProjectLineItem}</h2>
                             <h2>{assigneditem.Resource}</h2>
-                            <h2>{assigneditem.ResourceRate}</h2>
+                            <h2>${assigneditem.ResourceRate}</h2>
                             <h2>{assigneditem.StartDate}</h2>
                             <h2>{assigneditem.EndDate}</h2>
                             <span if:true={assigneditem.IsSquadLeader} class="my-check-ok">
@@ -103,14 +102,14 @@
                 <lightning-layout-item class="custom-box slds-m-bottom_small my-lli" size="12" key={plitem.Id}>
                     <h1 class="my-style-person my-title-resource">{plitem.Role__c} - Horas a Cubrir :
                         "{plitem.Quantity_hours__c} Hours"</h1>
-                    <div class="my-resources-title slds-border_bottom">
-                        <h2>Resources</h2>
-                        <h2>Rate/H</h2>
-                        <h2>Start Date</h2>
-                        <h2>End Date</h2>
-                        <h2>Squad Lead</h2>
-                        <h2>Remove</h2>
-                        <h2>Edit</h2>
+                    <div class="my-resources-title contenedor">
+                        <h2 class="col-7-cabecera">Resources</h2>
+                        <h2 class="col-7-cabecera">Rate/H</h2>
+                        <h2 class="col-7-cabecera">Start Date</h2>
+                        <h2 class="col-7-cabecera">End Date</h2>
+                        <h2 class="col-7-cabecera">Squad Lead</h2>
+                        <h2 class="col-7-cabecera">Remove</h2>
+                        <h2 class="col-7-cabecera">Edit</h2>
                     </div>
                     <c-assign-child plitem={plitem}></c-assign-child>
                 </lightning-layout-item>
