@@ -114,7 +114,11 @@
     width: 100%;
     height: auto;
     text-align: center;
-    justify-content:space-around;
+  
     
 }
 
+.contenedor-child{
+    justify-content:space-around ;
+    
+}
