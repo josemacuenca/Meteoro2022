@@ -7,16 +7,14 @@
                 <div class="c-container " key={plritem.Id}>
                     <div class="my-resources-AllResources contenedor-child">
                         <h2>{plritem.Resource__r.Name}</h2>
-                        <h2>{plritem.Start_Date__c}
-                        </h2>
-                        <h2>{plritem.End_Date__c}
-                        </h2>
+                        <h2>{plritem.Start_Date__c}</h2>
+                        <h2>{plritem.End_Date__c}</h2>
                         <h2>Hrs. alloc</h2> 
                         <h2>Cost</h2>
                         <span if:true={plritem.Squad_Leader__c} class="my-check-ok">
                             <i class="my-check-ok"></i>
                         </span>
-                        <span if:false={plritem.Squad_Leader__c}>-
+                        <span if:false={plritem.Squad_Leader__c}> -
                         </span>
                         <lightning-button variant="destructive" label="=> " title="titleName" icon-name="utility:delete" icon-position="right" onclick={handleDelete} data-id={plritem.Id}>
                         </lightning-button>

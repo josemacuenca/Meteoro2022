@@ -69,6 +69,7 @@ export default class AssignResource extends LightningElement {
         console.log("getAllResourcePerRole",data)
         this.resourcefilteredOptions = data.map((item) => {
         this.resourceId.push(item)
+        
           return { label: item.Name + " | Precio x Hour $" + item.RatePerHour__c , value: item.Id};
         });
         console.log("this.Users filtrados", this.resourcefilteredOptions  );
@@ -96,18 +97,25 @@ export default class AssignResource extends LightningElement {
        
        GetProjectStartDate;
        @track  StartDateValue;
-
+  fechaInicio;
+       
        handleStartDateChange(event){
          this.StartDateValue = event.target.value;
-               }
+         console.log("StartDateValue", this.StartDateValue);
+         this.fechaInicio = new Date(this.StartDateValue).getTime();
+         
+      }
        
      //  ------------------------------------------------------------------.--------------------------
      
      GetProjectEndDate;  
      @track EndDateValue;
-
+  fechaFin;
         handleEndDateChange(event){
           this.EndDateValue = event.target.value;
+          console.log("StartDateValue", this.EndDateValue);
+          this.fechaFin = new Date(this.EndDateValue).getTime();
+          
        }
                
      //  ------------------------------------------------------------------.--------------------------
@@ -130,15 +138,32 @@ export default class AssignResource extends LightningElement {
       
       validationWarning1;
       validationWarning2;
-
-      resultAllocatedHours
+      
+      // -------------------------------calculo de horas--------------------------------------------
+      estimatedHours
       resultAllocatedHourshandler() {
               
-      var timeDiffrence = Math.abs(this.StartDateValue.getTime() - this.EndDateValue.getTime());
-      var differDays = Math.ceil(timeDiffrence / (1000 * 3600 * 24)); 
-
-      return this.resultAllocatedHours
+        var timeDiffrence = this.fechaFin - this.fechaInicio;
+        var Days = timeDiffrence / (1000 * 60 * 60 * 24);
+        this.estimatedHours = 8 * Days;
+        return 8 * Days;
       }
+    
+    
+      // -------------------------------------------calculo de costos---------------------------------------------------
+    
+  
+  
+  estimatedCost() { 
+    
+    var totalCost = this.estimatedHours * this.resourceFiltered[0].RatePerHour__c;
+    console.log("totalthis.estimatedHoursCost-typeof",typeof this.estimatedHours);
+    console.log("this.resourceFiltered[0].RatePerHour__c",typeof this.resourceFiltered[0].RatePerHour__c);
+    
+    console.log("totalCost", totalCost);
+    return totalCost;
+  }
+      
 
       handleAssignTemporalSubmit(){       
         var MapTemporalAssign={};
@@ -148,7 +173,8 @@ export default class AssignResource extends LightningElement {
         MapTemporalAssign['ProjectLineItem'] = this.plrfilteredID;
         MapTemporalAssign['StartDate'] = this.StartDateValue;
         MapTemporalAssign['EndDate'] = this.EndDateValue;
-        // MapTemporalAssign['AllocatedHours'] = this.resultAllocatedHourshandler();
+        MapTemporalAssign['AllocatedHours'] = this.resultAllocatedHourshandler();
+        MapTemporalAssign['estimatedCost'] = this.estimatedCost();
         MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
     //   objeto de vista  
         MapTemporalAssignView['Resource'] =this.resourceFilteredName;
@@ -156,7 +182,8 @@ export default class AssignResource extends LightningElement {
         MapTemporalAssignView['ProjectLineItem'] = this.plrfilteredrol;
         MapTemporalAssignView['StartDate'] = this.StartDateValue;
         MapTemporalAssignView['EndDate'] = this.EndDateValue;
-        // MapTemporalAssign['AllocatedHours'] = this.resultAllocatedHourshandler();
+        MapTemporalAssignView['AllocatedHours'] = this.resultAllocatedHourshandler();
+        MapTemporalAssignView['estimatedCost'] = this.estimatedCost();
         MapTemporalAssignView['IsSquadLeader'] = this.checkIsSquarleaderValue;
 
 

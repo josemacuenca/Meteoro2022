@@ -88,12 +88,13 @@
                             <h2>{assigneditem.StartDate}</h2>
                             <h2>{assigneditem.EndDate}</h2>
                             <!-- <h2>${assigneditem.ResourceRate}</h2> -->
-                            <h2>hs alocated</h2>
-                            <h2>Cost</h2>
+                            <h2>{assigneditem.AllocatedHours} Hrs.</h2>
+                            <h2>$${assigneditem.estimatedCost}</h2>
+                            
                             <span if:true={assigneditem.IsSquadLeader} class="my-check-ok">
                                 <i class="my-check-ok"></i>
                             </span>
-                            <span if:false={assigneditem.IsSquadLeader}>-
+                            <span if:false={assigneditem.IsSquadLeader}> -
                             </span>
                             <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
                             </lightning-button>
