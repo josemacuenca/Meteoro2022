@@ -95,7 +95,7 @@ export default class AssignResource extends LightningElement {
       //  ------------------------------------------------------------------.--------------------------
        
        GetProjectStartDate;
-       StartDateValue;
+       @track  StartDateValue;
 
        handleStartDateChange(event){
          this.StartDateValue = event.target.value;
@@ -104,7 +104,7 @@ export default class AssignResource extends LightningElement {
      //  ------------------------------------------------------------------.--------------------------
      
      GetProjectEndDate;  
-     EndDateValue;
+     @track EndDateValue;
 
         handleEndDateChange(event){
           this.EndDateValue = event.target.value;
@@ -131,17 +131,24 @@ export default class AssignResource extends LightningElement {
       validationWarning1;
       validationWarning2;
 
+      resultAllocatedHours
+      resultAllocatedHourshandler() {
+              
+      var timeDiffrence = Math.abs(this.StartDateValue.getTime() - this.EndDateValue.getTime());
+      var differDays = Math.ceil(timeDiffrence / (1000 * 3600 * 24)); 
+
+      return this.resultAllocatedHours
+      }
 
       handleAssignTemporalSubmit(){       
         var MapTemporalAssign={};
         var MapTemporalAssignView={};
-
-
     //   objeto q va a backend  
         MapTemporalAssign['Resource'] =this.selectedResource;
         MapTemporalAssign['ProjectLineItem'] = this.plrfilteredID;
         MapTemporalAssign['StartDate'] = this.StartDateValue;
         MapTemporalAssign['EndDate'] = this.EndDateValue;
+        // MapTemporalAssign['AllocatedHours'] = this.resultAllocatedHourshandler();
         MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
     //   objeto de vista  
         MapTemporalAssignView['Resource'] =this.resourceFilteredName;
@@ -149,6 +156,7 @@ export default class AssignResource extends LightningElement {
         MapTemporalAssignView['ProjectLineItem'] = this.plrfilteredrol;
         MapTemporalAssignView['StartDate'] = this.StartDateValue;
         MapTemporalAssignView['EndDate'] = this.EndDateValue;
+        // MapTemporalAssign['AllocatedHours'] = this.resultAllocatedHourshandler();
         MapTemporalAssignView['IsSquadLeader'] = this.checkIsSquarleaderValue;
 
 
