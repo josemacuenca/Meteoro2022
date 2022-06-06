@@ -170,10 +170,9 @@ export default class AssignResource extends LightningElement {
   estimatedCost() {
 
     var totalCost = this.estimatedHours * this.resourceId[0].RatePerHour__c;
-    console.log("totalthis.estimatedHoursCost-typeof", this.estimatedHours);
-    console.log("resourceId  ==>", this.resourceId[0].RatePerHour__c);
-
-    console.log("totalCost", totalCost);
+    // console.log("totalthis.estimatedHoursCost-typeof", this.estimatedHours);
+    // console.log("resourceId  ==>", this.resourceId[0].RatePerHour__c);
+    // console.log("totalCost", totalCost);
     return totalCost;
   }
 
