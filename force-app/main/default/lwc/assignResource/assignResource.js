@@ -125,9 +125,12 @@ export default class AssignResource extends LightningElement {
       @track
       mapassignedselectedView=[];
        
-       mapaParseado;
-       mapaVista;
-       
+      mapaParseado;
+      mapaVista;
+      
+      validationWarning1;
+      validationWarning2;
+
 
       handleAssignTemporalSubmit(){       
         var MapTemporalAssign={};
@@ -149,10 +152,12 @@ export default class AssignResource extends LightningElement {
         MapTemporalAssignView['IsSquadLeader'] = this.checkIsSquarleaderValue;
 
 
-    // valido objeto q va a backend  
-    if(MapTemporalAssign.Resource == undefined ||  MapTemporalAssign.ProjectLineItem == undefined ||  MapTemporalAssign.StartDate == undefined ||  MapTemporalAssign.EndDate == undefined  || MapTemporalAssignView.StartDate > MapTemporalAssignView.EndDate){    
-      console.log("Error campos indefinidos")
-    } else{
+      // valido objeto q va a backend  
+      if(MapTemporalAssign.Resource == undefined ||  MapTemporalAssign.ProjectLineItem == undefined ||  MapTemporalAssign.StartDate == undefined ||  MapTemporalAssign.EndDate == undefined  || MapTemporalAssignView.StartDate > MapTemporalAssignView.EndDate){    
+        console.log("Error campos indefinidos")
+        this.validationWarning1 = "Error : campos indefinidos, revise bien las fechas por favor"
+
+      } else{
       this.mapassignedselected.push(MapTemporalAssign);
        this.selectedResource=undefined;
        this.selectedProjectLineItem=undefined;
@@ -160,7 +165,9 @@ export default class AssignResource extends LightningElement {
        this.StartDateValue = undefined
        this.EndDateValue = undefined
        this.checkIsSquarleaderValue = undefined
-    } 
+       this.validationWarning1 = ""
+
+     } 
 
         // if(MapTemporalAssign.Resource == undefined ||  MapTemporalAssign.ProjectLineItem == undefined ||  MapTemporalAssign.StartDate == undefined ||  MapTemporalAssign.EndDate == undefined){    
         //   console.log("Error campos indefinidos")
@@ -173,25 +180,27 @@ export default class AssignResource extends LightningElement {
 
        
           
-    // valido objeto de vista  
+        // valido objeto de vista  
 
-        if(MapTemporalAssignView.Resource == undefined ||  MapTemporalAssignView.ProjectLineItem == undefined ||  MapTemporalAssignView.StartDate == undefined ||  MapTemporalAssignView.EndDate == undefined || MapTemporalAssignView.StartDate > MapTemporalAssignView.EndDate){   
-          console.log("Error campos indefinidos")
-          // }else if(MapTemporalAssignView.StartDate < startDateOfProject || MapTemporalAssignView.EndDate > endDateOfProject || MapTemporalAssignView.StartDate < MapTemporalAssignView.EndDate){
-        //   console.log("Error al ingresar algun campo verifique por favor")
+      if(MapTemporalAssignView.Resource == undefined ||  MapTemporalAssignView.ProjectLineItem == undefined ||  MapTemporalAssignView.StartDate == undefined ||  MapTemporalAssignView.EndDate == undefined || MapTemporalAssignView.StartDate > MapTemporalAssignView.EndDate){   
+        console.log("Error campos indefinidos")
+        this.validationWarning1 = "Error : campos indefinidos, revise bien las fechas por favor"
+        // }else if(MapTemporalAssignView.StartDate < startDateOfProject || MapTemporalAssignView.EndDate > endDateOfProject || MapTemporalAssignView.StartDate < MapTemporalAssignView.EndDate){
+       //   console.log("Error al ingresar algun campo verifique por favor")
 
-        } else{
+      } else{
 
 
-          this.mapassignedselectedView.push(MapTemporalAssignView);
-          this.selectedResource=undefined;
-          this.selectedProjectLineItem=undefined;
-          this.plrfilteredID = undefined;
-          this.StartDateValue = undefined
-          this.EndDateValue = undefined
-          this.checkIsSquarleaderValue = undefined
+        this.mapassignedselectedView.push(MapTemporalAssignView);
+        this.selectedResource=undefined;
+        this.selectedProjectLineItem=undefined;
+        this.plrfilteredID = undefined;
+        this.StartDateValue = undefined
+        this.EndDateValue = undefined
+        this.checkIsSquarleaderValue = undefined
+        this.validationWarning1 = ""
 
-        } 
+      } 
 
       
       
@@ -209,6 +218,7 @@ export default class AssignResource extends LightningElement {
         //  ------------------------------------------------------------------. 
 
         deleteTemporalAssignId
+
         handleDeleteTemporalAssign(event){
           this.deleteTemporalAssignId =event.target.dataset.deleteid;
           console.log("newArrayView", deleteTemporalAssignId);
