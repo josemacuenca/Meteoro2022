@@ -291,6 +291,11 @@ export default class AssignResource extends LightningElement {
   //   }
   // }
 
-
-
+  
+  // -------------------------boton asignar resources----------------------------------
+  
+  handleasignamentResources() { 
+    
+    
+  }
 }
