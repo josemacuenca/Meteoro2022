@@ -70,10 +70,11 @@
                 <div class="my-resources-title contenedor ">
                     <h2 class="col-7-cabecera">Role</h2>
                     <h2 class="col-7-cabecera">Resource</h2>
-                    <h2 class="col-7-cabecera">Rate/H</h2>
                     <h2 class="col-7-cabecera">Start Date</h2>
                     <h2 class="col-7-cabecera">End Date</h2>
-                    <h2 class="col-7-cabecera">Squad Lead</h2>
+                    <h2 class="col-7-cabecera">Alloc/Hs</h2>
+                    <h2 class="col-7-cabecera">Cost</h2>
+                    <h2 class="col-7-cabecera">Squad L</h2>
                     <h2 class="col-7-cabecera">Remove</h2>
                 </div>
                 <br>
@@ -84,13 +85,15 @@
                         <div class="my-resources-AllResources">
                             <h2>{assigneditem.ProjectLineItem}</h2>
                             <h2>{assigneditem.Resource}</h2>
-                            <h2>${assigneditem.ResourceRate}</h2>
                             <h2>{assigneditem.StartDate}</h2>
                             <h2>{assigneditem.EndDate}</h2>
+                            <!-- <h2>${assigneditem.ResourceRate}</h2> -->
+                            <h2>hs alocated</h2>
+                            <h2>Cost</h2>
                             <span if:true={assigneditem.IsSquadLeader} class="my-check-ok">
                                 <i class="my-check-ok"></i>
                             </span>
-                            <span if:false={assigneditem.IsSquadLeader}>
+                            <span if:false={assigneditem.IsSquadLeader}>-
                             </span>
                             <lightning-button variant="brand-outline" label="X" title="titleName" onclick={handleClick}>
                             </lightning-button>
@@ -119,9 +122,10 @@
                         "{plitem.Quantity_hours__c} Hours"</h1>
                     <div class="my-resources-title contenedor">
                         <h2 class="col-7-cabecera">Resources</h2>
-                        <h2 class="col-7-cabecera">Rate/H</h2>
                         <h2 class="col-7-cabecera">Start Date</h2>
                         <h2 class="col-7-cabecera">End Date</h2>
+                        <h2 class="col-7-cabecera">hs alocated</h2>
+                        <h2 class="col-7-cabecera">Cost</h2>
                         <h2 class="col-7-cabecera">Squad Lead</h2>
                         <h2 class="col-7-cabecera">Remove</h2>
                         <h2 class="col-7-cabecera">Edit</h2>
