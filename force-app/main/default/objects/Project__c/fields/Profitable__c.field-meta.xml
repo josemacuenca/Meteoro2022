@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Profitable__c</fullName>
     <externalId>false</externalId>
-    <formula>IF( (Total_Amount__c /  Total_Cost__c) &gt;= 0, true, false )</formula>
+    <formula>IF( (Total_Amount__c /  Total_Cost__c) &gt;= 1, true, false )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Profitable</label>
     <trackTrending>false</trackTrending>
