@@ -1,5 +1,3 @@
- 
-
 // import { LightningElement, api, wire } from "lwc";
 import { LightningElement, api } from "lwc";
  import { NavigationMixin } from "lightning/navigation";
