@@ -16,9 +16,10 @@ export default class AssignResource extends LightningElement {
       this.allProjectLineItems = data
       // data.map(item => this.projectLineItemsOptions.push(item.Role__c + " " + item.Quantity_hours__c))
       console.log("this.ProjectLineItemsssssss", this.allProjectLineItems);
-      
+      this.dateOfProject = 
       this.projectLineItemsOptions = data.map((item) => {
         this.plrId.push(item)
+         
          return { label: item.Role__c + " Horas a cubrir: " + item.Quantity_hours__c, value: item.Id , secret :item.Role};
       });
 
@@ -35,13 +36,20 @@ export default class AssignResource extends LightningElement {
   plrfilteredrol
   plrfilteredHsaCubrir
   plrfilteredID
+  startDateOfProject 
+  endDateOfProject 
   handleProjectLineItemsChange(event) {
     this.selectedProjectLineItem = event.detail.value;
     this.prlFiltered=this.plrId.filter(word => word.Id == this.selectedProjectLineItem)
     this.plrfilteredrol =this.prlFiltered[0].Role__c
     this.plrfilteredID =this.prlFiltered[0].Id
     this.plrfilteredHsaCubrir =this.prlFiltered[0].Quantity_hours__c
+    this.startDateOfProject  =this.prlFiltered[0].Project__r.Start_Date__c
+    this.endDateOfProject  =this.prlFiltered[0].Project__r.End_Date__c
+
           console.log("selectedProjectLineItem",  this.selectedProjectLineItem)
+          console.log("startDateOfProject",  this.startDateOfProject)
+          console.log("endDateOfProject",  this.endDateOfProject)
           console.log("prlFilteredprlFilteredprlFiltered",  this.prlFiltered)
     console.log("acafiltroiod",this.prlFiltered[0].Id)
     console.log("acafiltroiRROL",this.prlFiltered[0].Role__c)
@@ -73,7 +81,10 @@ export default class AssignResource extends LightningElement {
     resourceFiltered
  resourceFilteredName
  resourceFilteredRxHour
+
+
     handleResourcePerRoleChange(event) {
+      event.preventDefault()
       this.selectedResource = event.detail.value;
       console.log("id user p la query",this.selectedResource)   
       this.resourceFiltered=this.resourceId.filter(word => word.Id == this.selectedResource)
@@ -100,52 +111,116 @@ export default class AssignResource extends LightningElement {
        }
                
      //  ------------------------------------------------------------------.--------------------------
-        checkIsSquarleaderValue;
+        checkIsSquarleaderValue= false;
         handleIsSqualeaderChange(event){
-          this.checkIsSquarleaderValue = event.target.checked;
+
+           this.checkIsSquarleaderValue = event.target.checked;
+          console.log("checkIsSquarleaderValue",this.checkIsSquarleaderValue)
        }
           
       //  ------------------------------------------------------------------. 
 
       @track
-       mapassignedselected=[];
-       mapassignedselectedView=[];
+      mapassignedselected=[];
+      @track
+      mapassignedselectedView=[];
        
        mapaParseado;
        mapaVista;
        
+
       handleAssignTemporalSubmit(){       
         var MapTemporalAssign={};
         var MapTemporalAssignView={};
 
 
+    //   objeto q va a backend  
         MapTemporalAssign['Resource'] =this.selectedResource;
         MapTemporalAssign['ProjectLineItem'] = this.plrfilteredID;
         MapTemporalAssign['StartDate'] = this.StartDateValue;
         MapTemporalAssign['EndDate'] = this.EndDateValue;
         MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
-
-        this.mapassignedselected.push(MapTemporalAssign);
-        console.log("mapassignedselected",this.mapassignedselected);
-        console.log("MapTemporalAssign", MapTemporalAssign);
- 
-        this.mapaParseado=JSON.parse(JSON.stringify(this.mapassignedselected))
-        console.log("this.mapaParseado",this.mapaParseado);
-
-
-        
+    //   objeto de vista  
         MapTemporalAssignView['Resource'] =this.resourceFilteredName;
         MapTemporalAssignView['ResourceRate'] =this.resourceFilteredRxHour;
         MapTemporalAssignView['ProjectLineItem'] = this.plrfilteredrol;
         MapTemporalAssignView['StartDate'] = this.StartDateValue;
         MapTemporalAssignView['EndDate'] = this.EndDateValue;
         MapTemporalAssignView['IsSquadLeader'] = this.checkIsSquarleaderValue;
-        this.mapassignedselectedView.push(MapTemporalAssignView);
+
+
+    // valido objeto q va a backend  
+    if(MapTemporalAssign.Resource == undefined ||  MapTemporalAssign.ProjectLineItem == undefined ||  MapTemporalAssign.StartDate == undefined ||  MapTemporalAssign.EndDate == undefined  || MapTemporalAssignView.StartDate > MapTemporalAssignView.EndDate){    
+      console.log("Error campos indefinidos")
+    } else{
+      this.mapassignedselected.push(MapTemporalAssign);
+       this.selectedResource=undefined;
+       this.selectedProjectLineItem=undefined;
+       this.plrfilteredID = undefined;
+       this.StartDateValue = undefined
+       this.EndDateValue = undefined
+       this.checkIsSquarleaderValue = undefined
+    } 
+
+        // if(MapTemporalAssign.Resource == undefined ||  MapTemporalAssign.ProjectLineItem == undefined ||  MapTemporalAssign.StartDate == undefined ||  MapTemporalAssign.EndDate == undefined){    
+        //   console.log("Error campos indefinidos")
+        // } else{
+        //   this.mapassignedselected.push(MapTemporalAssign);
+
+        // } 
+        // }else if(MapTemporalAssign.StartDate < startDateOfProject || MapTemporalAssign.EndDate > endDateOfProject || MapTemporalAssign.StartDate < MapTemporalAssign.EndDate){
+        //   console.log("Error al ingresar algun campo verifique por favor")
+
        
+          
+    // valido objeto de vista  
+
+        if(MapTemporalAssignView.Resource == undefined ||  MapTemporalAssignView.ProjectLineItem == undefined ||  MapTemporalAssignView.StartDate == undefined ||  MapTemporalAssignView.EndDate == undefined || MapTemporalAssignView.StartDate > MapTemporalAssignView.EndDate){   
+          console.log("Error campos indefinidos")
+          // }else if(MapTemporalAssignView.StartDate < startDateOfProject || MapTemporalAssignView.EndDate > endDateOfProject || MapTemporalAssignView.StartDate < MapTemporalAssignView.EndDate){
+        //   console.log("Error al ingresar algun campo verifique por favor")
+
+        } else{
+
+
+          this.mapassignedselectedView.push(MapTemporalAssignView);
+          this.selectedResource=undefined;
+          this.selectedProjectLineItem=undefined;
+          this.plrfilteredID = undefined;
+          this.StartDateValue = undefined
+          this.EndDateValue = undefined
+          this.checkIsSquarleaderValue = undefined
+
+        } 
+
+      
+      
+ 
+        console.log("mapassignedselected",this.mapassignedselected);
+        console.log("MapTemporalAssign", MapTemporalAssign);
+ 
+        this.mapaParseado=JSON.parse(JSON.stringify(this.mapassignedselected))
+        console.log("this.mapaParseado",this.mapaParseado);
+  
         this.mapaVista=JSON.parse(JSON.stringify(this.mapassignedselected))
         console.log("this.mapaVista",this.mapassignedselectedView);
+        console.log("this.mapaVista",this.mapaVista);
       }
+        //  ------------------------------------------------------------------. 
 
+        deleteTemporalAssignId
+        handleDeleteTemporalAssign(event){
+          this.deleteTemporalAssignId =event.target.dataset.deleteid;
+          console.log("newArrayView", deleteTemporalAssignId);
+  
+          //  var newArrayView = mapassignedselectedView.filter((item) => item.Id == this.deleteTemporalAssignId );
+          //  var newArray = mapassignedselected.filter((item) => item.Id == this.deleteTemporalAssignId );
+          // console.log("newArrayView", newArrayView);
+          // console.log("newArraynewArray", newArray);
+          // console.log("this.mapaVista",this.mapassignedselectedView);
+          // console.log("this.mapaVista",this.mapaVista);
+        }
+     
        
   //  ------------------------------------------------------------------. 
 
