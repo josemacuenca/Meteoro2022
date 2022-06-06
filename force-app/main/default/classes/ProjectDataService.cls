@@ -2,7 +2,7 @@ public with sharing class ProjectDataService {
 
 
   @AuraEnabled(Cacheable=true)
-  public static List<ProjectLineItem__c> setProjectLineResource(String projectId) {
+  public static List<ProjectLineItem__c> getProjectLineResource(String projectId) {
     List<ProjectLineItem__c> query = new List<ProjectLineItem__c>();
 
     query = [SELECT Project__r.Id, Project__r.Name, Role__c, Quantity_hours__c, Project__r.Start_Date__c, Project__r.End_Date__c, 
@@ -35,6 +35,16 @@ public with sharing class ProjectDataService {
     // allresourceList = [SELECT Name,username,UserRole.Name,RatePerHour__c  FROM User where UserRole.Name=:resourceRole];
   }
 
+  @AuraEnabled
+  public static String upsertProjectLineResource(List<ProjectLine_Resource__c> data) {
+    // List<Boat__c> resourcesToInsert = (List<ProjectLine_Resource__c>) JSON.deserialize(JSON.serialize(data),
+    // List<Boat__c>.class
+    // );
+    // objectName
+    System.debug(data);
+    // upsert boatsForUpdate;
+    return 'Success: PLResource insert successfully';
+  }
 
   // @AuraEnabled(Cacheable=true)
   // public static List<ProjectLineItem__c> getProjectLineItems(Id projectId) {
@@ -51,9 +61,9 @@ public with sharing class ProjectDataService {
   
 
 
-
+  // upsertProjectLineResource
   // @AuraEnabled(Cacheable=true)
-  // public static void setProjectLineResource (Id projectId, JSON resourceListJSON, String role) {
+  // public static void getProjectLineResource (Id projectId, JSON resourceListJSON, String role) {
   //   List<ProjectLineItem__c> query = [SELECT Project__r.Id, Project__r.Name, Role__c, Quantity_hours__c, Project__r.Start_Date__c, Project__r.End_Date__c, 
   //   (SELECT Resource__r.Name, Resource__r.UserRole.Name, Resource__r.RatePerHour__c, Allocated_Hours__c, Start_Date__c, End_Date__c, Squad_Leader__c 
   //   FROM ProjectLine_Resources__r) 

@@ -111,10 +111,13 @@
 
         <br>
 
+
         <lightning-layout multiple-rows class="slds-box my-border">
             <lightning-layout-item class="custom-box slds-m-bottom_small my-lli" size="12" key={plitem.Id}>
                 <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center">Recursos ya asignados a este proyecto:</h1>
             </lightning-layout-item>
+
+
             <template for:each={allProjectLineItems} for:item="plitem">
 
                 
@@ -131,7 +134,7 @@
                         <h2 class="col-7-cabecera">Remove</h2>
                         <h2 class="col-7-cabecera">Edit</h2>
                     </div>
-                    <c-assign-child plitem={plitem}></c-assign-child>
+                    <c-assign-child plitem={plitem} ></c-assign-child>
                 </lightning-layout-item>
             </template>
         </lightning-layout>

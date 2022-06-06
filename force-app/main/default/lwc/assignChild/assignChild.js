@@ -18,6 +18,9 @@ export default class AssignChild extends NavigationMixin(LightningElement) {
       event.preventDefault();
       event.stopPropagation();
       this.editRecord = event.target.dataset.id;
+
+
+
       this[NavigationMixin.Navigate]({
         type: "standard__recordPage",
         attributes: {
@@ -25,12 +28,12 @@ export default class AssignChild extends NavigationMixin(LightningElement) {
           objectApiName: "ProjectLine_Resource__c",
           actionName: "edit",
         },
-        
       }
-      );
-      
+      ); 
       
     }
+
+
     handleDelete(event) {
       event.preventDefault();
       // event.stopPropagation();
@@ -46,7 +49,7 @@ export default class AssignChild extends NavigationMixin(LightningElement) {
                 message: 'Record deleted',
                 variant: 'success'
             }),
-        window.location.reload()
+        // window.location.reload()
         );
 
         // this[NavigationMixin.Navigate]({

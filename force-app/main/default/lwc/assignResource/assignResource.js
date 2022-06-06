@@ -4,21 +4,30 @@ import {
   wire,
   track
 } from "lwc";
-import setProjectLineResource from "@salesforce/apex/ProjectDataService.setProjectLineResource";
+// importa customlabel from @customlabels
+// import from validations
+// apex 
+import getProjectLineResource from "@salesforce/apex/ProjectDataService.getProjectLineResource";
 import getAllResourcePerRole from "@salesforce/apex/ProjectDataService.getAllResourcePerRole";
+import upsertProjectLineResource from "@salesforce/apex/ProjectDataService.upsertProjectLineResource";
+
 // import { deleteRecord } from 'lightning/uiRecordApi';
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 export default class AssignResource extends LightningElement {
+  
   allProjectLineItems;
   projectLineItemsOptions;
   selectedProjectLineItem;
   plrId = [];
 
   @api recordId
-  @wire(setProjectLineResource, {projectId: '$recordId'})
-  wiredProjectLineItems({data, error}) {
+
+
+  @wire(getProjectLineResource, {projectId: '$recordId'})
+  handleRequestProjectLineItems({data, error}) {
     if (data) {
-      this.allProjectLineItems = data
+      this.allProjectLineItems = data;
       // data.map(item => this.projectLineItemsOptions.push(item.Role__c + " " + item.Quantity_hours__c))
       console.log("this.ProjectLineItemsssssss", this.allProjectLineItems);
       this.dateOfProject =
@@ -181,13 +190,13 @@ export default class AssignResource extends LightningElement {
     var MapTemporalAssign = {};
     var MapTemporalAssignView = {};
     //   objeto q va a backend  
-    MapTemporalAssign['Resource'] = this.selectedResource;
-    MapTemporalAssign['ProjectLineItem'] = this.plrfilteredID;
-    MapTemporalAssign['StartDate'] = this.StartDateValue;
-    MapTemporalAssign['EndDate'] = this.EndDateValue;
-    MapTemporalAssign['AllocatedHours'] = this.resultAllocatedHourshandler();
-    MapTemporalAssign['estimatedCost'] = this.estimatedCost();
-    MapTemporalAssign['IsSquadLeader'] = this.checkIsSquarleaderValue;
+    MapTemporalAssign['Resource__c'] = this.selectedResource;
+    MapTemporalAssign['Project_Product__c'] = this.plrfilteredID;
+    MapTemporalAssign['Start_Date__c'] = this.StartDateValue;
+    MapTemporalAssign['End_Date__c'] = this.EndDateValue;
+    MapTemporalAssign['Allocated_Hours__c'] = this.resultAllocatedHourshandler();
+    MapTemporalAssign['Estimated_Cost__c'] = this.estimatedCost();
+    MapTemporalAssign['Squad_Leader__c'] = this.checkIsSquarleaderValue;
     //   objeto de vista  
     MapTemporalAssignView['Resource'] = this.resourceFilteredName;
     MapTemporalAssignView['ResourceRate'] = this.resourceFilteredRxHour;
@@ -200,7 +209,7 @@ export default class AssignResource extends LightningElement {
 
 
     // valido objeto q va a backend  
-    if (MapTemporalAssign.Resource == undefined || MapTemporalAssign.ProjectLineItem == undefined || MapTemporalAssign.StartDate == undefined || MapTemporalAssign.EndDate == undefined || MapTemporalAssignView.StartDate > MapTemporalAssignView.EndDate) {
+    if (MapTemporalAssign.Resource__c == undefined || MapTemporalAssign.Project_Product__c == undefined || MapTemporalAssign.Start_Date__c == undefined || MapTemporalAssign.End_Date__c == undefined ||MapTemporalAssign.Allocated_Hours__c == undefined ||MapTemporalAssign.Estimated_Cost__c == undefined || MapTemporalAssignView.StartDate > MapTemporalAssignView.EndDate) {
       console.log("Error campos indefinidos")
       this.validationWarning1 = "Error : campos indefinidos, revise bien las fechas por favor"
 
@@ -256,8 +265,8 @@ export default class AssignResource extends LightningElement {
     this.mapaParseado = JSON.parse(JSON.stringify(this.mapassignedselected))
     console.log("this.mapaParseado", this.mapaParseado);
 
-    this.mapaVista = JSON.parse(JSON.stringify(this.mapassignedselected))
-    console.log("this.mapaVista", this.mapassignedselectedView);
+    this.mapaVista = JSON.parse(JSON.stringify(this.mapassignedselectedView))
+    console.log("this.mapaVistaproxyy", this.mapassignedselectedView);
     console.log("this.mapaVista", this.mapaVista);
   }
   //  ------------------------------------------------------------------. 
@@ -279,7 +288,7 @@ export default class AssignResource extends LightningElement {
 
   //  ------------------------------------------------------------------. 
 
-  // @wire(setProjectLineResource, { resourceListJSON: '$mapaParseado' })
+  // @wire(upsertProjectLineResource, { resourceListJSON: '$mapaParseado' })
   // wiredAllResources({ data, error }) {
   //   if (data) {
 
@@ -295,7 +304,27 @@ export default class AssignResource extends LightningElement {
   // -------------------------boton asignar resources----------------------------------
   
   handleasignamentResources() { 
+    const insertFields = this.mapaParseado
     
-    
+    upsertProjectLineResource({ data: insertFields })
+    .then((result) => {
+      const toast = new ShowToastEvent({
+        title: SUCCESS_TITLE,
+        message: "Exito",
+        variant: SUCCESS_VARIANT,
+      });   
+    })
+    .catch((error) => {
+      const toast = new ShowToastEvent({
+        title: ERROR_TITLE,
+        message: error.message,
+        variant: ERROR_VARIANT,
+      });
+      this.dispatchEvent(toast);
+    })
+    // .finally(() => {});
   }
+
+ 
+  
 }
