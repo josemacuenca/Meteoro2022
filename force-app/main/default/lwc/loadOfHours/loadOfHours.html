@@ -4,13 +4,13 @@
         
         <template for:each={AllProjectLineResources} for:item="projectLineResources">
         <lightning-layout-item size="12" padding="around-small" class="my-lightning-layout-item" key={projectLineResources.id}>
-            <h1 class="my-title-task">TAREAS</h1>
+            <h1 class="my-title-task">Proyecto {projectLineResources.Project_Product__r.Project__r.Name} - {projectLineResources.Project_Tasks__r.length} tareas pendientes</h1>
             <div class="c-container my-lightning-layout-item">
                 <h2 class="my-items">1- {projectLineResources.Id}</h2>
                 <h2 class="my-items">2- {projectLineResources.Name}</h2>
                 <h2 class="my-items">2-</h2>
                 <h2 class="my-items">2- Proyecto : {projectLineResources.Project_Product__r.Project__r.Name}  tareas pendientes</h2>
-                <!-- <h2 class="my-items">2- {projectLineResources.Project_Tasks__r}</h2> -->
+                
                 <h2 class="my-items">5- </h2>
                 <h2 class="my-items">6- </h2>
             </div>
