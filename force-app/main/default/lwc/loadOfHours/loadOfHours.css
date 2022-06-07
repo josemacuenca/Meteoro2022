@@ -1,5 +1,5 @@
 .my-lightning-layout{
-    border: 1px solid #000;
+    border: var(--lwc-borderWidthThin, 1px) solid #000;
 }
 .my-lightning-layout-item{
     background-color: #fff;
@@ -10,10 +10,11 @@
 
 .my-items{
     background-color: blanchedalmond;
-    border: 1px solid #000;
+    border: var(--lwc-borderWidthThin, 1px) solid #000;
 }
 .my-title{
     background-color: blue;
     color: #fff;
+    display: block;
     
 }
