@@ -12,12 +12,22 @@
 
                     <template for:each={projectLineResources.Project_Tasks__r} for:item="task">
 
-                        <div key={task.id}>
-                            <div>
+                        <div class="my-container-task" key={task.id}>
+                            <div class="my-cabecera">
                                 <h2></h2>
                                 <h2></h2>
                                 <h2></h2>
                                 <h2></h2>
+                               
+                            </div>
+                            <div class="my-campos-task">
+                                <h2>Name: {task.Name}</h2>
+                                <h2>{task.Estimated_Hours__c}Hrs.</h2>
+                                <h2> Estado: {task.Stage__c}</h2>
+                                <h2>{task.ProjectLine_Resource__r.Name}</h2>
+                                <h2>{task.Name}</h2>
+                                <h2>{task.Name}</h2>
+                                <h2>{task.Name}</h2>
                                 <div>div condicional
                                     <!-- <input type="text">
                                     <lightning-button variant="success" label="Complited" title="titleName"
@@ -29,15 +39,6 @@
                                     <!-- <lightning-button variant="brand" label="labelName" title="titleName"
                                         onclick={handleClick}></lightning-button> -->
                                 </div>
-                            </div>
-                            <div>
-                                <h2>Name: {task.Name}</h2>
-                                <h2>{task.Estimated_Hours__c}Hrs.</h2>
-                                <h2> Estado: {task.Stage__c}</h2>
-                                <h2>{task.ProjectLine_Resource__r.Name}</h2>
-                                <h2>{task.Name}</h2>
-                                <h2>{task.Name}</h2>
-                                <h2>{task.Name}</h2>
                             </div>
                         </div>
 
