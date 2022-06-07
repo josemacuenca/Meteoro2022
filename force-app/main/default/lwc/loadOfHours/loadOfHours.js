@@ -9,6 +9,7 @@ export default class LoadOfHours extends LightningElement {
 
   TaskQuantityInProject;
   AllProjectLineResources;
+  
   @wire(getProjectTaskPorResource)
   handleRequestPrjTaskPorRec({data, error}) {
     if (data) {
