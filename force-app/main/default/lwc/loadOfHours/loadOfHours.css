@@ -19,6 +19,11 @@
     /* border: 1px solid red; */
 }
 
+.my-title-task{
+    width: 25%;
+    padding: 2px;
+}
+
 .my-items{
     background-color: #032d60;
     border: var(--lwc-borderWidthThin, 1px) solid rgb(126, 126, 126);
