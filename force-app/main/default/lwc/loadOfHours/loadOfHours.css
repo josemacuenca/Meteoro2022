@@ -1,20 +1,26 @@
 .my-lightning-layout{
     border: var(--lwc-borderWidthThin, 1px) solid #000;
 }
+
+.my-title{
+    background-color: #0b76d3;
+    color: #fff;
+    display:inline;
+    font-size: large;
+    width: 100%;
+    text-align: center;
+}
+
 .my-lightning-layout-item{
     background-color: #fff;
 }
+
 .my-lightning-layout-item{
     /* border: 1px solid red; */
 }
 
 .my-items{
-    background-color: blanchedalmond;
+    background-color: #032d60;
     border: var(--lwc-borderWidthThin, 1px) solid #000;
-}
-.my-title{
-    background-color: blue;
-    color: #fff;
-    display: block;
-    
+    color:bisque;
 }

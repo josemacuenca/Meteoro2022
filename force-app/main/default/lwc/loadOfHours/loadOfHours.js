@@ -13,8 +13,7 @@ export default class LoadOfHours extends LightningElement {
     if (data) {
       this.AllProjectLineResources = data;
            console.log("this.AllProjectLineResources", this.AllProjectLineResources);
-             } 
-             else if (error) {
+    }else if (error) {
       console.log("data.error");
       console.log(error);
     }
