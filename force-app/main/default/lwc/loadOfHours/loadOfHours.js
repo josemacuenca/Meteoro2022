@@ -8,6 +8,7 @@ import getProjectTaskPorResource from '@salesforce/apex/ProjectDataService.getPr
 export default class LoadOfHours extends LightningElement {
 
   AllProjectLineResources;
+  
   @wire(getProjectTaskPorResource)
   handleRequestPrjTaskPorRec({data, error}) {
     if (data) {
