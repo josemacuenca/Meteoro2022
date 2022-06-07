@@ -1,22 +1,59 @@
 <template>
     <lightning-layout multiple-rows class="my-lightning-layout">
         <h1 class="my-title">Componente de Asignacion de Horas</h1>
-        
+
         <template for:each={AllProjectLineResources} for:item="projectLineResources">
-        <lightning-layout-item size="12" padding="around-small" class="my-lightning-layout-item" key={projectLineResources.id}>
-            <h1 class="my-title-task">Proyecto {projectLineResources.Project_Product__r.Project__r.Name} - {projectLineResources.Project_Tasks__r.length} tareas pendientes</h1>
-            <div class="c-container my-lightning-layout-item">
-                <h2 class="my-items">1- {projectLineResources.Id}</h2>
-                <h2 class="my-items">2- {projectLineResources.Name}</h2>
-                <h2 class="my-items">2-</h2>
-                <h2 class="my-items">2- Proyecto : {projectLineResources.Project_Product__r.Project__r.Name}  tareas pendientes</h2>
-                
-                <h2 class="my-items">5- </h2>
-                <h2 class="my-items">6- </h2>
-            </div>
-        </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-small" class="my-lightning-layout-item"
+                key={projectLineResources.id}>
+                <h1 class="my-title-task">Proyecto {projectLineResources.Project_Product__r.Project__r.Name} -
+                    {projectLineResources.Project_Tasks__r.length} tareas pendientes</h1>
+
+                <div class="c-container my-lightning-layout-item">
+
+                    <template for:each={projectLineResources.Project_Tasks__r} for:item="task">
+
+                        <div key={task.id}>
+                            <div>
+                                <h2></h2>
+                                <h2></h2>
+                                <h2></h2>
+                                <h2></h2>
+                                <div>div condicional
+                                    <!-- <input type="text">
+                                    <lightning-button variant="success" label="Complited" title="titleName"
+                                        onclick={handleClick}></lightning-button>
+                                    <lightning-button variant="neutral" label="Registro/hrs." title="titleName"
+                                        onclick={handleClick}></lightning-button> -->
+                                </div>
+                                <div>boton si el estado != iniciada
+                                    <!-- <lightning-button variant="brand" label="labelName" title="titleName"
+                                        onclick={handleClick}></lightning-button> -->
+                                </div>
+                            </div>
+                            <div>
+                                <h2>Name: {task.Name}</h2>
+                                <h2>{task.Estimated_Hours__c}Hrs.</h2>
+                                <h2> Estado: {task.Stage__c}</h2>
+                                <h2>{task.ProjectLine_Resource__r.Name}</h2>
+                                <h2>{task.Name}</h2>
+                                <h2>{task.Name}</h2>
+                                <h2>{task.Name}</h2>
+                            </div>
+                        </div>
+
+                    </template>
+
+                    <h2 class="my-items">1- {projectLineResources.Id}</h2>
+                    <h2 class="my-items">2- {projectLineResources.Name}</h2>
+                    <h2 class="my-items">2-</h2>
+                    <h2 class="my-items">2- Proyecto : {projectLineResources.Project_Product__r.Project__r.Name} tareas
+                        pendientes</h2>
+                    <h2 class="my-items">5- </h2>
+                    <h2 class="my-items">6- </h2>
+                </div>
+            </lightning-layout-item>
 
         </template>
-    
+
     </lightning-layout>
 </template>
