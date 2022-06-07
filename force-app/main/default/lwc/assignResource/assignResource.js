@@ -313,6 +313,7 @@ export default class AssignResource extends LightningElement {
         message: "Exito",
         variant: SUCCESS_VARIANT,
       });   
+      // window.location.reload()
     })
     .catch((error) => {
       const toast = new ShowToastEvent({
@@ -323,6 +324,7 @@ export default class AssignResource extends LightningElement {
       this.dispatchEvent(toast);
     })
     // .finally(() => {});
+    window.location.reload()
   }
 
  
