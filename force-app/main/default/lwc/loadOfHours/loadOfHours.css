@@ -2,10 +2,10 @@
     border: 1px solid #000;
 }
 .my-lightning-layout-item{
-    background-color: antiquewhite;
+    background-color: #fff;
 }
 .my-lightning-layout-item{
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .my-items{
