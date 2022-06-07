@@ -100,6 +100,7 @@
 .my-check-ok{
     width: 30px;
     height: 30px;
+    padding: 9px 16px 9px 16px;
     background-color: #44c08a;
     border-radius: 50%;
     color: #032d60;
@@ -117,8 +118,10 @@
   
     
 }
-
-.contenedor-child{
-    justify-content:space-around ;
-    
+.col-7-cabecera{
+    width: 58.33333333%;
+    /* border: 2px solid #0b76d3; */
+    float: left;
+    text-align: center;
 }
+

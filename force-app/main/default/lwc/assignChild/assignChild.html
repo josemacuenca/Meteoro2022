@@ -6,19 +6,25 @@
                                  
                 <div class="c-container " key={plritem.Id}>
                     <div class="my-resources-AllResources contenedor-child">
-                        <h2>{plritem.Resource__r.Name}</h2>
-                        <h2>{plritem.Start_Date__c}</h2>
-                        <h2>{plritem.End_Date__c}</h2>
-                        <h2>{plritem.Allocated_Hours__c} Hrs.</h2> 
-                        <h2>$ {plritem.Estimated_Cost__c}</h2>
-                        <span if:true={plritem.Squad_Leader__c} class="my-check-ok">
-                            <i class="my-check-ok"></i>
+                        <h2 class="col-7-cabecera">{plritem.Resource__r.Name}</h2>
+                        <h2 class="col-7-cabecera">{plritem.Start_Date__c}</h2>
+                        <h2 class="col-7-cabecera">{plritem.End_Date__c}</h2>
+                        <h2 class="col-7-cabecera">{plritem.Allocated_Hours__c} Hrs.</h2> 
+                        <h2 class="col-7-cabecera">$ {plritem.Estimated_Cost__c}</h2>
+                        
+                        <span  class="col-7-cabecera" if:true={plritem.Squad_Leader__c}>
+                            <span  class="my-check-ok">
+                                <!-- <i class="my-check-ok"></i> -->
+                            </span>
                         </span>
-                        <span if:false={plritem.Squad_Leader__c}> -
+                        <span class="col-7-cabecera" if:false={plritem.Squad_Leader__c}>
+                            <span if:false={plritem.Squad_Leader__c}> -
+                            </span>
                         </span>
-                        <lightning-button variant="destructive" label="=> " title="titleName" icon-name="utility:delete" icon-position="right" onclick={handleDelete} data-id={plritem.Id}>
+
+                        <lightning-button class="col-7-cabecera" variant="destructive" label="=> " title="titleName" icon-name="utility:delete" icon-position="right" onclick={handleDelete} data-id={plritem.Id}>
                         </lightning-button>
-                        <lightning-button  variant="success" label="Edit" title="titleName"  onclick={handleEditRecord} data-id={plritem.Id}>
+                        <lightning-button class="col-7-cabecera"  variant="success" label="Edit" title="titleName"  onclick={handleEditRecord} data-id={plritem.Id}>
                         </lightning-button>
                     </div>
                     <hr>

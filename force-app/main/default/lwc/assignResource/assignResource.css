@@ -55,13 +55,15 @@
     background-color: #000;
 }
 
+/* -------------------- boton submit  &  check -------------------------------- */
+
 .my-boton {
     position: relative;
     width: 70px;
     height: 30px;
     font-size: 15px;
-    background-color: #0b76d3;
-    color: #fff;
+    background-color: #fff;
+    color: #0b76d3;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -81,7 +83,7 @@
 }
 
 .my-boton:hover {
-    background-color: #0b76d38f;
+    background-color: #ffffff8f;
 }
 
 .my-boton:focus {
@@ -102,6 +104,8 @@
     opacity: 1;
     transition-delay: .5s;
 }
+
+/* ------------------------------------------------------------------------------------------ */
 
 .my-resources{
     display: inline-block;
@@ -148,4 +152,10 @@
     border: 2px solid #0b76d3;
     float: left;
     text-align: center;
+}
+
+.my-message-error{
+    border-radius: 15px;
+    background:#0b76d3;
+    color:rgb(9, 1, 70);
 }

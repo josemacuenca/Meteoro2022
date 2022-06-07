@@ -36,17 +36,17 @@
                 </lightning-input>
                 <hr>
 
-               
-                <lightning-button class="slds-float_left" variant="brand-outline" label="Asignar"
-                    title="titleName" onclick={handleAssignTemporalSubmit}>
-                </lightning-button>
+                <button class="my-boton" onclick={handleAssignTemporalSubmit}>
+                    <span class="my-text-boton ">Submit</span>
+                    <i class="my-icon"></i>
+                </button>
+                
                 <div if:true={validationWarning1} >
                     <br>     
-                    <hr>
-                                   
-                    <div style="color:rgb(9, 1, 70); background:#0b76d3">
-                        <h2 > {validationWarning1}</h2>
-                </div>
+                    <hr>            
+                    <div class="my-message-error">
+                        <h2 > {validationWarning1} </h2>
+                    </div>
                 </div>
                
             </lightning-layout-item>
