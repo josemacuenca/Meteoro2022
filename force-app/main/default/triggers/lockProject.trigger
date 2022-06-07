@@ -1,4 +1,4 @@
-trigger lockProject on Project__c (after insert, before update, before delete) {
+trigger lockProject on Project__c (after insert, before update) {
     List<Project__c> newP = Trigger.new;
     Map<Id, Project__c> oldP = Trigger.oldMap;
     for (Project__c p : newP){
