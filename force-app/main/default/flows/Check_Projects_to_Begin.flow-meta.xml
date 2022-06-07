@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
+        <name>Email_Incomplete_Tasks</name>
+        <label>Email Incomplete Tasks</label>
+        <locationX>842</locationX>
+        <locationY>636</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Incomplete_Tasks</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Project_Manager__r.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>$Record.Project_Manager__r.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Project Cannot End, incomplete tasks</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
         <name>Email_To_PM</name>
         <label>Email To PM</label>
         <locationX>314</locationX>
@@ -37,7 +70,7 @@
     <decisions>
         <name>Check_Date</name>
         <label>Check Date</label>
-        <locationX>380</locationX>
+        <locationX>644</locationX>
         <locationY>276</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -50,15 +83,44 @@
                     <elementReference>$Flow.CurrentDate</elementReference>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pre-kickoff</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Validate_Data</targetReference>
             </connector>
-            <label>Today</label>
+            <label>Begin Today</label>
+        </rules>
+        <rules>
+            <name>End_Today</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.End_Date__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In progress</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Project_Ready_for_Finalization</targetReference>
+            </connector>
+            <label>End Today</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Project_is_Ready</name>
-        <label>Project is Ready</label>
+        <name>Project_is_Ready_to_Begin</name>
+        <label>Project is Ready to Begin</label>
         <locationX>182</locationX>
         <locationY>516</locationY>
         <defaultConnector>
@@ -79,6 +141,31 @@
                 <targetReference>Update_Project_Status</targetReference>
             </connector>
             <label>Ready</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Project_is_Ready_to_End</name>
+        <label>Project is Ready to End</label>
+        <locationX>710</locationX>
+        <locationY>516</locationY>
+        <defaultConnector>
+            <targetReference>Email_Incomplete_Tasks</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Incomplete Tasks</defaultConnectorLabel>
+        <rules>
+            <name>Ready_to_End</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>allTasksCompleted</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Status_To_Completed</targetReference>
+            </connector>
+            <label>Ready to End</label>
         </rules>
     </decisions>
     <interviewLabel>Check Projects to Begin {!$Flow.CurrentDateTime}</interviewLabel>
@@ -115,13 +202,26 @@
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
+    <recordUpdates>
+        <name>Update_Status_To_Completed</name>
+        <label>Update Status To Completed</label>
+        <locationX>578</locationX>
+        <locationY>636</locationY>
+        <inputAssignments>
+            <field>Stage__c</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
     <start>
-        <locationX>254</locationX>
+        <locationX>518</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Check_Date</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>or</filterLogic>
         <filters>
             <field>Stage__c</field>
             <operator>EqualTo</operator>
@@ -129,22 +229,53 @@
                 <stringValue>Pre-kickoff</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>Stage__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>In progress</stringValue>
+            </value>
+        </filters>
         <object>Project__c</object>
         <schedule>
             <frequency>Daily</frequency>
             <startDate>2022-06-01</startDate>
-            <startTime>00:15:00.000Z</startTime>
+            <startTime>14:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
+    <subflows>
+        <name>Project_Ready_for_Finalization</name>
+        <label>Project Ready for Finalization</label>
+        <locationX>710</locationX>
+        <locationY>396</locationY>
+        <connector>
+            <targetReference>Project_is_Ready_to_End</targetReference>
+        </connector>
+        <flowName>Check_for_Project_Ready_to_End</flowName>
+        <inputAssignments>
+            <name>projectRecord</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>allTasksCompleted</assignToReference>
+            <name>allComplete</name>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>IncompleteTasks</assignToReference>
+            <name>IncompleteTasks</name>
+        </outputAssignments>
+    </subflows>
     <subflows>
         <name>Validate_Data</name>
         <label>Validate Data</label>
         <locationX>182</locationX>
         <locationY>396</locationY>
         <connector>
-            <targetReference>Project_is_Ready</targetReference>
+            <targetReference>Project_is_Ready_to_Begin</targetReference>
         </connector>
         <flowName>Validate_Project_Readiness</flowName>
         <inputAssignments>
@@ -163,16 +294,39 @@
         </outputAssignments>
     </subflows>
     <textTemplates>
+        <name>Incomplete_Tasks</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;{!IncompleteTasks}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
         <name>ProjectNotReady</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;Project Is Not Ready to Begin&lt;/p&gt;</text>
     </textTemplates>
+    <variables>
+        <name>allTasksCompleted</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
     <variables>
         <name>Email_PM</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>IncompleteTasks</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Project_Task__c</objectType>
     </variables>
     <variables>
         <name>IsApproved</name>
