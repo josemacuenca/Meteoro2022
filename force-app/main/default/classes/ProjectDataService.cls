@@ -51,7 +51,8 @@ public with sharing class ProjectDataService {
   public static List<ProjectLine_Resource__c> getProjectTaskPorResource() {
     List<ProjectLine_Resource__c> query = new List<ProjectLine_Resource__c>();
 
-    query = [SELECT Name, Project_Product__r.Project__r.Id,Project_Product__r.Project__r.Name, (SELECT Name,Stage__c, Estimated_Hours__c,Start_Date__c, End_Date__c,Worked_Hours__c ,ProjectLine_Resource__r.Name FROM Project_Tasks__r) FROM ProjectLine_Resource__c];
+    
+    query = [SELECT Name, Project_Product__r.Project__r.Id,Project_Product__r.Project__r.Name, (SELECT Name,Stage__c, Estimated_Hours__c,Start_Date__c, End_Date__c,Worked_Hours__c ,ProjectLine_Resource__r.Name FROM Project_Tasks__r) FROM ProjectLine_Resource__c  WHERE Resource__c = :UserInfo.getUserId()];
     return query;
  
   }
