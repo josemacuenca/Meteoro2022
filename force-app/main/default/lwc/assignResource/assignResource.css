@@ -69,8 +69,27 @@
     cursor: pointer;
     transition: width .5s, border-radius .5s;
 }
+.my-boton-2 {
+    position: relative;
+    width: 260px;
+    height: 30px;
+    font-size: 15px;
+    background-color: #fff;
+    color: #0b76d3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: width .5s, border-radius .5s;
+}
 
 .my-boton * {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity .25s;
+}
+.my-boton-2 * {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -85,8 +104,20 @@
 .my-boton:hover {
     background-color: #ffffff8f;
 }
+.my-boton-2:hover {
+    background-color: #ffffff8f;
+}
 
 .my-boton:focus {
+    width: 30px;
+    background-color: #44c08a;
+    border-radius: 50%;
+    color: #032d60;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="m10 15.172l9.192-9.193l1.415 1.414L10 18l-6.364-6.364l1.414-1.414z"%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: 50% 50%
+}
+.my-boton-2:focus {
     width: 30px;
     background-color: #44c08a;
     border-radius: 50%;
@@ -99,8 +130,16 @@
 .my-boton:focus .my-text-boton {
     opacity: 0;
 }
+.my-boton-2:focus .my-text-boton {
+    opacity: 0;
+}
 
 .my-boton:focus .my-icon {
+    opacity: 1;
+    transition-delay: .5s;
+}
+
+.my-boton-2:focus .my-icon {
     opacity: 1;
     transition-delay: .5s;
 }
@@ -156,6 +195,7 @@
 
 .my-message-error{
     border-radius: 15px;
-    background:#0b76d3;
-    color:rgb(9, 1, 70);
+    background:#fd5353;
+    color:#fff;
+    text-align: center;
 }

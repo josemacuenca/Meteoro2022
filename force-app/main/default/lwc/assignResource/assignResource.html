@@ -41,11 +41,10 @@
                     <i class="my-icon"></i>
                 </button>
                 
-                <div if:true={validationWarning1} >
-                    <br>     
+                <div if:true={validationWarning1} >   
                     <hr>            
                     <div class="my-message-error">
-                        <h2 > {validationWarning1} </h2>
+                        <h2 > <strong>{validationWarning1}</strong></h2>
                     </div>
                 </div>
                
@@ -103,9 +102,14 @@
                     </div>
 
                 </template>
-                <lightning-button class="slds-float_right" variant="brand-outline" label="Asignar Resources"
+                <!-- <lightning-button class="slds-float_right" variant="brand-outline" label="Asignar Resources"
                     title="titleName" onclick={handleasignamentResources}>
-                </lightning-button>
+                </lightning-button> -->
+                <button class="my-boton-2 slds-float_right" onclick={handleasignamentResources}>
+                    <span class="my-text-boton ">Asignar Resources</span>
+                    <i class="my-icon"></i>
+                </button>
+                
             </lightning-layout-item>
         </lightning-layout>
 
@@ -113,7 +117,7 @@
 
 
         <lightning-layout multiple-rows class="slds-box my-border">
-            <lightning-layout-item class="custom-box slds-m-bottom_small my-lli" size="12" key={plitem.Id}>
+            <lightning-layout-item class="custom-box slds-m-bottom_small my-lli" size="12">
                 <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center">Recursos ya asignados a este proyecto:</h1>
             </lightning-layout-item>
 
