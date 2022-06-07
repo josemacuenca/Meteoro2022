@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .my-lightning-layout{
     border: var(--lwc-borderWidthThin, 1px) solid #000;
 }
@@ -5,7 +8,6 @@
 .my-title{
     background-color: #0b76d3;
     color: #000;
-    /* text-shadow: 0 0 5px #fff, 0 0 10px #fff; */
     display:inline;
     font-size: large;
     width: 100%;
@@ -14,19 +16,13 @@
 }
 
 .my-lightning-layout-item{
-    background-color: #fff;
+    background-color: rgb(116, 116, 116);
 }
 
-.my-lightning-layout-item:hover{
-    /* border: 1px solid red; */
-    transition: 2s;
-    transform: scaleZ(1, 1.2);
-}
 
 .my-title-task{
     background-color: #0b76d3;
     color:#000;
-    /* text-shadow: 0 0 5px #fff, 0 0 10px #fff; */
     display:inline-block;
     font-size: large;
     width: 100%;
@@ -39,4 +35,40 @@
     border: var(--lwc-borderWidthThin, 1px) solid rgb(161, 160, 160);
     color:#fff;
     padding: 2px;
+}
+
+/* -------------div de la cabeceras------------ */
+.mi-title-tarea{
+    background-color: rgb(233, 233, 233);
+    color:#000;
+    display:inline-block;
+    font-size: large;
+    width: 100%;
+    padding-left: 2px;
+}
+
+.my-cabecera{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.col-5-cabecera{
+    width: 41,66666666%;
+    border: 2px solid #0b76d3;
+    float: left;
+    text-align: center;
+    padding: 2px;
+    color: red;
+}
+.col-5-datos{
+    border: 2px solid #0b76d3;
+    color: #fff;
 }
