@@ -1,16 +1,20 @@
 <template>
     <lightning-layout multiple-rows class="my-lightning-layout">
-        <lightning-layout-item size="12" padding="around-small" class="my-lightning-layout-item" >
+        <h1 class="my-style-person-assignament my-title-resource">Componente de Asignacion de Horas</h1>
         
+        <template for:each={AllProjectLineResources} for:item="ProjectLineResources">
+        <lightning-layout-item size="12" padding="around-small" class="my-lightning-layout-item" key={ProjectLineResources.id}>
             <div class="c-container my-lightning-layout-item">Carga de Horas
-                <h2 class="my-items">1-</h2>
-                <h2 class="my-items">2-</h2>
-                <h2 class="my-items">3-</h2>
-                <h2 class="my-items">4-</h2>
-                <h2 class="my-items">5-</h2>
-                <h2 class="my-items">6-</h2>
+                <h2 class="my-items">1- {ProjectLineResources.id}</h2>
+                <h2 class="my-items">2- </h2>
+                <h2 class="my-items">3- </h2>
+                <h2 class="my-items">4- </h2>
+                <h2 class="my-items">5- </h2>
+                <h2 class="my-items">6- </h2>
             </div>
-            
         </lightning-layout-item>
+
+        </template>
+    
     </lightning-layout>
 </template>
