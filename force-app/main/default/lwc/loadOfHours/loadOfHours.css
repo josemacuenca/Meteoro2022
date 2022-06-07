@@ -21,6 +21,6 @@
 
 .my-items{
     background-color: #032d60;
-    border: var(--lwc-borderWidthThin, 1px) solid #000;
+    border: var(--lwc-borderWidthThin, 1px) solid rgb(126, 126, 126);
     color:bisque;
 }
