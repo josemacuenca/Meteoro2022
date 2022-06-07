@@ -1,0 +1,14 @@
+.my-lightning-layout{
+    border: 1px solid #000;
+}
+.my-lightning-layout-item{
+    background-color: antiquewhite;
+}
+.my-lightning-layout-item{
+    border: 1px solid red;
+}
+
+.my-items{
+    background-color: blanchedalmond;
+    border: 1px solid #000;
+}
