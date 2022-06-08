@@ -2,21 +2,23 @@
     box-sizing: border-box;
 }
 .my-lightning-layout{
-    border: var(--lwc-borderWidthThin, 1px) solid #000;
+    /* border: var(--lwc-borderWidthThin, 1px) solid #000; */
+    box-shadow: 0 0 5px 10px #032d60;
 }
 
 .my-title{
-    background-color: #0b76d3;
+    background-color: #032d60;
     color: #fff;
     display:inline;
     font-size: large;
     width: 100%;
     text-align: center;
     padding: 2px;
+    /* box-shadow: 0 0 5px 10px #fff; */
 }
 
 .my-lightning-layout-item{
-    background-color: rgb(116, 116, 116);
+    background-color: #032d60;
 }
 
 .my-container-task{
@@ -33,16 +35,9 @@
     
 }
 
-/* .my-items{
-    background-color: #032d60;
-    border: var(--lwc-borderWidthThin, 1px) solid rgb(161, 160, 160);
-    color:#fff;
-    padding: 2px;
-} */
-
 /* -------------div de la cabeceras------------ */
 .my-title-tarea{
-    background-color: rgb(233, 233, 233);
+    background-color: #b6b6b6;
     color:#000;
     display:inline-block;
     font-size: large;
@@ -53,7 +48,7 @@
 .my-cabecera{
     position: relative;
     width: 100%;
-    background-color: #000;
+    background-color:#032d60;
     display: flex;
     flex-direction: row;
     
@@ -63,6 +58,7 @@
 .my-input{
     width: 50px;
     height: 30px;
+    color: #032d60;
 }
 
 table, th, td {
@@ -72,7 +68,7 @@ table, th, td {
 }
 
 th{
-    color: #0b76d3;
+    color: #0e8dfc;
     font-size: medium;
 }
 
@@ -84,5 +80,6 @@ th{
 }
 .my-actions{
     display: flex;
-    justify-content:center ;
+    justify-content:space-around ;
+    align-items: center;
 }
