@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+.my-lightning-layout {
+  /* border: var(--lwc-borderWidthThin, 1px) solid #000; */
+  box-shadow: 0 0 5px 5px #032d60;
+}
+
+.my-title {
+  background-color: #032d60;
+  color: #fff;
+  display: inline;
+  font-size: large;
+  width: 100%;
+  text-align: center;
+  padding: 2px;
+  /* box-shadow: 0 0 5px 10px #fff; */
+}
+
+.my-lightning-layout-item {
+  background-color: #032d60;
+}
+
+.my-container-task {
+  /* border: 2px solid #0b76d3 ; */
+}
+
+.my-title-task {
+  background-color: #0b76d3;
+  color: #fff;
+  display: inline-block;
+  font-size: large;
+  width: 100%;
+  padding-left: 2px;
+}
+
+/* -------------div de la cabeceras------------ */
+.my-title-tarea {
+  background-color: #c2c2c2;
+  color: #032d60;
+  display: inline-block;
+  font-size: large;
+  width: 100%;
+  padding-left: 2px;
+}
+
+.my-cabecera {
+  position: relative;
+  width: 100%;
+  background-color: #032d60;
+  display: flex;
+  flex-direction: row;
+}
+
+.my-input {
+  width: 50px;
+  height: 30px;
+  color: #032d60;
+}
+
+table,
+th,
+td {
+  border: var(--lwc-borderWidthThin, 1px) solid rgb(233, 233, 233);
+  text-align: center;
+  padding: 0.5em;
+}
+
+th {
+  color: #0e8dfc;
+  font-size: medium;
+}
+
+.my-table {
+  /* width: 70%; */
+  border: var(--lwc-borderWidthThin, 1px) solid #0b76d3;
+  color: #fff;
+}
+.my-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

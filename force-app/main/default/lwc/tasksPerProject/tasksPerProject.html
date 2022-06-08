@@ -1,0 +1,56 @@
+<template>
+    <div class="c-container my-lightning-layout-item">
+        <template for:each={projectlineresources.Project_Tasks__r} for:item="task">
+
+            <div class="my-container-task" key={task.Id} data-id={task}>
+                <h1 class="my-title-tarea">TAREA: {task.Name}</h1>
+
+                <div class="my-cabecera">
+                    <table class="my-table">
+                        <tr>
+                            <th>Tarea</th>
+                            <th>Estado</th>
+                            <th>Horas Estimadas</th>
+                            <th>Horas registradas</th>
+                            <th>Acciones</th>
+                        </tr>
+                        <tr>
+                            <td>{task.Name}</td>
+                            <td>{task.Stage__c}</td>
+                            <td>{task.Estimated_Hours__c}Hrs.</td>
+                            <td>{task.Worked_Hours__c}Hrs.</td>
+
+                            <td>
+                                <template if:false={areButttonsVisible}>
+
+                                    <div class="my-actions">
+
+                                        <input class="my-input" type="number" onchange={registeredHoursWorked}
+                                            value={registerHoursInput} data-id={task.Id}>
+
+                                        <lightning-button variant="neutral" label="Register/hrs."
+                                            onclick={handleRegisterButton} title="titleName" data-id={task.Id}>
+                                        </lightning-button>
+                                        <lightning-button variant="success" label="Completed"
+                                            onclick={handleIsCompletedButton} title="titleName" data-id={task.Id}>
+                                        </lightning-button>
+                                    </div>
+                                </template>
+
+                                <template if:true={areButttonsVisible}>
+
+                                    <div class="col-5-datos">
+                                        <lightning-button variant="brand" label="labelName" title="titleName"
+                                            onclick={handleClick}></lightning-button>
+                                    </div>
+                                </template>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+            </div>
+        </template>
+        <hr>
+    </div>
+</template>

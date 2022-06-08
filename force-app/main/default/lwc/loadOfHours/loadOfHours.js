@@ -169,4 +169,16 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
   async refresh() {
     await refreshApex(this.AllProjectLineResources);
   }
+
+  areButttonsVisible = true;
+  recordIdStage;
+  // isVisibleButton(event) {
+  //   this.recordIdStage =  
+  //   console.log("this.recordIdStage", this.recordIdStage);
+  //   if (this.recordIdStage == "In Progress") {
+  //     this.areButttonsVisible = true;
+  //   } else {
+  //     this.areButttonsVisible = false;
+  //   }
+  // }
 }
