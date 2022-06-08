@@ -3,14 +3,60 @@
     <lightning-layout multiple-rows class="my-lightning-layout">
         <h1 class="my-title">Componente de Asignacion de Horas</h1>
 
-        <template for:each={AllProjectLineResources} for:item="projectlineresources">
+        <template for:each={AllProjectLineResources} for:item="projectLineResources">
             <lightning-layout-item size="12" padding="around-small" class="my-lightning-layout-item"
-                key={projectlineresources.id}>
-                <h1 class="my-title-task">Proyecto {projectlineresources.Project_Product__r.Project__r.Name} -
-                    {projectlineresources.Project_Tasks__r.length} tareas pendientes</h1>
+                key={projectLineResources.id}>
+                <h1 class="my-title-task">Proyecto {projectLineResources.Project_Product__r.Project__r.Name} -
+                    {projectLineResources.Project_Tasks__r.length} tareas pendientes</h1>
 
-                <c-tasks-per-project projectlineresources={projectlineresources}> </c-tasks-per-project>
 
+                <div class="c-container my-lightning-layout-item">
+                    <template for:each={projectLineResources.Project_Tasks__r} for:item="task">
+
+                        <div class="my-container-task" key={task.Id}>
+                            <h1 class="my-title-tarea">TAREA: {task.Name}</h1>
+
+                            <div class="my-cabecera">
+                                <table class="my-table">
+                                    <tr>
+                                        <th>Tarea</th>
+                                        <th>Estado</th>
+                                        <th>Horas Estimadas</th>
+                                        <th>Horas registradas</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{task.Name}</td>
+                                        <td>{task.Stage__c}</td>
+                                        <td>{task.Estimated_Hours__c}Hrs.</td>
+                                        <td>{task.Worked_Hours__c}Hrs.</td>
+
+                                        <td>
+
+                                            <div class="my-actions">
+
+                                                <input class="my-input" type="number" onchange={registeredHoursWorked}
+                                                    value={registerHoursInput} data-id={task.Id}>
+
+                                                <lightning-button variant="neutral" label="Register/hrs."
+                                                    onclick={handleRegisterButton} title="titleName" data-id={task.Id}>
+                                                </lightning-button>
+                                                <lightning-button variant="success" label="Completed"
+                                                    onclick={handleIsCompletedButton} title="titleName"
+                                                    data-id={task.Id}>
+                                                </lightning-button>
+                                            </div>
+
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br>
+                        </div>
+                    </template>
+                    <hr>
+                </div>
             </lightning-layout-item>
         </template>
     </lightning-layout>
