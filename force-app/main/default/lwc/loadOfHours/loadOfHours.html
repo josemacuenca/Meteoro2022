@@ -1,3 +1,4 @@
+<!-- sldsValidatorIgnore -->
 <template>
     <lightning-layout multiple-rows class="my-lightning-layout">
         <h1 class="my-title">Componente de Asignacion de Horas</h1>
@@ -6,7 +7,7 @@
             <lightning-layout-item size="12" padding="around-small" class="my-lightning-layout-item"
                 key={projectLineResources.id}>
                 <h1 class="my-title-task">Proyecto {projectLineResources.Project_Product__r.Project__r.Name} -
-                    tareas pendientes</h1>
+                    {projectLineResources.Project_Tasks__r.length} tareas pendientes</h1>
 
                 <div class="c-container my-lightning-layout-item">
                     <template for:each={projectLineResources.Project_Tasks__r} for:item="task">
@@ -30,7 +31,7 @@
                                         <td>{task.Worked_Hours__c}Hrs.</td>
 
                                         <td>
-                                            <div class="my-actions">
+                                            <div  class="my-actions">
 
                                                 <input class="my-input" type="number" onchange={registeredHoursWorked}
                                                     value={registerHoursInput} data-id={task.Id}>

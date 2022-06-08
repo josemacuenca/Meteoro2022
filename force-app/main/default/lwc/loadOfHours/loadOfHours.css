@@ -3,7 +3,7 @@
 }
 .my-lightning-layout{
     /* border: var(--lwc-borderWidthThin, 1px) solid #000; */
-    box-shadow: 0 0 5px 10px #032d60;
+    box-shadow: 0 0 5px 5px #032d60;
 }
 
 .my-title{
@@ -37,8 +37,8 @@
 
 /* -------------div de la cabeceras------------ */
 .my-title-tarea{
-    background-color: #b6b6b6;
-    color:#000;
+    background-color: #c2c2c2;
+    color:#032d60;
     display:inline-block;
     font-size: large;
     width: 100%;
