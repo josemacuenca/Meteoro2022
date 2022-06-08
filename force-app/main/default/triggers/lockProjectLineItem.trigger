@@ -1,4 +1,4 @@
-trigger lockProjectLineItem on ProjectLineItem__c (after insert, before update, before delete) {
+trigger lockProjectLineItem on ProjectLineItem__c (after insert, before update) {
     // List<ProjectLineItem__c> newPLI = Trigger.new;
     // List<ProjectLineItem__c> stages = [SELECT Id, Project__r.Stage__c FROM ProjectLineItem__c WHERE Id = :newPLI];
     // for (ProjectLineItem__c pli : newPLI){

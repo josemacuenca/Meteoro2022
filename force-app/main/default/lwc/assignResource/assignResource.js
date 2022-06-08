@@ -302,24 +302,24 @@ export default class AssignResource extends LightningElement {
 
   
   // -------------------------boton asignar resources----------------------------------
-  
+
   handleasignamentResources() { 
     const insertFields = this.mapaParseado
     
     upsertProjectLineResource({ data: insertFields })
     .then((result) => {
       const toast = new ShowToastEvent({
-        title: SUCCESS_TITLE,
+        title: "Success",
         message: "Exito",
-        variant: SUCCESS_VARIANT,
+        variant: "success",
       });   
       // window.location.reload()
     })
     .catch((error) => {
       const toast = new ShowToastEvent({
-        title: ERROR_TITLE,
+        title: "Error",
         message: error.message,
-        variant: ERROR_VARIANT,
+        variant: "error",
       });
       this.dispatchEvent(toast);
     })

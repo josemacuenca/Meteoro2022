@@ -1,4 +1,4 @@
-trigger lockProjectResource on ProjectLine_Resource__c (after insert, before update, before delete) {
+trigger lockProjectResource on ProjectLine_Resource__c (after insert, before update) {
     // List<ProjectLine_Resource__c> newPLR = Trigger.new;
     // List<ProjectLine_Resource__c> stages = [SELECT Id, Project_Product__r.Project__r.Stage__c FROM ProjectLine_Resource__c WHERE Id = :newPLR];
     // for (ProjectLine_Resource__c plr : newPLR){
