@@ -7,7 +7,7 @@
 
 .my-title{
     background-color: #0b76d3;
-    color: #000;
+    color: #fff;
     display:inline;
     font-size: large;
     width: 100%;
@@ -19,10 +19,13 @@
     background-color: rgb(116, 116, 116);
 }
 
+.my-container-task{
+    /* border: 2px solid #0b76d3 ; */
+}
 
 .my-title-task{
     background-color: #0b76d3;
-    color:#000;
+    color:#fff;
     display:inline-block;
     font-size: large;
     width: 100%;
@@ -58,17 +61,39 @@
 }
 .my-cabecera-1{
     background-color: #000;
-    border:1px solid red;
+    border:1px solid  rgb(233, 233, 233);
     width: 70%;
     display: flex;
     justify-content: space-around;
+    padding:1em;
+}
+.my-campos-task-1{
+    background-color: #000;
+    /* border:1px solid  rgb(233, 233, 233); */
+    width: 70%;
+    display: flex;
+    justify-content:space-between;
+    padding:1em;
 }
 
 .my-cabecera-2{
     background-color:#000;
-    border:1px solid red;
+    border:1px solid  rgb(233, 233, 233);
     text-align: center;
     width: 30%;
+    display: flex;
+    justify-content:center;
+    padding:1em;
+    
+}
+.my-campos-task-2{
+    background-color:#000;
+    /* border:1px solid  rgb(233, 233, 233); */
+    text-align: center;
+    width: 30%;
+    display: flex;
+    justify-content:center;
+    padding:1em;
 }
 
 .my-campos-task {
@@ -88,14 +113,30 @@
 }
 
 .col-5-cabecera{
-    border: 2px solid #0b76d3;
-    float: left;
+    /* border: 2px solid #0b76d3; */
+    width: 33,33333333%;
     text-align: center;
-    padding: 2px;
-    color: red;
+    color: #0b76d3;
+    font-size: medium;
+    border: 2px solid #0b76d3;
+    
+}
+.col-5-cabecera-exeption{
+    text-align: center;
+    color: #0b76d3;
+    font-size: medium;
 }
 
 .col-5-datos{
     /* border: 2px solid #0b76d3; */
     color: #fff;
+    width: 33,33333333%;
+    border: 2px solid #0b76d3;
+    text-align: center;
+    
+}
+.col-5-datos-exeption{
+    /* border: 2px solid #0b76d3; */
+    color: #fff;
+    width: 33,33333333%;
 }
