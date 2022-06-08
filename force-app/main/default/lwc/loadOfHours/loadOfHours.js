@@ -1,5 +1,11 @@
-import { LightningElement, wire, track } from "lwc";
-import { NavigationMixin } from "lightning/navigation";
+import {
+  LightningElement,
+  wire,
+  track
+} from "lwc";
+import {
+  NavigationMixin
+} from "lightning/navigation";
 
 import getProjectTaskPorResource from "@salesforce/apex/ProjectDataService.getProjectTaskPorResource";
 import updateProjectTasks from "@salesforce/apex/ProjectDataService.updateProjectTasks";
@@ -8,11 +14,13 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
   AllProjectLineResources;
   AcumulatorHs;
   @wire(getProjectTaskPorResource)
-  handleRequestPrjTaskPorRec({ data, error }) {
+  handleRequestPrjTaskPorRec({
+    data,
+    error
+  }) {
     if (data) {
       this.AllProjectLineResources = data;
-      this.AcumulatorHs =
-        this.AllProjectLineResources[0].Project_Tasks__r[0].Worked_Hours__c;
+      this.AcumulatorHs = this.AllProjectLineResources[0].Project_Tasks__r[0].Worked_Hours__c;
       console.log("this.AllProjectLineResources", this.AllProjectLineResources);
     } else if (error) {
       console.log("data.error");
@@ -44,7 +52,9 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
     console.log(" this.mapaParseadoStages", this.mapaParseadoStages);
     const insertFields = this.mapaParseadoStages;
 
-    updateProjectTasks({ data: insertFields })
+    updateProjectTasks({
+        data: insertFields
+      })
       .then((result) => {
         const toast = new ShowToastEvent({
           title: SUCCESS_TITLE,
@@ -99,7 +109,9 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
 
       const insertFields = this.mapaParseadoWorkedHours;
 
-      updateProjectTasks({ data: insertFields })
+      updateProjectTasks({
+          data: insertFields
+        })
         .then((result) => {
           const toast = new ShowToastEvent({
             title: SUCCESS_TITLE,
