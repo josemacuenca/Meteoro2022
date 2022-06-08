@@ -119,6 +119,7 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
     // this.AcumulatorHs += parseInt(this.editRecordInputId);
 
     UpdateWorkedHours["Id"] = this.editRecordWHs;
+    UpdateWorkedHours["Stage__c"] = "In Progress";
     UpdateWorkedHours["Worked_Hours__c"] =
       parseInt(this.editRecordInputId) + TaskIdWorkedHours;
       
