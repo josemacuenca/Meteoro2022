@@ -18,37 +18,40 @@
                             <div class="my-cabecera">
                                 <table class="my-table">
                                     <tr>
-                                      <th>Tarea</th>
-                                      <th>Estado</th>
-                                      <th>Horas Estimadas</th>
-                                      <th>Horas registradas</th>
-                                      <th>Aciones</th>
+                                        <th>Tarea</th>
+                                        <th>Estado</th>
+                                        <th>Horas Estimadas</th>
+                                        <th>Horas registradas</th>
+                                        <th>Aciones</th>
                                     </tr>
                                     <tr>
-                                      <td>{task.Name}</td>
-                                      <td>{task.Stage__c}</td>
-                                      <td>{task.Estimated_Hours__c}Hrs.</td>
-                                      <td>0Hrs.</td>
-                                      <td>
-                                        <div class="col-5-datos-exeption">
-                                        <input class="my-input" type="text">
-                                        <lightning-button variant="neutral" label="Registro/hrs." title="titleName"
-                                            onclick={handleClick}></lightning-button>
-                                        <lightning-button variant="success" label="Complited" title="titleName"
-                                            onclick={handleClick}></lightning-button>
-                                    </div>
-                                    <!-- <div class="col-5-datos">boton si el estado != iniciada
-                                    <lightning-button variant="brand" label="labelName" title="titleName"
-                                        onclick={handleClick}></lightning-button>
-                                    </div> -->
-                                      
-                                      </td>
+                                        <td>{task.Name}</td>
+                                        <td>{task.Stage__c}</td>
+                                        <td>{task.Estimated_Hours__c}Hrs.</td>
+                                        <td>0Hrs.</td>
+                                        <td>
+                                            <div class="my-actions">
+
+                                                <input class="my-input" type="text">
+
+                                                <lightning-button variant="neutral" label="Registro/hrs."
+                                                    title="titleName" onclick={handleClick}></lightning-button>
+
+                                                <lightning-button variant="success" label="Complited" title="titleName"
+                                                    onclick={handleClick}></lightning-button>
+                                            </div>
+                                            <!-- <div class="col-5-datos">boton si el estado != iniciada
+                                                <lightning-button variant="brand" label="labelName" title="titleName"
+                                                    onclick={handleClick}></lightning-button>
+                                            </div> -->
+
+                                        </td>
                                     </tr>
-                                  </table>
+                                </table>
                             </div>
                             <br>
                         </div>
-                        
+
                     </template>
                     <hr>
                 </div>
