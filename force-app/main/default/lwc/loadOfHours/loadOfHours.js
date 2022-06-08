@@ -6,14 +6,36 @@ import updateProjectTasks from "@salesforce/apex/ProjectDataService.updateProjec
 
 export default class LoadOfHours extends NavigationMixin(LightningElement) {
   AllProjectLineResources;
-  AcumulatorHs;
+  @track PTaskElement = [];
+  @track TaskElementxId = [];
+  last;
+  arrayTasksxProjects;
+  groupTaskInProjeet ;
   @wire(getProjectTaskPorResource)
   handleRequestPrjTaskPorRec({ data, error }) {
     if (data) {
       this.AllProjectLineResources = data;
-      this.AcumulatorHs =
-        this.AllProjectLineResources[0].Project_Tasks__r[0].Worked_Hours__c;
+
       console.log("this.AllProjectLineResources", this.AllProjectLineResources);
+ 
+      this.last = data.map((item) =>
+        this.PTaskElement.push(item.Project_Tasks__r)
+      );
+      this.arrayTasksxProjects = JSON.parse(
+        JSON.stringify(this.PTaskElement)
+      );
+      this.groupTaskInProjeet = this.arrayTaskxProjects.map((item)=>
+        this.TaskElementxId.push(item)
+      )
+      console.log("this.arrayTaskxProjects", this.arrayTasksxProjects);
+      console.log("this.individualTaskxId", this.groupTaskInProjeet);
+      console.log("this.TaskElementxId", this.TaskElementxId);
+      // console.log("this.individualTaskxId", this.groupTaskInProjeet);
+
+      // const result = item.filter((word) => word.Id > 'a048a00000iRWwYAAW');
+
+      // this.individualTaskxId  = this.arrayTaskxProjects
+      // this.AllProjectLineResources[0].Project_Tasks__r[0].Worked_Hours__c;
     } else if (error) {
       console.log("data.error");
       console.log(error);
@@ -21,10 +43,10 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
   }
 
   registerHoursInput;
+
+  editRecordInputId;
   registeredHoursWorked(event) {
-    this.registerHoursInput = event.target.value;
-    this.AcumulatorHs += parseInt(this.registerHoursInput);
-    console.log("this.registerHoursInput", this.registerHoursInput);
+    this.editRecordInputId = event.target.dataset.id;
   }
 
   editRecordStage;
@@ -62,7 +84,6 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
         this.dispatchEvent(toast);
       });
     // .finally(() => {});
-    window.location.reload();
 
     window.location.reload();
   }
@@ -71,14 +92,19 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
   validation;
   mapaParseadoTask;
   @track MapUpdateWorkedHours = [];
+
   handleRegisterButton(event) {
     const UpdateWorkedHours = {};
     // event.preventDefault();
     // event.stopPropagation();
     this.editRecordWHs = event.target.dataset.id;
     console.log("this.editRecordWHs", this.editRecordWHs);
+
+    // console.log("this.AcumulatorHs", this.AcumulatorHs);
+    // this.AcumulatorHs += parseInt(this.editRecordInputId);
+
     UpdateWorkedHours["Id"] = this.editRecordWHs;
-    UpdateWorkedHours["Worked_Hours__c"] = this.AcumulatorHs;
+    UpdateWorkedHours["Worked_Hours__c"] = 2;
 
     if (
       UpdateWorkedHours.Id == undefined ||
@@ -117,7 +143,6 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
           this.dispatchEvent(toast);
         });
       // .finally(() => {});
-      window.location.reload();
     }
   }
 }
