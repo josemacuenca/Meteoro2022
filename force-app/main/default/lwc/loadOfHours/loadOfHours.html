@@ -15,44 +15,37 @@
                         <div class="my-container-task" key={task.id}>
                             <h1 class="my-title-tarea">TAREA: {task.Name}</h1>
 
-
-
-
-                            
-                            <!-- <div class="my-cabecera">
-                                <div class="my-cabecera-1">
-                                    <h2 class="col-5-cabecera">Tarea</h2>
-                                    <h2 class="col-5-cabecera">Estado</h2>
-                                    <h2 class="col-5-cabecera">Horas Estimadas</h2>
-                                    <h2 class="col-5-cabecera">Horas registradas</h2>
-                                </div>
-                                <div class="my-cabecera-2-exeption">
-                                    <h2 class="col-5-cabecera-exeption">Aciones</h2>
-                                </div>
-                            </div>
-                            
-                            <div class="my-campos-task">
-                                <div class="my-campos-task-1">
-                                    <h2 class="col-5-datos">{task.Name}</h2>
-                                    <h2 class="col-5-datos">{task.Stage__c}</h2>
-                                    <h2 class="col-5-datos">{task.Estimated_Hours__c}Hrs.</h2>
-                                    <h2 class="col-5-datos">0Hrs.</h2>
-                                </div>
-                                <div class="my-campos-task-2">
-                                    <div class="col-5-datos-exeption">
+                            <div class="my-cabecera">
+                                <table class="my-table">
+                                    <tr>
+                                      <th>Tarea</th>
+                                      <th>Estado</th>
+                                      <th>Horas Estimadas</th>
+                                      <th>Horas registradas</th>
+                                      <th>Aciones</th>
+                                    </tr>
+                                    <tr>
+                                      <td>{task.Name}</td>
+                                      <td>{task.Stage__c}</td>
+                                      <td>{task.Estimated_Hours__c}Hrs.</td>
+                                      <td>0Hrs.</td>
+                                      <td>
+                                        <div class="col-5-datos-exeption">
                                         <input class="my-input" type="text">
                                         <lightning-button variant="neutral" label="Registro/hrs." title="titleName"
                                             onclick={handleClick}></lightning-button>
                                         <lightning-button variant="success" label="Complited" title="titleName"
                                             onclick={handleClick}></lightning-button>
                                     </div>
-                                    <div class="col-5-datos">boton si el estado != iniciada
+                                    <!-- <div class="col-5-datos">boton si el estado != iniciada
                                     <lightning-button variant="brand" label="labelName" title="titleName"
                                         onclick={handleClick}></lightning-button>
-                                </div>
-
-                                </div>
-                            </div> -->
+                                    </div> -->
+                                      
+                                      </td>
+                                    </tr>
+                                  </table>
+                            </div>
                             <br>
                         </div>
                         

@@ -119,7 +119,6 @@
     color: #0b76d3;
     font-size: medium;
     border: 2px solid #0b76d3;
-    
 }
 .col-5-cabecera-exeption{
     text-align: center;
@@ -139,4 +138,14 @@
     /* border: 2px solid #0b76d3; */
     color: #fff;
     width: 33,33333333%;
+}
+
+table, th, td {
+    border:1px solid black;
+  }
+
+.my-table{
+    /* width: 70%; */
+    border:var(--lwc-borderWidthThin, 1px) solid #0b76d3;
+    color: #fff;
 }
