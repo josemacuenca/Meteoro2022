@@ -56,6 +56,20 @@ public with sharing class ProjectDataService {
     return query;
  
   }
+
+  
+  @AuraEnabled
+  public static String updateProjectTasks(List<Project_Task__c> data) {
+    // List<Boat__c> resourcesToInsert = (List<ProjectLine_Resource__c>) JSON.deserialize(JSON.serialize(data),
+    // List<Boat__c>.class
+    // );
+    // objectName
+    System.debug(data);
+    update data;
+    return 'Success: Project task update successfully';
+  }
+
+
   // @AuraEnabled(Cacheable=true)
   // public static List<ProjectLineItem__c> getProjectLineItems(Id projectId) {
   //   List<ProjectLineItem__c> projLineItemList = new List<ProjectLineItem__c>();
