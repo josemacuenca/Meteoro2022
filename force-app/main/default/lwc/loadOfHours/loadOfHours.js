@@ -1,43 +1,38 @@
-import {
-  LightningElement,
-  wire,
-  track
-} from "lwc";
-import {
-  NavigationMixin
-} from "lightning/navigation";
+import { LightningElement, wire, track } from "lwc";
+import { NavigationMixin } from "lightning/navigation";
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 import getProjectTaskPorResource from "@salesforce/apex/ProjectDataService.getProjectTaskPorResource";
 import updateProjectTasks from "@salesforce/apex/ProjectDataService.updateProjectTasks";
 
+const SUCCESS_TITLE = "Success";
+const SUCCESS_VARIANT = "success";
+const ERROR_TITLE = "Error";
+const ERROR_VARIANT = "error";
 export default class LoadOfHours extends NavigationMixin(LightningElement) {
   AllProjectLineResources;
-  @track PTaskElement = [];
-  @track TaskElementxId = [];
-  last;
-  arrayTasksxProjects;
-  groupTaskInProjeet ;
+  TaskElementxId;
+
   @wire(getProjectTaskPorResource)
-  handleRequestPrjTaskPorRec({
-    data,
-    error
-  }) {
+  handleRequestPrjTaskPorRec({ data, error }) {
     if (data) {
       this.AllProjectLineResources = data;
       console.log("this.AllProjectLineResources", this.AllProjectLineResources);
- 
-      this.last = data.map((item) =>
-        this.PTaskElement.push(item.Project_Tasks__r)
-      );
-      this.arrayTasksxProjects = JSON.parse(
-        JSON.stringify(this.PTaskElement)
-      );
-      this.groupTaskInProjeet = this.arrayTaskxProjects.map((item)=>
-        this.TaskElementxId.push(item)
-      )
-      console.log("this.arrayTaskxProjects", this.arrayTasksxProjects);
-      console.log("this.individualTaskxId", this.groupTaskInProjeet);
-      console.log("this.TaskElementxId", this.TaskElementxId);
+
+      // this.last = data.map((item) =>
+      //   this.PTaskElement.push(item.Project_Tasks__r)
+      // );
+
+      // this.arrayTasksxProjects = JSON.parse(JSON.stringify(this.PTaskElement));
+      // console.log("this.arrayTaskxProjects", this.arrayTasksxProjects);
+
+      // this.groupTaskInProjeet = this.arrayTasksxProjects?.filter((item) => {
+      //   item?.filter((itemm) => {
+      //     itemm.Id == "a048a00000iRWwYAAW";
+      //   });
+      // });
+      // console.log("this.groupTaskInProjeet", this.groupTaskInProjeet);
+      // console.log("this.TaskElementxId", this.TaskElementxId);
       // console.log("this.individualTaskxId", this.groupTaskInProjeet);
 
       // const result = item.filter((word) => word.Id > 'a048a00000iRWwYAAW');
@@ -54,7 +49,8 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
 
   editRecordInputId;
   registeredHoursWorked(event) {
-    this.editRecordInputId = event.target.dataset.id;
+    this.editRecordInputId = event.target.value;
+    console.log(this.editRecordInputId);
   }
 
   editRecordStage;
@@ -75,8 +71,8 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
     const insertFields = this.mapaParseadoStages;
 
     updateProjectTasks({
-        data: insertFields
-      })
+      data: insertFields
+    })
       .then((result) => {
         const toast = new ShowToastEvent({
           title: SUCCESS_TITLE,
@@ -110,12 +106,22 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
     this.editRecordWHs = event.target.dataset.id;
     console.log("this.editRecordWHs", this.editRecordWHs);
 
+    const foundPLRForId = this.AllProjectLineResources.filter((element) =>
+      element.Project_Tasks__r?.find((item) => item.Id == this.editRecordWHs)
+    );
+
+    const TaskIdMatch = foundPLRForId[0].Project_Tasks__r?.filter(
+      (elemento) => elemento.Id == this.editRecordWHs
+    );
+
+    const TaskIdWorkedHours = TaskIdMatch[0].Worked_Hours__c;
     // console.log("this.AcumulatorHs", this.AcumulatorHs);
     // this.AcumulatorHs += parseInt(this.editRecordInputId);
 
     UpdateWorkedHours["Id"] = this.editRecordWHs;
-    UpdateWorkedHours["Worked_Hours__c"] = 2;
-
+    UpdateWorkedHours["Worked_Hours__c"] =
+      parseInt(this.editRecordInputId) + TaskIdWorkedHours;
+      
     if (
       UpdateWorkedHours.Id == undefined ||
       UpdateWorkedHours.Worked_Hours__c == Number ||
@@ -132,19 +138,19 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
       this.mapaParseadoWorkedHours = JSON.parse(
         JSON.stringify(this.MapUpdateWorkedHours)
       );
-
+      console.log("this.mapaParseadoWorkedHours", this.mapaParseadoWorkedHours);
       const insertFields = this.mapaParseadoWorkedHours;
 
       updateProjectTasks({
-          data: insertFields
-        })
+        data: insertFields
+      })
         .then((result) => {
           const toast = new ShowToastEvent({
             title: SUCCESS_TITLE,
             message: "Exito",
             variant: SUCCESS_VARIANT
           });
-          // window.location.reload()
+          window.location.reload();
         })
         .catch((error) => {
           const toast = new ShowToastEvent({
