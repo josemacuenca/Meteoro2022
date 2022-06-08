@@ -1,6 +1,7 @@
 import { LightningElement, wire, track } from "lwc";
 import { NavigationMixin } from "lightning/navigation";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
+import { refreshApex } from "@salesforce/apex";
 
 import getProjectTaskPorResource from "@salesforce/apex/ProjectDataService.getProjectTaskPorResource";
 import updateProjectTasks from "@salesforce/apex/ProjectDataService.updateProjectTasks";
@@ -79,6 +80,8 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
           message: "Exito",
           variant: SUCCESS_VARIANT
         });
+        return this.refresh();
+
         // window.location.reload()
       })
       .catch((error) => {
@@ -90,8 +93,6 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
         this.dispatchEvent(toast);
       });
     // .finally(() => {});
-
-    window.location.reload();
   }
 
   editRecordWHs;
@@ -122,7 +123,7 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
     UpdateWorkedHours["Stage__c"] = "In Progress";
     UpdateWorkedHours["Worked_Hours__c"] =
       parseInt(this.editRecordInputId) + TaskIdWorkedHours;
-      
+
     if (
       UpdateWorkedHours.Id == undefined ||
       UpdateWorkedHours.Worked_Hours__c == Number ||
@@ -151,7 +152,7 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
             message: "Exito",
             variant: SUCCESS_VARIANT
           });
-          window.location.reload();
+          return this.refresh();
         })
         .catch((error) => {
           const toast = new ShowToastEvent({
@@ -163,5 +164,9 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
         });
       // .finally(() => {});
     }
+  }
+
+  async refresh() {
+    await refreshApex(this.AllProjectLineResources);
   }
 }

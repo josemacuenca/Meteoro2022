@@ -52,7 +52,7 @@ public with sharing class ProjectDataService {
     List<ProjectLine_Resource__c> query = new List<ProjectLine_Resource__c>();
 
     
-    query = [SELECT Name, Project_Product__r.Project__r.Id,Project_Product__r.Project__r.Name, (SELECT Name,Stage__c, Estimated_Hours__c,Start_Date__c, End_Date__c,Worked_Hours__c ,ProjectLine_Resource__r.Name FROM Project_Tasks__r) FROM ProjectLine_Resource__c  WHERE Resource__c = :UserInfo.getUserId()];
+    query = [SELECT Name, Project_Product__r.Project__r.Id,Project_Product__r.Project__r.Name, (SELECT Name,Stage__c, Estimated_Hours__c,Start_Date__c, End_Date__c,Worked_Hours__c ,ProjectLine_Resource__r.Name FROM Project_Tasks__r WHERE Stage__c != 'Completed' ORDER BY Stage__c ,Start_Date__c ) FROM ProjectLine_Resource__c  WHERE Resource__c = :UserInfo.getUserId()  ];
     return query;
  
   }
