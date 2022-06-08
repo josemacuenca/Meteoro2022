@@ -6,14 +6,14 @@
             <lightning-layout-item size="12" padding="around-small" class="my-lightning-layout-item"
                 key={projectLineResources.id}>
                 <h1 class="my-title-task">Proyecto {projectLineResources.Project_Product__r.Project__r.Name} -
-                    {projectLineResources.Project_Tasks__r.length} tareas pendientes</h1>
+                    tareas pendientes</h1>
 
                 <div class="c-container my-lightning-layout-item">
 
                     <template for:each={projectLineResources.Project_Tasks__r} for:item="task">
 
-                        <div class="my-container-task" key={task.id}>
-                        <h1 class="mi-title-tarea">TAREA: {task.Name}</h1>
+                        <div class="my-container-task" key={task.Id}>
+                            <h1 class="mi-title-tarea">TAREA: {task.Name}</h1>
                             <div class="my-cabecera">
                                 <h2 class="col-5-cabecera">Tarea</h2>
                                 <h2 class="col-5-cabecera">Estado</h2>
@@ -21,24 +21,26 @@
                                 <h2 class="col-5-cabecera">Horas registradas</h2>
                                 <h2 class="col-5-cabecera">Aciones</h2>
                             </div>
-                            
+
                             <div class="my-campos-task my-cabecera">
                                 <h2 class="col-5-datos">{task.Name}</h2>
                                 <h2 class="col-5-datos">{task.Stage__c}</h2>
                                 <h2 class="col-5-datos">{task.Estimated_Hours__c}Hrs.</h2>
-                                <h2 class="col-5-datos">0Hrs.</h2>
+                                <h2 class="col-5-datos">{task.Worked_Hours__c}</h2>
                                 <div class="col-5-datos">div condicional
-                                    <!-- <input type="text">
-                                    <lightning-button variant="success" label="Complited" title="titleName"
-                                        onclick={handleClick}></lightning-button>
-                                    <lightning-button variant="neutral" label="Registro/hrs." title="titleName"
-                                        onclick={handleClick}></lightning-button> -->
+                                    <lightning-input type="number"  label="Number" onchange={registeredHoursWorked} value={registerHoursInput}>
+                                    </lightning-input >
+                                    <div>{validation}</div>
+                                    <lightning-button variant="success" label="Completed"
+                                        onclick={handleIsCompletedButton} title="titleName" data-id={task.Id}></lightning-button>
+                                    <lightning-button variant="neutral" label="Register/hrs."
+                                        onclick={handleRegisterButton} title="titleName" data-id={task.Id}></lightning-button>
                                 </div>
                                 <!-- <div class="col-5-datos">boton si el estado != iniciada
                                     <lightning-button variant="brand" label="labelName" title="titleName"
                                         onclick={handleClick}></lightning-button>
                                 </div> -->
-                                
+
                             </div>
                             <hr>
                         </div>
