@@ -1,55 +1,67 @@
 // import { LightningElement, api, wire } from "lwc";
 import { LightningElement, api } from "lwc";
- import { NavigationMixin } from "lightning/navigation";
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import { deleteRecord } from 'lightning/uiRecordApi';
- 
+import { NavigationMixin } from "lightning/navigation";
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
+import { deleteRecord } from "lightning/uiRecordApi";
+
 export default class AssignChild extends NavigationMixin(LightningElement) {
-  
-   @api 
-   plitem;
-   
-   editRecord;
+  @api
+  plitem;
 
- 
-   deleteRecord;
-   
-   handleEditRecord(event) {
-      event.preventDefault();
-      event.stopPropagation();
-      this.editRecord = event.target.dataset.id;
+  editRecord;
 
+  deleteRecord;
 
+  handleEditRecord(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.editRecord = event.target.dataset.id;
+
+    this[NavigationMixin.Navigate]({
+      type: "standard__recordPage",
+      attributes: {
+        recordId: this.editRecord,
+        objectApiName: "ProjectLine_Resource__c",
+        actionName: "edit"
+      }
+    }).then(() => {
+      // send a custom event to parent component
 
       this[NavigationMixin.Navigate]({
         type: "standard__recordPage",
         attributes: {
-          recordId: this.editRecord,
-          objectApiName: "ProjectLine_Resource__c",
-          actionName: "edit",
-        },
-      }
-      ); 
-      
-    }
+            objectApiName: "Project__c",
+            actionName: "home"
+        }
+    });
+    });
 
+    // this[NavigationMixin.Navigate]({
+    //   type: "standard__recordPage",
+    //   attributes: {
+    //     recordId: this.editRecord,
+    //     objectApiName: "Project__c",
+    //     actionName: "view"
+    //   }
+    // });
+  }
 
-    handleDelete(event) {
-      event.preventDefault();
-      // event.stopPropagation();
-      
-           const recordId =JSON.parse(JSON.stringify(event.target.dataset.id))
-         //   this.mapAssigned = JSON.parse(JSON.stringify(value));
-      console.log("deleteRecord",JSON.stringify(recordId));
-      deleteRecord(recordId)           
+  handleDelete(event) {
+    event.preventDefault();
+    // event.stopPropagation();
+
+    const recordId = JSON.parse(JSON.stringify(event.target.dataset.id));
+    //   this.mapAssigned = JSON.parse(JSON.stringify(value));
+    console.log("deleteRecord", JSON.stringify(recordId));
+    deleteRecord(recordId)
       .then(() => {
         this.dispatchEvent(
-            new ShowToastEvent({
-                title: 'Success',
-                message: 'Record deleted',
-                variant: 'success'
-            }),
-        // window.location.reload()
+          new ShowToastEvent({
+            title: "Success",
+            message: "Record deleted",
+            variant: "success"
+          }),
+          window.location.reload()
         );
 
         // this[NavigationMixin.Navigate]({
@@ -59,18 +71,15 @@ export default class AssignChild extends NavigationMixin(LightningElement) {
         //         actionName: 'home',
         //     },
         // });
-    })
-    .catch(error => {
+      })
+      .catch((error) => {
         this.dispatchEvent(
-            new ShowToastEvent({
-                title: 'Error deleting record',
-                message: error.body.message,
-                variant: 'error'
-            })
+          new ShowToastEvent({
+            title: "Error deleting record",
+            message: error.body.message,
+            variant: "error"
+          })
         );
-    });
-       
-    }
-    
-    
+      });
   }
+}
