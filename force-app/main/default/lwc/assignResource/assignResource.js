@@ -2,7 +2,7 @@ import { LightningElement, api, wire, track } from "lwc";
 // importa customlabel from @customlabels
 // import from validations
 // apex
-import getProjectLineResource from "@salesforce/apex/ProjectDataService.getProjectLineResource";
+import getProjectLineItem from "@salesforce/apex/ProjectDataService.getProjectLineItem";
 import getAllResourcePerRole from "@salesforce/apex/ProjectDataService.getAllResourcePerRole";
 import upsertProjectLineResource from "@salesforce/apex/ProjectDataService.upsertProjectLineResource";
 
@@ -17,7 +17,7 @@ export default class AssignResource extends LightningElement {
 
   @api recordId;
 
-  @wire(getProjectLineResource, { projectId: "$recordId" })
+  @wire(getProjectLineItem, { projectId: "$recordId" })
   handleRequestProjectLineItems({ data, error }) {
     if (data) {
       this.allProjectLineItems = data;

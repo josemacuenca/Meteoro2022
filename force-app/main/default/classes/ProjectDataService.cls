@@ -2,7 +2,7 @@ public with sharing class ProjectDataService {
 
 
   @AuraEnabled(Cacheable=true)
-  public static List<ProjectLineItem__c> getProjectLineResource(String projectId) {
+  public static List<ProjectLineItem__c> getProjectLineItem(String projectId) {
     List<ProjectLineItem__c> query = new List<ProjectLineItem__c>();
 
     query = [SELECT Project__r.Id, Project__r.Name, Role__c, Quantity_hours__c, Project__r.Start_Date__c, Project__r.End_Date__c, Project__r.Squad_Lead__c ,
@@ -36,14 +36,9 @@ public with sharing class ProjectDataService {
   }
 
   @AuraEnabled
-  public static String upsertProjectLineResource(List<ProjectLine_Resource__c> data) {
-    // List<Boat__c> resourcesToInsert = (List<ProjectLine_Resource__c>) JSON.deserialize(JSON.serialize(data),
-    // List<Boat__c>.class
-    // );
-    // objectName
+  public static void upsertProjectLineResource(List<ProjectLine_Resource__c> data) {
     System.debug(data);
     upsert data;
-    return 'Success: PLResource insert successfully';
   }
 
 
@@ -59,78 +54,10 @@ public with sharing class ProjectDataService {
 
   
   @AuraEnabled
-  public static String updateProjectTasks(List<Project_Task__c> data) {
-    // List<Boat__c> resourcesToInsert = (List<ProjectLine_Resource__c>) JSON.deserialize(JSON.serialize(data),
-    // List<Boat__c>.class
-    // );
-    // objectName
+  public static void updateProjectTasks(List<Project_Task__c> data) {
     System.debug(data);
     update data;
-    return 'Success: Project task update successfully';
   }
 
-
-  // @AuraEnabled(Cacheable=true)
-  // public static List<ProjectLineItem__c> getProjectLineItems(Id projectId) {
-  //   List<ProjectLineItem__c> projLineItemList = new List<ProjectLineItem__c>();
-
-  //   projLineItemList = [
-  //     SELECT Name, Role__c, Quantity_hours__c
-  //     FROM ProjectLineItem__c
-  //     WHERE ProjectLineItem__c.Project__c =: projectId 
-  //   ];
-
-  //   return projLineItemList;
-  // }
-  
-
-
-  // upsertProjectLineResource
-  // @AuraEnabled(Cacheable=true)
-  // public static void getProjectLineResource (Id projectId, JSON resourceListJSON, String role) {
-  //   List<ProjectLineItem__c> query = [SELECT Project__r.Id, Project__r.Name, Role__c, Quantity_hours__c, Project__r.Start_Date__c, Project__r.End_Date__c, 
-  //   (SELECT Resource__r.Name, Resource__r.UserRole.Name, Resource__r.RatePerHour__c, Allocated_Hours__c, Start_Date__c, End_Date__c, Squad_Leader__c 
-  //   FROM ProjectLine_Resources__r) 
-  //   FROM ProjectLineItem__c
-  //   WHERE Project__r.Id = :projectId];
-
-  //   // Map<String, Object> resourceList = (Map<String, Object>) JSON.deserializeUntyped(resourceListJSON);
-  //   // Map<String, String> 
-
-  //   List<ProjectLine_Resource__c> plrList = new List<ProjectLine_Resource__c>();
-  //   for(ProjectLineItem__c i : query) {
-  //       if(i.Role__c == role) {
-  //           for (ProjectLine_Resource__c r : resourceList) {
-  //               ProjectLine_Resource__c plr = new ProjectLine_Resource__c();
-  //               plr.Allocated_Hours__c = (endDate - startDate)*8;
-  //               plr.Start_Date__c = r.startDate;
-  //               plr.End_Date__c = r.endDate;
-  //               plr.Squad_Leader__c = r.squadLead;
-  //               plr.Resource__c = r.id;
-  //               plr.Project_Product__c = i.Id;
-  //               plrList.push(plr);
-  //           }
-  //       }
-  //   }
-  //   insert plrList;
-
-  //   // REFRESH COMPONENT
-  // }
-
-  // @AuraEnabled(Cacheable=true)
-  // public static List<ProjectLineItem__c> getResourcePerRole() {
-  //   List<ProjectLineItem__c> resourceList = new List<ProjectLineItem__c>();
-
-  //   resourceList = [
-  //     SELECT
-  //       Quantity_hours__c,
-  //       Role__c,
-  //       (
-  //         SELECT Resource__c, Resource__r.Name, Resource__r.UserRole.Name, Name
-  //         FROM ProjectLine_Resources__r
-  //        )
-  //     FROM ProjectLineItem__c
-  //   ];
-  //   return resourceList;
-  // }
+ 
 }
