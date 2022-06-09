@@ -5,7 +5,7 @@ public with sharing class ProjectDataService {
   public static List<ProjectLineItem__c> getProjectLineResource(String projectId) {
     List<ProjectLineItem__c> query = new List<ProjectLineItem__c>();
 
-    query = [SELECT Project__r.Id, Project__r.Name,Project__r.Squad_Lead__c Role__c, Quantity_hours__c, Project__r.Start_Date__c, Project__r.End_Date__c, Project__r.Squad_Lead__c ,
+    query = [SELECT Project__r.Id, Project__r.Name, Role__c, Quantity_hours__c, Project__r.Start_Date__c, Project__r.End_Date__c, Project__r.Squad_Lead__c ,
     (SELECT Resource__r.Name, Resource__r.UserRole.Name, Resource__r.RatePerHour__c, Allocated_Hours__c,Estimated_Cost__c, Start_Date__c, End_Date__c, Squad_Leader__c 
     FROM ProjectLine_Resources__r) 
     FROM ProjectLineItem__c
