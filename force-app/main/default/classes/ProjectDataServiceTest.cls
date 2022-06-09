@@ -51,7 +51,7 @@ private class ProjectDataServiceTest {
     System.assertEquals(
       ProjectLineResourceTasksExpected.size(),
       ProjectLineResourceTasksToTest.size(),
-      'The boat query did not return the right about of boats'
+      'The Project Tasks query did not return the right about of Project Tasks'
     );
   }
 
