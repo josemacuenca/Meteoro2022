@@ -3,13 +3,13 @@ private class ProjectDataServiceTest {
   @isTest
   static void testGetProjectLineItemWithProjectId() {
     String projectId;
-    List<ProjectLineItemc> projectLineItemsToTest = ProjectDataService.getProjectLineItem(
+    List<ProjectLineItem__c> projectLineItemsToTest = ProjectDataService.getProjectLineItem(
       projectId
     );
-    List<ProjectLineItemc> projectLineItemsWithIdExpected = [
+    List<ProjectLineItem__c> projectLineItemsWithIdExpected = [
       SELECT Id
-      FROM ProjectLineItemc
-      WHERE Projectr.Id = :projectId
+      FROM ProjectLineItem__c
+      WHERE Project__r.Id = :projectId
     ];
     System.assertEquals(
       projectLineItemsToTest.size(),
@@ -37,16 +37,16 @@ private class ProjectDataServiceTest {
   }
   @isTest
   static void testUpsertProjectLineResource() {
-    List<ProjectLine_Resourcec> data;
+    List<ProjectLine_Resource__c> data;
     ProjectDataService.upsertProjectLineResource(data);
   }
 
   @isTest
   static void testGetProjectTaskPorResource() {
-    List<ProjectLine_Resourcec> ProjectLineResourceTasksToTest = ProjectDataService.getProjectTaskPorResource();
-    List<ProjectLine_Resourcec> ProjectLineResourceTasksExpected = [
+    List<ProjectLine_Resource__c> ProjectLineResourceTasksToTest = ProjectDataService.getProjectTaskPorResource();
+    List<ProjectLine_Resource__c> ProjectLineResourceTasksExpected = [
       SELECT Id
-      FROM ProjectLine_Resourcec
+      FROM ProjectLine_Resource__c
     ];
     System.assertEquals(
       ProjectLineResourceTasksExpected.size(),
