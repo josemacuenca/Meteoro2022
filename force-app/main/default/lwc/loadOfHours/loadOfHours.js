@@ -80,9 +80,8 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
           message: "Exito",
           variant: SUCCESS_VARIANT
         });
-        return this.refresh();
-
-        // window.location.reload()
+ 
+        window.location.reload()
       })
       .catch((error) => {
         const toast = new ShowToastEvent({
@@ -126,18 +125,14 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
 
     if (
       UpdateWorkedHours.Id == undefined ||
-      UpdateWorkedHours.Worked_Hours__c == Number ||
-      UpdateWorkedHours.Worked_Hours__c == undefined
+       UpdateWorkedHours.Worked_Hours__c == undefined
     ) {
       console.log("Error campos indefinidos");
-      this.validation = "Ingresar";
-    } else {
+     } else {
       this.MapUpdateWorkedHours.push(UpdateWorkedHours);
-      this.validation = "";
-      this.editRecordWHs = undefined;
+       this.editRecordWHs = undefined;
       this.registerHoursInput = undefined;
-      this.validation = "";
-      this.mapaParseadoWorkedHours = JSON.parse(
+       this.mapaParseadoWorkedHours = JSON.parse(
         JSON.stringify(this.MapUpdateWorkedHours)
       );
       console.log("this.mapaParseadoWorkedHours", this.mapaParseadoWorkedHours);
@@ -152,7 +147,7 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
             message: "Exito",
             variant: SUCCESS_VARIANT
           });
-          return this.refresh();
+          window.location.reload();
         })
         .catch((error) => {
           const toast = new ShowToastEvent({
@@ -165,10 +160,4 @@ export default class LoadOfHours extends NavigationMixin(LightningElement) {
       // .finally(() => {});
     }
   }
-
-  async refresh() {
-    await refreshApex(this.AllProjectLineResources);
-  }
-
-  
 }
