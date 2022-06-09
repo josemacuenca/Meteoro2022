@@ -3,16 +3,20 @@
     <baseObject>Project__c</baseObject>
     <category>other</category>
     <deployed>true</deployed>
-    <description>Projects with Project Line Resource</description>
+    <description>Worked Hours vs Estimated Hours</description>
     <join>
         <join>
+            <join>
+                <outerJoin>false</outerJoin>
+                <relationship>Project_Tasks__r</relationship>
+            </join>
             <outerJoin>false</outerJoin>
             <relationship>ProjectLine_Resources__r</relationship>
         </join>
         <outerJoin>false</outerJoin>
         <relationship>Project_Product__r</relationship>
     </join>
-    <label>Projects with Project Line Resource</label>
+    <label>Worked Hours vs Estimated Hours</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -207,11 +211,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Start_Date__c</field>
-            <table>Project__c.Project_Product__r.ProjectLine_Resources__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>End_Date__c</field>
             <table>Project__c.Project_Product__r.ProjectLine_Resources__r</table>
         </columns>
@@ -220,6 +219,84 @@
             <field>Squad_Leader__c</field>
             <table>Project__c.Project_Product__r.ProjectLine_Resources__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Start_Date__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Estimated_Cost__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r</table>
+        </columns>
         <masterLabel>ProjectLine-Resources</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedBy</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedDate</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastActivityDate</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Description__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>End_Date__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Estimated_Hours__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Stage__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Start_Date__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Worked_Hours__c</field>
+            <table>Project__c.Project_Product__r.ProjectLine_Resources__r.Project_Tasks__r</table>
+        </columns>
+        <masterLabel>Project Tasks</masterLabel>
     </sections>
 </ReportType>

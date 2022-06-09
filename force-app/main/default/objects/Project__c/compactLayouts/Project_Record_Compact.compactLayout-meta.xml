@@ -4,9 +4,10 @@
     <fields>Name</fields>
     <fields>Stage__c</fields>
     <fields>Total_Hours__c</fields>
-    <fields>Total_Amount__c</fields>
     <fields>Start_Date__c</fields>
     <fields>End_Date__c</fields>
+    <fields>Total_Amount__c</fields>
     <fields>Total_Cost__c</fields>
+    <fields>Real_Cost__c</fields>
     <label>Project Record Compact</label>
 </CompactLayout>

@@ -58,6 +58,10 @@
                 <behavior>Edit</behavior>
                 <field>Stage__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Total_Hours__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -67,6 +71,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Total_Cost__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Real_Cost__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
