@@ -55,6 +55,13 @@
                 <elementReference>recordId.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>taskID.Worked_Hours__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Task_Creation</targetReference>
         </connector>

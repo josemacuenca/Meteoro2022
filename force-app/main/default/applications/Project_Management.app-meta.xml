@@ -109,9 +109,8 @@
     <tabs>standard-home</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>Project__c</tabs>
-    <tabs>ProjectLineItem__c</tabs>
     <tabs>ProjectLine_Resource__c</tabs>
-    <tabs>Project_Task__c</tabs>
+    <tabs>Resource_Tasks_Page</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Project_Management_UtilityBar</utilityBar>
 </CustomApplication>

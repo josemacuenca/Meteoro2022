@@ -7,23 +7,23 @@
         <chartSummaries>
             <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>Project__c.Project_Product__r$Quantity_hours__c</column>
+            <column>ProjectLine_Resource__c.Project_Tasks__r$Estimated_Hours__c</column>
         </chartSummaries>
         <chartSummaries>
             <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>Project__c.Project_Product__r.ProjectLine_Resources__r$Allocated_Hours__c</column>
+            <column>ProjectLine_Resource__c.Project_Tasks__r$Worked_Hours__c</column>
         </chartSummaries>
         <chartType>HorizontalBar</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>Project__c.Project_Product__r$Role__c</groupingColumn>
+        <groupingColumn>ProjectLine_Resource__c.Project_Tasks__r$Name</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
-        <showValues>true</showValues>
+        <showValues>false</showValues>
         <size>Medium</size>
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
@@ -32,39 +32,35 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>Project__c$Name</field>
-    </columns>
-    <columns>
-        <field>Project__c.Project_Product__r.ProjectLine_Resources__r$Resource__c</field>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>ProjectLine_Resource__c.Project_Tasks__r$Estimated_Hours__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Project__c.Project_Product__r$Quantity_hours__c</field>
+        <field>ProjectLine_Resource__c.Project_Tasks__r$Worked_Hours__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Project__c.Project_Product__r.ProjectLine_Resources__r$Allocated_Hours__c</field>
+        <field>ProjectLine_Resource__c$Allocated_Hours__c</field>
     </columns>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Project__c.Project_Product__r$Role__c</field>
-        <sortOrder>Desc</sortOrder>
+        <field>ProjectLine_Resource__c.Project_Tasks__r$Name</field>
+        <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Sold Hours vs Allocated Hours</name>
+    <name>Task Performance</name>
     <params>
         <name>co</name>
         <value>0</value>
     </params>
-    <reportType>Projects_with_Project_Line_Resource__c</reportType>
+    <reportType>PLR_with_Tasks__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
-    <sortColumn>Project__c$Name</sortColumn>
-    <sortOrder>Asc</sortOrder>
+    <showSubTotals>false</showSubTotals>
     <timeFrameFilter>
-        <dateColumn>Project__c$CreatedDate</dateColumn>
-        <interval>INTERVAL_CUSTOM</interval>
+        <dateColumn>ProjectLine_Resource__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
     </timeFrameFilter>
 </Report>

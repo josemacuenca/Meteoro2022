@@ -1,12 +1,14 @@
 <template>
     <div class="c-container">
         <lightning-layout multiple-rows class="slds-box my-border">
-        
-        <!-- formulario de seleccion de recurso -->
+
+            <!-- formulario de seleccion de recurso -->
             <lightning-layout-item padding="around-small " class="my-lli slds-m-right_x-large" size="4">
-                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center" if:true={selectedProjectLineItem}>Esta seleccionando
+                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center"
+                    if:true={selectedProjectLineItem}>Esta seleccionando
                     Resource del Rol, {plrfilteredrol} Hs totales a cubrir {plrfilteredHsaCubrir}</h1>
-                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center" if:false={selectedProjectLineItem}>Seleccione el Resourso por Rol </h1>
+                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center"
+                    if:false={selectedProjectLineItem}>Seleccione el Resource por Rol </h1>
                 <br>
                 <br>
                 Productos Presupuestados
@@ -15,24 +17,26 @@
                     value={selectedProjectLineItem} required>
                 </lightning-combobox>
                 <br>
-                Resource 
+                Resource
                 <lightning-combobox class="slds-align-middle my-text-color-input" placeholder="All Resources"
                     options={resourcefilteredOptions} onchange={handleResourcePerRoleChange} value={selectedResource}
                     required>
                 </lightning-combobox>
                 <hr>
                 Start Date
-                <lightning-input class="my-text-color-input" type="date" name="startDateName" label="" value={StartDateValue}
-                     min={startDateOfProject} max={endDateOfProject} onchange={handleStartDateChange}
-                    message-when-value-missing="This field is required" required></lightning-input>
-                    <br>
+                <lightning-input class="my-text-color-input" type="date" name="startDateName" label=""
+                    value={StartDateValue} min={startDateOfProject} max={endDateOfProject}
+                    onchange={handleStartDateChange} message-when-value-missing="This field is required" required>
+                </lightning-input>
+                <br>
                 End Date
-                <lightning-input class="my-text-color-input" type="date" name="endDateName" label="" value={EndDateValue}
-                    min={startDateOfProject} max={endDateOfProject} onchange={handleEndDateChange}
+                <lightning-input class="my-text-color-input" type="date" name="endDateName" label=""
+                    value={EndDateValue} min={startDateOfProject} max={endDateOfProject} onchange={handleEndDateChange}
                     message-when-value-missing="This field is required" required></lightning-input>
                 <hr>
                 Is Squad Lead
-                <lightning-input type="checkbox" label="" unchecked name="squadLead" onchange={handleIsSqualeaderChange}>
+                <lightning-input type="checkbox" label="" unchecked name="squadLead"
+                    onchange={handleIsSqualeaderChange}>
                 </lightning-input>
                 <hr>
 
@@ -40,26 +44,68 @@
                     <span class="my-text-boton ">Submit</span>
                     <i class="my-icon"></i>
                 </button>
-                
-                <div if:true={validationWarning1} >   
-                    <hr>            
+
+                <div if:true={validationWarning1}>
+                    <hr>
                     <div class="my-message-error">
-                        <h2 > <strong>{validationWarning1}</strong></h2>
+                        <h2> <strong>{validationWarning1}</strong></h2>
                     </div>
                 </div>
-               
+
             </lightning-layout-item>
-            
+
             <!-- componente de card de resources alocados -->
+
             <lightning-layout-item padding="around-small " class="my-lli" size="7">
-                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center">Section card Resource Asignament</h1>
-                <div class="c-container">
-                  
+                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center">Proyectos relacionados al recurso seleccionado
+                </h1>
+                <div class="c-container2" if:true={resourceFiltered}>
+                    <lightning-layout multiple-rows class="slds-box my-border-assignament">
+                        <lightning-layout-item padding="around-small" class="custom-box slds-m-bottom_small my-lli"
+                            size="12">
+                            <template for:each={resourceFiltered} for:item="assigneditem">
+                                <div key={assigneditem.Id}>
+                                    <h1 class="my-style-person-assignament my-title-resource">{assigneditem.Name}
+                                    </h1>
+                                    <div class="my-resources-title contenedor ">
+                                        <h2 class="col-7-cabecera">Project</h2>
+                                        <h2 class="col-7-cabecera">Start Date</h2>
+                                        <h2 class="col-7-cabecera">End Date</h2>
+
+                                    </div>
+                                    <br>
+
+                                    <template for:each={assigneditem.ProjectLine_Resources__r} for:item="item">
+                                        <div class="c-container" key={assigneditem.Id}>
+
+                                            <div class="my-resources-AllResources" key={assigneditem.Id}>
+                                                <h2>{item.Project_Product__r.Project__r.Name}</h2>
+                                                <h2>{item.Project_Product__r.Project__r.Start_Date__c}</h2>
+
+
+                                                <h2>{item.Project_Product__r.Project__r.End_Date__c}</h2>
+
+
+                                            </div>
+                                            <br>
+                                            <hr>
+
+                                        </div>
+
+
+                                    </template>
+
+                                    <hr>
+                                </div>
+
+                            </template>
+                        </lightning-layout-item>
+                    </lightning-layout>
                 </div>
             </lightning-layout-item>
         </lightning-layout>
 
-        <br>
+        <!-- <br> -->
 
         <!-- componente q renderea los recursos para agregar en la operacion bullck -->
 
@@ -71,15 +117,15 @@
                     <h2 class="col-7-cabecera">Resource</h2>
                     <h2 class="col-7-cabecera">Start Date</h2>
                     <h2 class="col-7-cabecera">End Date</h2>
-                    <h2 class="col-7-cabecera">Alloc/Hs</h2>
+                    <h2 class="col-7-cabecera">Alloc Hs</h2>
                     <h2 class="col-7-cabecera">Cost</h2>
                     <h2 class="col-7-cabecera">Squad L</h2>
                     <h2 class="col-7-cabecera">Remove</h2>
                 </div>
                 <br>
-                
+
                 <template for:each={mapassignedselectedView} for:item="assigneditem">
-                
+
                     <div class="c-container" key={assigneditem.Id}>
                         <div class="my-resources-AllResources">
                             <h2>{assigneditem.ProjectLineItem}</h2>
@@ -88,13 +134,15 @@
                             <h2>{assigneditem.EndDate}</h2>
                             <h2>{assigneditem.AllocatedHours} Hrs.</h2>
                             <h2>$ {assigneditem.estimatedCost}</h2>
-                            
+
                             <span if:true={assigneditem.IsSquadLeader} class="my-check-ok">
                                 <i class="my-check-ok"></i>
                             </span>
                             <span if:false={assigneditem.IsSquadLeader}> -
                             </span>
-                            <lightning-button variant="destructive" label="=> " title="titleName" icon-name="utility:delete" icon-position="right" onclick={handleClick} data-id={assigneditem.Id}>
+                            <lightning-button variant="destructive" label="=> " title="titleName"
+                                icon-name="utility:delete" icon-position="right" onclick={handleClick}
+                                data-id={assigneditem.Id}>
                             </lightning-button>
                         </div>
                         <hr>
@@ -108,7 +156,7 @@
                     <span class="my-text-boton ">Asignar Resources</span>
                     <i class="my-icon"></i>
                 </button>
-                
+
             </lightning-layout-item>
         </lightning-layout>
 
@@ -117,13 +165,15 @@
 
         <lightning-layout multiple-rows class="slds-box my-border">
             <lightning-layout-item class="custom-box slds-m-bottom_small my-lli" size="12">
-                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center">Recursos ya asignados a este proyecto:</h1>
+                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center">Recursos ya asignados a este
+                    proyecto:
+                </h1>
             </lightning-layout-item>
 
 
             <template for:each={allProjectLineItems} for:item="plitem">
 
-                
+
                 <lightning-layout-item class="custom-box slds-m-bottom_small my-lli" size="12" key={plitem.Id}>
                     <h1 class="my-style-person my-title-resource">{plitem.Role__c} - Horas a Cubrir :
                         "{plitem.Quantity_hours__c} Hours"</h1>
@@ -137,7 +187,7 @@
                         <h2 class="col-7-cabecera">Remove</h2>
                         <h2 class="col-7-cabecera">Edit</h2>
                     </div>
-                    <c-assign-child plitem={plitem} ></c-assign-child>
+                    <c-assign-child plitem={plitem}></c-assign-child>
                 </lightning-layout-item>
             </template>
         </lightning-layout>
