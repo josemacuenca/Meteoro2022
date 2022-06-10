@@ -25,7 +25,8 @@ public with sharing class ProjectDataService {
         (
           SELECT
             Project_Product__r.Project__r.End_Date__c,
-            Project_Product__r.Project__r.Start_Date__c
+            Project_Product__r.Project__r.Start_Date__c,
+            Project_Product__r.Project__r.Name
           FROM ProjectLine_Resources__r
         )
       FROM User

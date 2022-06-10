@@ -1,4 +1,4 @@
-trigger No_Overlaping_Dates_PLR on ProjectLine_Resource__c (before insert, before update) {
+trigger No_Overlaping_Dates_PLR on ProjectLine_Resource__c (before insert) {
     List<ProjectLine_Resource__c> plrNew = Trigger.new;
     Set<Id> resources = new Set<Id>();
     for (ProjectLine_Resource__c plr : plrNew) {
