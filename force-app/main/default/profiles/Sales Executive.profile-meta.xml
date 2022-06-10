@@ -9,6 +9,10 @@
         <apexClass>ProjectDataService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>ProjectDataServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -301,6 +305,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Project__c.Real_Cost__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Project__c.Squad_Lead__c</field>
         <readable>true</readable>
@@ -340,10 +349,6 @@
         <field>User.Rate_per_Hour__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <flowAccesses>
-        <enabled>false</enabled>
-        <flow>Create_Project_from_Oppty</flow>
-    </flowAccesses>
     <layoutAssignments>
         <layout>DaysOffRequest__c-DaysOffRequest Layout</layout>
     </layoutAssignments>
