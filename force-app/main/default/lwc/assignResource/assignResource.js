@@ -22,7 +22,7 @@ export default class AssignResource extends LightningElement {
     if (data) {
       this.allProjectLineItems = data;
       // data.map(item => this.projectLineItemsOptions.push(item.Role__c + " " + item.Quantity_hours__c))
-      console.log("this.ProjectLineItemsssssss", this.allProjectLineItems);
+      // console.log("this.ProjectLineItemsssssss", this.allProjectLineItems);
       this.dateOfProject = this.projectLineItemsOptions = data.map((item) => {
         this.plrId.push(item);
 
