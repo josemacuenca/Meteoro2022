@@ -51,14 +51,12 @@
                         <h2> <strong>{validationWarning1}</strong></h2>
                     </div>
                 </div>
-
             </lightning-layout-item>
 
             <!-- componente de card de resources alocados -->
 
             <lightning-layout-item padding="around-small " class="my-lli" size="7">
-                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center">Proyectos relacionados al recurso seleccionado
-                </h1>
+                <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center">Proyectos relacionados al recurso seleccionado</h1>
                 <br>
                 <div class="c-container2" if:true={resourceFiltered}>
                     <lightning-layout multiple-rows class="slds-box my-border-assignament">
@@ -72,21 +70,16 @@
                                         <h2 class="col-7-cabecera">Project</h2>
                                         <h2 class="col-7-cabecera">Start Date</h2>
                                         <h2 class="col-7-cabecera">End Date</h2>
-
                                     </div>
+                                    
                                     <br>
 
                                     <template for:each={assigneditem.ProjectLine_Resources__r} for:item="item">
                                         <div class="c-container" key={assigneditem.Id}>
-
                                             <div class="my-resources-AllResources" key={assigneditem.Id}>
                                                 <h2>{item.Project_Product__r.Project__r.Name}</h2>
                                                 <h2>{item.Project_Product__r.Project__r.Start_Date__c}</h2>
-
-
                                                 <h2>{item.Project_Product__r.Project__r.End_Date__c}</h2>
-
-
                                             </div>
                                             <br>
                                             <hr>
@@ -102,7 +95,7 @@
             </lightning-layout-item>
         </lightning-layout>
 
-        <!-- <br> -->
+        <br>
 
         <!-- componente q renderea los recursos para agregar en la operacion bullck -->
 
