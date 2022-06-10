@@ -83,7 +83,6 @@
                 <br>
                 
                 <template for:each={mapassignedselectedView} for:item="assigneditem">
-                
                     <div class="c-container" key={assigneditem.Id}>
                         <div class="my-resources-AllResources">
                             <h2>{assigneditem.ProjectLineItem}</h2>
@@ -103,7 +102,6 @@
                         </div>
                         <hr>
                     </div>
-
                 </template>
                
                 <button class="my-boton-2 slds-float_right" onclick={handleasignamentResources}>
@@ -116,16 +114,12 @@
 
         <br>
 
-
         <lightning-layout multiple-rows class="slds-box my-border">
             <lightning-layout-item class="custom-box slds-m-bottom_small my-lli" size="12">
                 <h1 class="my-title slds-p-horizontal_large slds-align_absolute-center">Recursos ya asignados a este proyecto:</h1>
             </lightning-layout-item>
-
-
+            
             <template for:each={allProjectLineItems} for:item="plitem">
-
-                
                 <lightning-layout-item class="custom-box slds-m-bottom_small my-lli" size="12" key={plitem.Id}>
                     <h1 class="my-style-person my-title-resource">{plitem.Role__c} - Horas a Cubrir :
                         "{plitem.Quantity_hours__c} Hours"</h1>
@@ -142,7 +136,7 @@
                     <c-assign-child plitem={plitem} ></c-assign-child>
                 </lightning-layout-item>
             </template>
+            
         </lightning-layout>
-
     </div>
 </template>
