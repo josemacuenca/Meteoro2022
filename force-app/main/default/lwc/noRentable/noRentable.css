@@ -3,6 +3,8 @@
     background-color: #032d60;
     color: #ff4a4a;
     font-size: x-large;
+    box-shadow: 0 0 10px 10px #032d60, inset 0 0 10px 1px #ff4a4a;
+    border-radius: 25px;
     
 }
 

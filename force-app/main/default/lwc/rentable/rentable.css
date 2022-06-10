@@ -3,6 +3,9 @@
     background-color: #032d60;
     color: rgb(125, 253, 108);
     font-size: x-large;
+    box-shadow: 0 0 10px 10px #032d60, inset 0 0 10px 1px rgb(125, 253, 108);
+    border-radius: 25px;
+    
     
 }
 
@@ -18,4 +21,5 @@
     from { transform: none; }
     50% { transform: scale(1.1, 1.5); }
     to { transform: none; }
+    
 }
